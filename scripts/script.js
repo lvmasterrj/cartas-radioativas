@@ -94,7 +94,7 @@ $(document).ready(pegaCartasBD());
 
 // Função que pega as cartas na tabela
 function pegaCartasBD() {
-    $.get("server/pegadados.php")
+    $.get("server/cartas.php")
         .done(function(data) {
             dbCartas = data;
             calculaQtds();
@@ -443,7 +443,7 @@ function salvaCartasBD(){
         cartas.push({texto: $(v).attr("texto"), tipo: $(v).attr("tipo")});
     })
 
-    $.post( "server/salvadados.php", { "cartas": cartas })
+    $.post( "server/cartas.php", { "cartas": cartas })
         .done(function( data ) {
             console.log(data);
         })
