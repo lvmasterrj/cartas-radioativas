@@ -40,10 +40,44 @@ session_start();
 		</div>
 		<div class="row cartas">
 			<div class="col">
-				Lista de cartas brancas
+				<div class="area-titulo-tabela">
+                    <h3>Cartas Brancas <span class="qtd-brancas badge bg-secondary"><span class="qtd">0</span></span>
+                    </h3>
+                </div>
+                <div class="area-tabela">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-texto">Texto</th>
+                                <th scope="col" class="col-categoria">Categoria</th>
+                                <th scope="col" class="col-btn"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela-brancas">
+
+                        </tbody>
+                    </table>
+                </div>
 			</div>
 			<div class="col">
-				Lista de cartas pretas
+			<div class="area-titulo-tabela">
+                    <h3>Cartas Pretas <span class="qtd-pretas badge bg-secondary"><span class="qtd">0</span></span>
+                    </h3>
+                </div>
+                <div class="area-tabela">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-texto">Texto</th>
+                                <th scope="col" class="col-categoria">Categoria</th>
+                                <th scope="col" class="col-btn"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela-pretas">
+
+                        </tbody>
+                    </table>
+                </div>
 			</div>
 		</div>
 		<div class="row mensagens">
