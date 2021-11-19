@@ -12,23 +12,28 @@
 		$pdo->setAttribute(PDO::ATTR_PERSISTENT,true);
 
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-			// We are a GET method
+			$sql = 'SELECT * FROM mensagens';           
+		
+			$stmt = $pdo->prepare($sql);
+			$stmt->execute();
+
+			$data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
+
+			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 		}
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			// Boom baby we a POST method
-		}
+			if(isset($_POST["mensagem"])){
 	
-		$sql = 'SELECT categoria, id, texto, tipo FROM mpcah';           
-		
-		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+				$stmt = $pdo->prepare('INSERT INTO mensagens (mensagem) VALUES (?)');
 
-		$data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
-
-		echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+				$stmt->execute([$_POST["mensagem"]]);
+	
+				echo json_encode("Mensagem enviada com sucesso", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+			}
+		}
 
 	} catch (PDOException $e) {
-		echo 'Database error. ' . $e->getMessage();
+		echo 'Database error. ' . $e;
 	}
 ?>
