@@ -12,7 +12,14 @@
 		$pdo->setAttribute(PDO::ATTR_PERSISTENT,true);
 
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-			$sql = 'SELECT categoria, id, texto, tipo FROM mpcah';           
+
+			if ($_GET["tabela"] === "todas"){
+				$sql = 'SELECT categoria, id, texto, tipo FROM cartas';
+			} elseif ($_GET["tabela"] === "triagem") {
+				$sql = 'SELECT tipo, id, texto FROM personalizadas';
+			} else {
+				throw new Exception("Qual a tabela?", 1);
+			}
 		
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
@@ -23,36 +30,94 @@
 		}
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			if(isset($_POST["cartas"])){
+
+			// $_POST["tipo"] == 'POST' => Está inserindo cartas
+			if($_POST["tipo"] == 'POST' && isset($_POST["cartas"])){
 
 				$cartas = $_POST["cartas"];
-	
-				$stmt = $pdo->prepare('INSERT INTO personalizadas (texto, tipo) VALUES (?,?)');
-	
-				$repetidas = 0;
-				$inseridas = 0;
-				
-				foreach($cartas as $carta){
-					$total = $total + 1;
-					try {
-						$stmt->execute([$carta["texto"], $carta["tipo"]]);
-						$inseridas = $inseridas + 1;
-					} catch (PDOException $e) {
-						$errorCode = $stmt->errorInfo()[1];
-						if ($errorCode == 1062) {
-							$repetidas = $repetidas + 1;
-						} else {
-							throw $e;
+
+				//$_POST["aprovadas"] == 1 => Está aprovando cartas
+				if ($_POST["aprovadas"] == 1){
+					$stmt = $pdo->prepare('INSERT INTO cartas (texto, tipo, categoria) VALUES (?,?,?)');
+					$carta = $cartas[0];
+					$stmt->execute([$carta["texto"], $carta["tipo"], $carta["categoria"]]);
+				// else => Está inserindo cartas personalizadas
+				} else {
+					$stmt = $pdo->prepare('INSERT INTO personalizadas (texto, tipo) VALUES (?,?)');
+					$repetidas = 0;
+					$inseridas = 0;
+					
+					foreach($cartas as $carta){
+						$total = $total + 1;
+						try {
+							$stmt->execute([$carta["texto"], $carta["tipo"]]);
+							$inseridas = $inseridas + 1;
+						} catch (PDOException $e) {
+							$errorCode = $stmt->errorInfo()[1];
+							if ($errorCode == 1062) {
+								$repetidas = $repetidas + 1;
+							} else {
+								throw $e;
+							}
 						}
 					}
-				}
-	
+				}		
+
 				echo json_encode("Total = " . $total . " | " . "Inseridas = " . $inseridas . " | Repetidas = " . $repetidas, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 	
-			} else {
+			//$_POST["tipo"] == "DELETE" => Está deletando cartas
+			} elseif ($_POST["tipo"] == "DELETE" && isset($_POST["idCarta"])){
+							
+					$idCarta = $_POST["idCarta"];
+					$tabela = $_POST["tabela"];
+
+					if($tabela == "todas"){
+						$stmt = $pdo->prepare('DELETE FROM cartas WHERE id=?');
+					} else {
+						$stmt = $pdo->prepare('DELETE FROM personalizadas WHERE id=?');
+					}
+					
+					$data = $stmt->execute([$idCarta]);
+		
+					echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+			} elseif ($_POST["tipo"] == "PUT" && isset($_POST["idCarta"])){
+							
+				$idCarta = $_POST["idCarta"];
+				// $tabela = $_POST["tabela"];
+				$texto = $_POST["texto"];
+				$categoria = $_POST["categoria"];
+
+				$stmt = $pdo->prepare('UPDATE cartas SET texto=?, categoria=? WHERE id=?');
+				
+				$data = $stmt->execute([$texto, $categoria, $idCarta]);
+	
+				echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+		} else {
 				echo 'Nenhum dado recebido pelo sistema';
 			}
 		}
+
+		//echo json_encode("popoopo", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+		// if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+		// 	if(isset($_POST["idCarta"])){
+
+		// 		echo json_encode($_POST, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+					
+		// 		// $idCarta = $_POST["idCarta"];
+	
+		// 		// $stmt = $pdo->prepare('DELETE FROM personalizadas WHERE id=?');
+				
+		// 		// $data = $stmt->execute([$idCarta]);
+	
+		// 		// echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+	
+		// 	} else {
+		// 		echo 'Nenhum dado recebido pelo sistema';
+		// 	}
+		// }
 
 	} catch (PDOException $e) {
 		echo 'Database error. ' . $e->getMessage();

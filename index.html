@@ -36,14 +36,14 @@
         <div id="tabela" class="row">
             <div class="col-12 menu-cartas">
                 <div id="botoes-categorias" class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check btn-categoria" id="btn-originais" autocomplete="off" value="Original">
+                    <!-- <input type="checkbox" class="btn-check btn-categoria" id="btn-originais" autocomplete="off" value="Original">
                     <label class="btn btn-outline-dark" id="label-originais" for="btn-originais">Originais <span class="badge bg-secondary qtd">0</span></label>
 
                     <input type="checkbox" class="btn-check btn-categoria" id="btn-expansoes" autocomplete="off" value="Expansão">
                     <label class="btn btn-outline-dark" id="label-expansoes" for="btn-expansoes">Expansões <span class="badge bg-secondary qtd">0</span></label>
 
                     <input type="checkbox" class="btn-check btn-categoria" id="btn-personalizadas" autocomplete="off" value="Personalizada">
-                    <label class="btn btn-outline-dark" id="label-personalizadas" for="btn-personalizadas">Personalizadas <span class="badge bg-secondary qtd">0</span></label>
+                    <label class="btn btn-outline-dark" id="label-personalizadas" for="btn-personalizadas">Personalizadas <span class="badge bg-secondary qtd">0</span></label> -->
                 </div>
             </div>
             <div class="col brancas">
@@ -595,11 +595,31 @@
             </div>
         </div>
 
+        <!-- Modal de "carregando" -->
+        <div id="modal-aguarde" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Só um instante...</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Aguarde um instante que estamos catando as cartas que caíram no chão!</p>
+                        <div class="d-flex justify-content-center my-3">
+                            <div class="spinner-border text-secondary" role="status">
+                                <span class="visually-hidden">Carregando...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </div>
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jspdf.umd.min.js"></script>
-    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/plugins/sweetalert2.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
