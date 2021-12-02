@@ -155,6 +155,7 @@ session_start();
 								<thead>
 									<tr>
 										<th scope="col" class="col-cat">Categoria</th>
+										<th scope="col" class="col-icone">Icone</th>
 										<th scope="col" class="col-qtd-cat">Qtd</th>
 										<th scope="col" class="col-btn"></th>
 									</tr>
@@ -204,8 +205,9 @@ session_start();
 				<div class="modal-body">
 					<form>
 						<div class="mb-3">
-							<label id="label-categoria-nova" for="categoria-nova" class="col-form-label"></label>
-							<select id="select-categorias" class="form-select" aria-label="Select de categorias"></select>
+							<label id="label-categoria-nova" for="categoria-nova" class="form-label"></label>
+							<input class="form-control" list="select-categorias" id="categoria-selecionada" placeholder="">
+							<datalist id="select-categorias"></datalist>
 						</div>
 					</form>
 				</div>

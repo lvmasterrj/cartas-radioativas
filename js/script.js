@@ -2,13 +2,16 @@ var impressao = {
     cont: 1,
     cor: null,
     verso: "padrao",
+    tamanho: "padrao",
     textoPers: "Cartas Radioativas",
+    categorias: {}
 };
 var dbCartas = {};
 
 $(document).ready(() => {
     $("#modal-aguarde").modal('show');
-    pegaCartasBD()
+    pegaCartasBD();
+    pegaCategoriasBD();
 });
 
 // Função que pega as cartas na tabela
@@ -21,6 +24,19 @@ function pegaCartasBD() {
         })
         .fail(function(e) {
             console.log("ERRO");
+            console.log(e);
+        });
+}
+
+function pegaCategoriasBD() {
+    $.get("server/categorias.php")
+        .done(function(data) {
+            for (const key in data) {
+                impressao.categorias[data[key].nome] = data[key].icone
+            }
+        })
+        .fail(function(e) {
+            console.log("ERRO ao pegar as categorias");
             console.log(e);
         });
 }
@@ -79,7 +95,7 @@ function novaLinhaTabela(dados, categoria, marcado) {
 		categoria ? categoria : ""
 	}">
                 <td class="carta-texto">${dados.texto}</td>
-                <td>${categoria ? categoria : ""}</td>
+                <td class="carta-categoria">${categoria ? categoria : ""}</td>
                 <td class="btns">${
 									marcado ? `<span class="btn-remover">remover</span>` : ""
 								}</td>
@@ -197,11 +213,18 @@ $("#cor-fundo").change((e) => {
 	trocaCorPreta();
 });
 
-//Listen para os radios de padrão das cartas
+//Listen para os radios de cor das cartas
 $("#tipo-fundo .form-check-input").on("change", () => {
 	impressao.verso = $("input[name=tipo-fundo]:checked").val();
 	$(".carta-exemplo.preta").toggleClass("economico");
 	trocaCorPreta();
+});
+
+//Listen para os radios de cor das cartas
+$("#tamanho-carta .form-check-input").on("change", () => {
+	impressao.tamanho = $("input[name=tamanho-carta]:checked").val();
+	// $(".carta-exemplo.preta").toggleClass("economico");
+	// trocaCorPreta();
 });
 
 // Função que troca as cores da carta de exemplo

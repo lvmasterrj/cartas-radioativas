@@ -4,87 +4,61 @@ var coordImpressao = {
             x: [10, 73.5, 137, 200.5],
             y: [17, 105, 193, 281],
         },
-        1: {
-            fora: [10, 17],
-            dentro: [
-                [15, 27],
-                [68.5, 22],
-                [15, 100],
-                [68.5, 100],
-            ],
+        qtdCartas: 9,
+        tamanhoCarta: [63.5, 88],
+        margemCarta: [5, 10],
+        margemRodape: [2, 83],
+        tamanhoLogo: [5, 5],
+        tamanhoLogoVerso: [18, 18],
+        fonteCarta: 16,
+        fonteRodape: 11,
+        tamanhoFonte: 6, //mm
+        tamanhoFonteRodape: 2.2, //mm
+        correcaoRodape: 1.5,
+        sangria: 3,
+        1: [10, 17],
+        2: [73.5, 17],
+        3: [137, 17],
+        4: [10, 105],
+        5: [73.5, 105],
+        6: [137, 105],
+        7: [10, 193],
+        8: [73.5, 193],
+        9: [137, 193],
+    },
+    menor: {
+        corte: {
+            x: [23, 64, 105, 146, 187],
+            y: [23, 86, 149, 212, 275],
         },
-        2: {
-            fora: [73.5, 17],
-            dentro: [
-                [78.5, 27],
-                [132, 22],
-                [78.5, 100],
-                [132, 100],
-            ],
-        },
-        3: {
-            fora: [137, 17],
-            dentro: [
-                [142, 27],
-                [195.5, 22],
-                [142, 100],
-                [195.5, 100],
-            ],
-        },
-        4: {
-            fora: [10, 105],
-            dentro: [
-                [15, 115],
-                [68.5, 110],
-                [15, 188],
-                [68.5, 188],
-            ],
-        },
-        5: {
-            fora: [73.5, 105],
-            dentro: [
-                [78.5, 115],
-                [132, 110],
-                [78.5, 188],
-                [132, 188],
-            ],
-        },
-        6: {
-            fora: [137, 105],
-            dentro: [
-                [142, 115],
-                [195.5, 110],
-                [142, 188],
-                [195.5, 188],
-            ],
-        },
-        7: {
-            fora: [10, 193],
-            dentro: [
-                [15, 203],
-                [68.5, 198],
-                [15, 276],
-                [68.5, 276],
-            ],
-        },
-        8: {
-            fora: [73.5, 193],
-            dentro: [
-                [78.5, 203],
-                [132, 198],
-                [78.5, 276],
-                [132, 276],
-            ],
-        },
-        9: {
-            fora: [137, 193],
-            dentro: [
-                [142, 203],
-                [195.5, 198],
-                [142, 276],
-                [195.5, 276],
-            ],
-        },
+        qtdCartas: 16,
+        tamanhoCarta: [41, 63],
+        margemCarta: [3, 5],
+        margemRodape: [1, 58],
+        tamanhoLogo: [4, 4],
+        tamanhoLogoVerso: [9, 9],
+        fonteCarta: 10,
+        fonteRodape: 7.5,
+        tamanhoFonte: 3, //mm
+        tamanhoFonteRodape: 1.5, //mm
+        correcaoRodape: 1.3,
+        sangria: 2,
+        1: [23, 23],
+        2: [64, 23],
+        3: [105, 23],
+        4: [146, 23],
+        5: [23, 86],
+        6: [64, 86],
+        7: [105, 86],
+        8: [146, 86],
+        9: [23, 149],
+        10: [64, 149],
+        11: [105, 149],
+        12: [146, 149],
+        13: [23, 212],
+        14: [64, 212],
+        15: [105, 212],
+        16: [146, 212],
     },
 };
 
@@ -93,13 +67,13 @@ function montaLinhasDeCorte(doc) {
     doc.setDrawColor(0);
     doc.setLineWidth(0.1);
 
-    for (key in coordImpressao.padrao.corte.x) {
-        let x = coordImpressao.padrao.corte.x;
+    for (key in coordImpressao[impressao.tamanho].corte.x) {
+        let x = coordImpressao[impressao.tamanho].corte.x;
         doc.line(x[key], 0, x[key], 5);
         doc.line(x[key], 292, x[key], 297);
     }
-    for (key in coordImpressao.padrao.corte.y) {
-        let y = coordImpressao.padrao.corte.y;
+    for (key in coordImpressao[impressao.tamanho].corte.y) {
+        let y = coordImpressao[impressao.tamanho].corte.y;
         doc.line(0, y[key], 5, y[key]);
         doc.line(205, y[key], 210, y[key]);
     }
@@ -107,14 +81,14 @@ function montaLinhasDeCorte(doc) {
 
 // Função que desenha o fundo das cartas
 function fundoCarta(doc) {
-    let x = coordImpressao.padrao[impressao.cont].fora[0];
-    let y = coordImpressao.padrao[impressao.cont].fora[1];
+    let x = coordImpressao[impressao.tamanho][impressao.cont][0];
+    let y = coordImpressao[impressao.tamanho][impressao.cont][1];
     doc.roundedRect(x, y, 63.5, 88, 3, 3);
 }
 
 //Função que atualiza a quantidade de impressão para pular a página
 function atualizaImpCont(doc) {
-    if (impressao.cont == 9) {
+    if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
         if (impressao.paginas.atual != impressao.paginas.total) {
             impressao.cont = 1;
             doc.addPage();
@@ -128,95 +102,104 @@ function atualizaImpCont(doc) {
 
 // Função que monta a parte da frente das cartas
 function montaFrentes(tipo, val, doc) {
-    let xTextoDentro = coordImpressao.padrao[impressao.cont].dentro[0][0];
-    let yTextoDentro = coordImpressao.padrao[impressao.cont].dentro[0][1];
-    let xRodapeDentro = coordImpressao.padrao[impressao.cont].dentro[2][0];
-    let yRodapeDentro = coordImpressao.padrao[impressao.cont].dentro[2][1];
-    //let maxText = coordImpressao.padrao[impressao.cont].dentro[1][0] - xTextoDentro;
-    let xfora = coordImpressao.padrao[impressao.cont].fora[0];
-    let yfora = coordImpressao.padrao[impressao.cont].fora[1];
 
-    let tamImagemWidth = 6;
-    let tamImagemHeight = 5.33;
+    let xfora = coordImpressao[impressao.tamanho][impressao.cont][0];
+    let yfora = coordImpressao[impressao.tamanho][impressao.cont][1];
+    let tamanhoCarta = coordImpressao[impressao.tamanho].tamanhoCarta;
+    let margemCarta = coordImpressao[impressao.tamanho].margemCarta;
+    let margemRodape = coordImpressao[impressao.tamanho].margemRodape;
+
+    let tamanhoLogo = coordImpressao[impressao.tamanho].tamanhoLogo;
+
+    let tamanhoFonteCarta = coordImpressao[impressao.tamanho].fonteCarta;
+    let tamanhoFonteRodape = coordImpressao[impressao.tamanho].fonteRodape;
+    let tamanhoFonteRodapeMM = coordImpressao[impressao.tamanho].tamanhoFonteRodape;
+    let correcaoRodape = coordImpressao[impressao.tamanho].correcaoRodape;
+
+    let tamanhoMaxTexto = tamanhoCarta[0] - (margemCarta[0] * 2);
+
+    let sangria = coordImpressao[impressao.tamanho].sangria;
 
     doc.setDrawColor(255);
 
-    val = val
+    texto = val["texto"]
         .replace(/\\n /g, "\n")
         .replace(/\\n/g, "\n")
         .replace(/(?<!_)_(?!_)/g, "\n_________________\n");
 
+    let icone = impressao.categorias[val["categoria"]] || "radioativo";
 
     let textoRodape = $("#texto-rodape").val() || "Cartas Radioativas";
 
-    let tamRodape = doc.getStringUnitWidth(textoRodape) * 11 / (72 / 25.6);
-    let maxRodape = 45;
-    let textoRodapeX = xRodapeDentro + 8;
+    let tamRodape = doc.getStringUnitWidth(textoRodape) * tamanhoFonteRodape / (72 / 25.6);
+    let maxRodape = tamanhoCarta[0] - (2 * margemCarta[0]) - tamanhoLogo[0] - margemRodape[0];
+    let textoRodapeX = xfora + margemCarta[0] + tamanhoLogo[0] + margemRodape[0]; //xRodapeDentro + 8;
 
     //Cálculo da quantidade de linhas do rodapé para ajustar a altura
     let rodapeLinhas = Math.ceil(Math.floor(tamRodape) / maxRodape);
 
-    //A linha do rodapé tem 3mm;
-    let textoRodapeY = yRodapeDentro - ((rodapeLinhas - 1) * 2) - 1;
+    //Ajusta o y do rodapé no caso de multiplas linhas
+    let textoRodapeY = yfora + margemRodape[1] - ((rodapeLinhas - 1) * tamanhoFonteRodapeMM) - correcaoRodape;
+    //  let textoRodapeY = yfora + margemRodape[1] - (tamanhoFonteRodapeMM / 2) - (((rodapeLinhas - 1) * tamanhoFonteRodapeMM) + correcaoRodape);
 
-    let textoCarta = doc.setFontSize(16).splitTextToSize(val, 53.5);
+    let textoCarta = doc.setFontSize(tamanhoFonteCarta).splitTextToSize(texto, tamanhoMaxTexto);
 
     if (tipo != "branca" && impressao.verso == "padrao") {
         doc.setFillColor(impressao.cor || 0); //dentro
         doc.setTextColor(255);
-        doc.rect(xfora - 2, yfora - 2, 67.5, 92, "F");
+        doc.rect(xfora - sangria, yfora - sangria, tamanhoCarta[0] + (sangria * 2), tamanhoCarta[1] + (sangria * 2), "F");
         //fundoCarta(doc);
 
-        doc.text(textoCarta, xTextoDentro, yTextoDentro);
+        doc.text(textoCarta, xfora + margemCarta[0], yfora + margemCarta[1]);
 
         //rodapé
-        textoRodape = doc.setFontSize(11).splitTextToSize(textoRodape, maxRodape);
+        textoRodape = doc.setFontSize(tamanhoFonteRodape).splitTextToSize(textoRodape, maxRodape);
         doc.text(
             textoRodape,
             textoRodapeX,
             textoRodapeY
         );
         doc.addImage(
-            "imgs/biohazard-branco.png",
+            "imgs/icones/" + icone + "-branco.png",
             "png",
-            xRodapeDentro,
-            yRodapeDentro - 5,
-            tamImagemWidth,
-            tamImagemHeight
+            xfora + margemCarta[0],
+            yfora + margemRodape[1] - tamanhoLogo[1],
+            tamanhoLogo[0],
+            tamanhoLogo[1]
         );
     } else {
         doc.setFillColor(255);
         doc.setTextColor(0);
         fundoCarta(doc);
 
-        doc.text(textoCarta, xTextoDentro, yTextoDentro);
+        doc.text(textoCarta, xfora + margemCarta[0], yfora + margemCarta[1]);
 
         //rodapé
 
         if (tipo == "branca") {
             doc.addImage(
-                "imgs/biohazard-preto.png",
+                "imgs/icones/" + icone + "-preto.png",
                 "png",
-                xRodapeDentro,
-                yRodapeDentro - 5,
-                tamImagemWidth,
-                tamImagemHeight
+                xfora + margemCarta[0],
+                yfora + margemRodape[1] - tamanhoLogo[1],
+                tamanhoLogo[0],
+                tamanhoLogo[1]
             );
         } else {
             doc.setFillColor(impressao.cor || 0);
-            doc.rect(xfora - 5, yRodapeDentro - 7, 73.5, 9, "F");
+            doc.rect(xfora - sangria, yfora + margemRodape[1] - tamanhoLogo[1] - (tamanhoLogo[1] / 2), tamanhoCarta[0] + (2 * sangria), tamanhoLogo[1] * 2, "F");
             doc.setTextColor(255);
             doc.addImage(
-                "imgs/biohazard-branco.png",
+                "imgs/icones/" + icone + "-branco.png",
                 "png",
-                xRodapeDentro,
-                yRodapeDentro - 5,
-                tamImagemWidth,
-                tamImagemHeight
+                xfora + margemCarta[0],
+                yfora + margemRodape[1] - tamanhoLogo[1],
+                tamanhoLogo[0],
+                tamanhoLogo[1]
             );
         }
 
-        textoRodape = doc.setFontSize(11).splitTextToSize(textoRodape, maxRodape);
+        textoRodape = doc.setFontSize(tamanhoFonteRodape).splitTextToSize(textoRodape, maxRodape);
         doc.text(
             textoRodape,
             textoRodapeX,
@@ -229,11 +212,22 @@ function montaFrentes(tipo, val, doc) {
 
 function montaVersos(doc) {
 
-    let tamImagemWidth = 18;
-    let tamImagemHeight = 16;
+    let tamanhoLogo = coordImpressao[impressao.tamanho].tamanhoLogoVerso;
 
-    let maxLogoText = 53.5;
-    let logoTexto = impressao.textoPers;
+    let tamanhoCarta = coordImpressao[impressao.tamanho].tamanhoCarta;
+    let margemCarta = coordImpressao[impressao.tamanho].margemCarta;
+    let maxVersoText = coordImpressao[impressao.tamanho].tamanhoCarta[0] - coordImpressao[impressao.tamanho].margemCarta[0] * 2;
+    let versoTexto = impressao.textoPers;
+    let tamanhoTexto = coordImpressao[impressao.tamanho].fonteCarta;
+    let tamanhoFonte = coordImpressao[impressao.tamanho].tamanhoFonte;
+
+    let tamLogoTexto = doc.getStringUnitWidth(versoTexto) * tamanhoTexto / (72 / 25.6);
+    let maxLogoTexto = tamanhoCarta[0] - (2 * margemCarta[0]);
+
+    //Cálculo da quantidade de linhas do rodapé para ajustar a altura
+    let rodapeLinhas = Math.ceil(Math.floor(tamLogoTexto) / maxLogoTexto);
+
+    qtdCartas = coordImpressao[impressao.tamanho].qtdCartas;
 
     // Brancas
     if (impressao.brancas.length > 0) {
@@ -242,31 +236,31 @@ function montaVersos(doc) {
 
         doc.setTextColor(0);
 
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < qtdCartas + 1; i++) {
 
             // doc.setDrawColor(0); ///////////////////////////////
             // fundoCarta(doc); /////////////////////////////////
             // atualizaImpCont(doc); ////////////////////// REMOVER
 
-            let xFora = coordImpressao.padrao[i].fora[0];
-            let yDentro = coordImpressao.padrao[i].dentro[0][1];
-            let logoDentro = [xFora + 31.75 - tamImagemWidth / 2, yDentro + 5];
+            let coordCarta = coordImpressao[impressao.tamanho][i];
+            let coordLogo = [coordCarta[0] + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
 
-            logoTexto = doc.setFontSize(16).splitTextToSize(logoTexto, maxLogoText);
+
+            versoTexto = doc.setFontSize(tamanhoTexto).splitTextToSize(versoTexto, maxVersoText);
 
             doc.addImage(
-                "imgs/biohazard-preto.png",
+                "imgs/icones/radioativo-preto.png",
                 "png",
-                logoDentro[0],
-                logoDentro[1],
-                tamImagemWidth,
-                tamImagemHeight
+                coordLogo[0],
+                coordLogo[1],
+                tamanhoLogo[0],
+                tamanhoLogo[1]
             );
 
             doc.text(
-                logoTexto,
-                xFora + 31.75,
-                logoDentro[1] + tamImagemWidth + 10,
+                versoTexto,
+                coordCarta[0] + (tamanhoCarta[0] / 2),
+                coordLogo[1] + tamanhoLogo[1] + (margemCarta[1] / 2) + (tamanhoFonte / 2),
                 null,
                 null,
                 "center"
@@ -274,7 +268,7 @@ function montaVersos(doc) {
         }
     }
 
-    // Pretas
+    //Pretas
     if (impressao.pretas.length > 0) {
         doc.addPage();
         montaLinhasDeCorte(doc);
@@ -282,42 +276,42 @@ function montaVersos(doc) {
         doc.setFillColor(impressao.cor || 0);
         doc.setTextColor(255);
 
-        let x = coordImpressao.padrao.corte.x;
-        let y = coordImpressao.padrao.corte.y;
+        let x = coordImpressao[impressao.tamanho].corte.x;
+        let y = coordImpressao[impressao.tamanho].corte.y;
 
         if (impressao.verso == "padrao") {
             doc.rect(5, 5, 200, 287, "F");
 
         } else {
-            for (let i = 0; i < 3; i++) {
-                doc.rect(5, y[i] + 10, 200, 35, "F");
+            for (let i = 0; i < x.length - 1; i++) {
+                doc.rect(5, y[i] + margemCarta[1], 200, tamanhoLogo[1] + margemCarta[1] + (rodapeLinhas * tamanhoFonte) + (tamanhoFonte / 2), "F");
+                // doc.rect(5, y[i] + margemCarta[1], 200, tamanhoLogo[1] * 2 + margemCarta[1], "F");
             }
         }
 
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < qtdCartas + 1; i++) {
 
             // doc.setDrawColor(0); ///////////////////////////////
             // fundoCarta(doc); /////////////////////////////////
             // atualizaImpCont(doc); ////////////////////// REMOVER
-            let xFora = coordImpressao.padrao[i].fora[0];
-            let yDentro = coordImpressao.padrao[i].dentro[0][1];
-            let logoDentro = [xFora + 31.75 - tamImagemWidth / 2, yDentro + 5];
+            let coordCarta = coordImpressao[impressao.tamanho][i];
+            let coordLogo = [coordCarta[0] + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
 
             doc.setTextColor(255);
             doc.addImage(
-                "imgs/biohazard-branco.png",
+                "imgs/icones/radioativo-branco.png",
                 "png",
-                logoDentro[0],
-                logoDentro[1],
-                tamImagemWidth,
-                tamImagemHeight
+                coordLogo[0],
+                coordLogo[1],
+                tamanhoLogo[0],
+                tamanhoLogo[1]
             );
 
-            logoTexto = doc.setFontSize(16).splitTextToSize(logoTexto, maxLogoText);
+            versoTexto = doc.setFontSize(tamanhoTexto).splitTextToSize(versoTexto, maxVersoText);
             doc.text(
-                logoTexto,
-                xFora + 31.75,
-                logoDentro[1] + tamImagemWidth + 10,
+                versoTexto,
+                coordCarta[0] + (tamanhoCarta[0] / 2),
+                coordLogo[1] + tamanhoLogo[1] + (margemCarta[1] / 2) + (tamanhoFonte / 2),
                 null,
                 null,
                 "center"
@@ -338,14 +332,17 @@ function montaPDF() {
     montaLinhasDeCorte(doc);
 
     //Pega os textos das cartas nas tabelas
-    impressao.brancas = $.map(
-        $("#corpo-tabela-brancas > tr.marcado"),
-        (val, i) => {
-            return $(val).children("td.carta-texto").text();
-        }
-    );
+    impressao.brancas = $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
+        return {
+            texto: $(val).children("td.carta-texto").text(),
+            categoria: $(val).children("td.carta-categoria").text()
+        };
+    });
     impressao.pretas = $.map($("#corpo-tabela-pretas > tr.marcado"), (val, i) => {
-        return $(val).children("td.carta-texto").text();
+        return {
+            texto: $(val).children("td.carta-texto").text(),
+            categoria: $(val).children("td.carta-categoria").text()
+        };
     });
 
     //Pega o número de páginas
@@ -358,9 +355,9 @@ function montaPDF() {
     if (impressao.brancas.length > 0)
         $.each(impressao.brancas, (i, val) => montaFrentes("branca", val, doc));
 
+
     if (impressao.pretas.length > 0) {
         if (impressao.brancas.length % 9 != 0) {
-            console.log(impressao.brancas.length)
             doc.addPage();
             montaLinhasDeCorte(doc);
         }

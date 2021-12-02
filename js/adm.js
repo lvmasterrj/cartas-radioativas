@@ -26,7 +26,7 @@ function pegaTodasCartasBD() {
     $.get("server/cartas.php", { tabela: "todas" })
         .done(function(data) {
             dbCartas = data;
-            adicionaCategorias();
+            pegaCategorias();
         })
         .fail(function(e) {
             console.log("ERRO ao pegar todas as cartas");
@@ -34,27 +34,63 @@ function pegaTodasCartasBD() {
         });
 }
 
-function adicionaCategorias() {
-    //  console.log(dbCartas);
+//Função de pegar as categorias do BD
+function pegaCategorias() {
+    $.get("server/categorias.php")
+        .done(function(data) {
+            //return data;
+            adicionaCategorias(data);
+        })
+        .fail(function(e) {
+            console.log("ERRO ao pegar as categorias");
+            console.log(e);
+        });
+}
+
+function adicionaCategorias(categorias) {
+
+    $.each(categorias, (k, v) => {
+
+        $("#select-categorias").append(
+            `<option value="${v.nome}">${v.nome}</option>`
+        );
+
+        $("#corpo-tabela-categorias").append(
+            `<tr>
+        		<td class="categoria-texto">${v.nome}</td>
+        		<td class="categoria-icone"><img src='/imgs/icones/${v.icone}-preto.png' width='20' height='20'></td>
+        		<td class="cat-qtd">${dbCartas[v.nome]?dbCartas[v.nome].length:0}</td>
+        		<td class="btn-migrar">migrar</td>
+        	<tr>`
+        );
+    });
 
     for (key in dbCartas) {
         //Adiciona os botôes  
         $("#botoes-categorias").append(
             `<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
-				<label class="btn btn-outline-dark" for="btn-${normaliza(key)}">${key} <span class="badge bg-secondary qtd">${dbCartas[key].length}</span></label>`
+     			<label class="btn btn-outline-dark" for="btn-${normaliza(key)}">${key} <span class="badge bg-secondary qtd">${dbCartas[key].length}</span></label>`
         );
-        //Adiciona as opções no modal
-        $("#select-categorias").append(
-            `<option value="${key}">${key}</option>`
-        );
-        //Adiciona as categorias na tabela de categorias
-        $("#corpo-tabela-categorias").append(
-            `<tr>
-					<td class="categoria-texto">${key}</td>
-					<td class="cat-qtd">${dbCartas[key].length}</td>
-					<td class="btn-migrar">migrar</td>
-				<tr>`
-        );
+
+
+        //Verifica se a categoria já foi puxada
+        if (!$("td.categoria-texto:contains('" + key + "')").length) {
+            //Adiciona as opções no modal
+            $("#select-categorias").append(
+                `<option value="${key}">${key}</option>`
+            );
+
+            //Adiciona as categorias na tabela de categorias
+            $("#corpo-tabela-categorias").append(
+                `<tr>
+    						<td class="categoria-texto">*${key}</td>
+    						<td class="categoria-icone">-</td>
+    						<td class="cat-qtd">${dbCartas[key].length}</td>
+    						<td class="btn-migrar">migrar</td>
+    					<tr>`
+            );
+        }
+
 
     }
 }
@@ -63,43 +99,16 @@ function normaliza(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-// function pegaCartasBD() {
-//     $.get("server/cartas.php", { tabela: "todas" })
-//         .done(function(data) {
-//             montaTabelaTriagem(data);
-//         })
-//         .fail(function(e) {
-//             console.log("ERRO");
-//             console.log(e);
-//         });
-// }
-
 function pegaMsgsBD() {
     $.get("server/mensagens.php")
         .done(function(data) {
             montaTabelaMensagens(data);
         })
         .fail(function(e) {
-            console.log("ERRO");
+            console.log("ERRO ao pegar mensagens");
             console.log(e);
         });
 }
-
-// function adicionaCategorias() {
-//     for (key in dbCartas) {
-//         $("#botoes-categorias").append(
-//             `<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
-// 				<label class="btn btn-outline-dark" for="btn-${normaliza(key)}">${key} <span class="badge bg-secondary qtd">${dbCartas[key].length}</span></label>`
-//         )
-//     }
-// }
-
-// Função que processa as cartas e separa entre pretas e brancas
-// function calculaQtds() {
-//     $("#label-originais .qtd").text(dbCartas["Original"].length);
-//     $("#label-expansoes .qtd").text(dbCartas["Expansão"].length);
-//     $("#label-personalizadas .qtd").text(dbCartas["Personalizada"].length);
-// }
 
 // Listen pra quando marca os botões de categoria
 $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
@@ -225,7 +234,6 @@ $("#modal-troca-texto .btn-trocar").click((e) => {
 // Listen para quando se clica na categoria da carta
 $(".cartas").on("click", "td.carta-categoria", (e) => {
     let categoriaOriginal = $(e.target).text();
-    console.log(categoriaOriginal);
     $("#label-categoria-nova").text("Original: " + categoriaOriginal);
     $('#select-categorias').val(categoriaOriginal).prop('selected', true);
     $("#modal-troca-categoria .btn-trocar").attr("id-carta", $(e.target).attr("id-carta")).attr("tabela", $(e.target).attr("tabela"));
@@ -236,7 +244,7 @@ $(".cartas").on("click", "td.carta-categoria", (e) => {
 
 // Listen para quando se clica, no modal, para trocar a categoria da carta
 $("#modal-troca-categoria .btn-trocar").click((e) => {
-    let categoriaTrocada = $("#select-categorias").val();
+    let categoriaTrocada = $("#categoria-selecionada").val();
     $("." + $(e.target).attr("tabela") + " td.carta-categoria[id-carta=" + $(e.target).attr("id-carta") + "]").text(categoriaTrocada);
     if ($(e.target).attr("tabela") == "todas") insereBotaoSalvar($(e.target).attr("id-carta"));
     var modalTexto = bootstrap.Modal.getInstance(document.getElementById('modal-troca-categoria'));
@@ -266,17 +274,12 @@ $(".cartas").on("click", ".btn-salvar", (e) => {
                 atualizaQtd();
             })
             .fail(function(e) {
-                console.log("ERRO");
+                console.log("ERRO ao salvar carta");
                 mostraAlerta("erro", "Deu erro ao salvar a carta!")
                 console.log(e);
             });
     }
 })
-
-///////////////// TROCAR O SELECT DE CATEGORIA DO MODAL POR DATALIST
-///////////////// COLOCAR UM BOTÃO DE ATUALIZAR
-///////////////// COLOCAR UMA ÁREA DE MEXER NAS CATEGORIAS (ADICIONAR, ALTERAR)
-///////////////// COLOCAR UM BOTÃO PRA SALVAR TODAS AS ALTERAÇÕES
 
 // Listen para quando se clica para remover a carta
 $(".cartas").on("click", ".btn-remover", (e) => {
@@ -292,7 +295,7 @@ $(".cartas").on("click", ".btn-remover", (e) => {
                 atualizaQtd();
             })
             .fail(function(e) {
-                console.log("ERRO");
+                console.log("ERRO ao remover cartas");
                 mostraAlerta("erro", "Deu erro!")
                 console.log(e);
             });
@@ -349,7 +352,7 @@ function removerMsgBD(idMsg) {
             atualizaQtd();
         })
         .fail(function(e) {
-            console.log("ERRO");
+            console.log("ERRO ao remover Msg");
             mostraAlerta("erro", "Deu erro!")
             console.log(e);
         });
@@ -420,417 +423,19 @@ function mostraAlerta(tipo, msg) {
  */
 function doisCliques(e) {
     if ($(e.target).attr("clique") == 1) {
-        $(e.target).attr("clique", 0);
+        $(e.target).attr("clique", 0).text($(e.target).text().substring(0, $(e.target).text().length - 1), );
         return true;
     } else {
-        $(e.target).attr("clique", 1);
+        $(e.target).attr("clique", 1).text($(e.target).text() + "*");
         return false;
     }
 }
 
-// // Função que formata o texto inserido das cartas pretas e adiciona à tabela p/ impressão
-// function adicionaPretaPersonalizada() {
-// 	let campo = $("#texto-personalizacao-pretas");
-// 	let textos = campo.val().split("\n");
 
-// 	textosCorrigidos = textos.map((texto) => {
-// 		return texto.replace(!/[()\w+]/g, "");
-// 		//let textoLimpo = texto.replace(!/[()\w+]/g, "");
-// 		//return textoLimpo.replace(/(?<!_)_(?!_)/g, "__________");
-// 	});
 
-// 	adicionaCartaNaTabela(textosCorrigidos, "p");
-// 	campo.val("");
-// }
-
-// // Função que formata o texto inserido das cartas brancas e adiciona à tabela p/ impressão
-// function adicionaBrancaPersonalizada() {
-// 	let campo = $("#texto-personalizacao-brancas");
-// 	let textos = campo.val().split("\n");
-
-// 	textosCorrigidos = textos.map((texto) => {
-// 		return texto.replace(!/[()\w+]/g, "");
-// 	});
-
-// 	adicionaCartaNaTabela(textosCorrigidos, "b");
-// 	campo.val("");
-// }
-
-// // Função que adiciona as cartas personalizadas na tabela p/ impressão
-// function adicionaCartaNaTabela(textos, tipo) {
-// 	let items = "";
-// 	for (key in textos) {
-// 		info = { texto: textos[key], tipo: tipo };
-// 		items = items + novaLinhaTabela(info, "Minha carta", 1);
-// 	}
-// 	if (tipo == "b") {
-// 		$("#corpo-tabela-brancas").append(items);
-// 	} else {
-// 		$("#corpo-tabela-pretas").append(items);
-// 	}
-// 	atualizaQtd();
-// }
-
-// //Listen para quando o usuário remove a linha/carta da tabela
-// $("tbody").on("click", ".btn-remover", function (e) {
-// 	$(e.currentTarget).parents("tr").remove();
-// });
-
-// // Função de selecionar todas as cartas na tabela
-// function selecionaTodas(tipo) {
-// 	$.each(
-// 		$("#corpo-tabela-" + tipo)
-// 			.children("tr")
-// 			.not(".marcado"),
-// 		(i, v) => {
-// 			marca($(v));
-// 		}
-// 	);
-// }
-
-// // Função de desselecionar todas as cartas na tabela
-// function desselecionaTodas(tipo) {
-// 	$.each($("#corpo-tabela-" + tipo).children("tr.marcado"), (i, v) => {
-// 		marca($(v));
-// 	});
-// }
-
-// // Listen para o botão de troca da cor de fundo
-// $("#cor-fundo").change((e) => {
-// 	impressao.cor = $(e.currentTarget).val();
-// 	trocaCorPreta();
-// });
-
-// //Listen para os radios de padrão das cartas
-// $("#tipo-fundo .form-check-input").on("change", () => {
-// 	impressao.verso = $("input[name=tipo-fundo]:checked").val();
-// 	$(".carta-exemplo.preta").toggleClass("economico");
-// 	trocaCorPreta();
-// });
-
-// // Função que troca as cores da carta de exemplo
-// function trocaCorPreta() {
-// 	if (impressao.verso == "padrao") {
-// 		$(".fundo-preta-exemplo").css("background-color", impressao.cor || "#000");
-// 	} else {
-// 		$(".fundo-preta-exemplo").css("background-color", "#fff");
-// 		$(".rodape-economico").css("background-color", impressao.cor || "#000");
-// 		$(".fundo-economico").css("background-color", impressao.cor || "#000");
-// 	}
-// }
-
-// //Listen para o texto personalizado
-// $("#texto-rodape").on("input", (e) => {
-// 	impressao.textoPers = $(e.currentTarget).val() || "Cartas Radioativas";
-// 	$(".texto-cartas").text(impressao.textoPers);
-// });
-
-// // Função que monta as linhas de corte
-// function montaLinhasDeCorte(doc) {
-// 	doc.setDrawColor(0);
-// 	doc.setLineWidth(0.1);
-
-// 	for (key in coordImpressao.padrao.corte.x) {
-// 		let x = coordImpressao.padrao.corte.x;
-// 		doc.line(x[key], 0, x[key], 5);
-// 		doc.line(x[key], 292, x[key], 297);
-// 	}
-// 	for (key in coordImpressao.padrao.corte.y) {
-// 		let y = coordImpressao.padrao.corte.y;
-// 		doc.line(0, y[key], 5, y[key]);
-// 		doc.line(205, y[key], 210, y[key]);
-// 	}
-// }
-
-// // Função que cria os fundos das cartas
-// function fundoCarta(doc) {
-// 	let x = coordImpressao.padrao[impressao.cont].fora[0];
-// 	let y = coordImpressao.padrao[impressao.cont].fora[1];
-// 	doc.roundedRect(x, y, 63.5, 88, 3, 3, "FD");
-// }
-
-// function atualizaImpCont(doc) {
-// 	if (impressao.cont == 9) {
-// 		impressao.cont = 1;
-// 		doc.addPage();
-// 		montaLinhasDeCorte(doc);
-// 	} else {
-// 		impressao.cont = ++impressao.cont;
-// 	}
-// }
-
-// // Função que monta a parte da frente das cartas
-// function montaFrentes(tipo, val, doc) {
-// 	let xTextoDentro = coordImpressao.padrao[impressao.cont].dentro[0][0];
-// 	let yTextoDentro = coordImpressao.padrao[impressao.cont].dentro[0][1];
-// 	let xRodapeDentro = coordImpressao.padrao[impressao.cont].dentro[2][0];
-// 	let yRodapeDentro = coordImpressao.padrao[impressao.cont].dentro[2][1];
-// 	let maxText =
-// 		coordImpressao.padrao[impressao.cont].dentro[1][0] - xTextoDentro;
-// 	let xfora = coordImpressao.padrao[impressao.cont].fora[0];
-
-// 	doc.setDrawColor(255);
-
-// 	// let texto = [po,po]
-// 	// val = val.toString();
-// 	// console.log("1: " + val == texto);
-// 	// console.log("2: " + val === texto);
-
-// 	val = val
-// 		.replace(/\\n /g, "\n")
-// 		.replace(/\\n/g, "\n")
-// 		.replace(/(?<!_)_(?!_)/g, "\n_________________\n");
-
-// 	let textoCarta = doc.setFontSize(16).splitTextToSize(val, 53.5);
-// 	// console.log(val);
-// 	// textoCarta = val.split("\n");
-// 	// console.log(textoCarta);
-// 	if (tipo != "branca" && impressao.verso == "padrao") {
-// 		doc.setFillColor(impressao.cor || 0); //dentro
-// 		doc.setTextColor(255);
-// 		fundoCarta(doc);
-
-// 		doc.text(textoCarta, xTextoDentro, yTextoDentro);
-
-// 		//rodapé
-// 		doc.setFontSize(10);
-// 		doc.text(
-// 			$("#texto-rodape").val() || "Cartas Radioativas",
-// 			xRodapeDentro + 8,
-// 			yRodapeDentro - 1
-// 		);
-// 		doc.addImage(
-// 			"imgs/biohazard-branco.png",
-// 			"png",
-// 			xRodapeDentro,
-// 			yRodapeDentro - 5,
-// 			5,
-// 			5
-// 		);
-// 	} else {
-// 		doc.setFillColor(255);
-// 		doc.setTextColor(0);
-// 		fundoCarta(doc);
-
-// 		doc.text(textoCarta, xTextoDentro, yTextoDentro);
-
-// 		//rodapé
-
-// 		if (tipo == "branca") {
-// 			doc.addImage(
-// 				"imgs/biohazard-preto.png",
-// 				"png",
-// 				xRodapeDentro,
-// 				yRodapeDentro - 5,
-// 				5,
-// 				5
-// 			);
-// 		} else {
-// 			doc.setFillColor(impressao.cor || 0);
-// 			doc.rect(xfora, yRodapeDentro - 7, 63.5, 9, "F");
-// 			doc.setTextColor(255);
-// 			doc.addImage(
-// 				"imgs/biohazard-branco.png",
-// 				"png",
-// 				xRodapeDentro,
-// 				yRodapeDentro - 5,
-// 				5,
-// 				5
-// 			);
-// 		}
-
-// 		doc.setFontSize(10);
-// 		doc.text(
-// 			$("#texto-rodape").val() || "Cartas Radioativas",
-// 			xRodapeDentro + 7,
-// 			yRodapeDentro - 1.5
-// 		);
-// 	}
-
-// 	atualizaImpCont(doc);
-// }
-
-// // Função que monta a parte de trás das cartas
-// function montaVerso(tipo, doc) {
-// 	let xDentro = coordImpressao.padrao[impressao.cont].dentro[0][0];
-// 	let yDentro = coordImpressao.padrao[impressao.cont].dentro[0][1];
-// 	let xFora = coordImpressao.padrao[impressao.cont].fora[0];
-
-// 	let tamImagem = 15;
-
-// 	let logoDentro = [xFora + 31.75 - tamImagem / 2, yDentro + 5];
-
-// 	doc.setDrawColor(255);
-
-// 	if (tipo != "branca" && impressao.verso == "padrao") {
-// 		doc.setFillColor(impressao.cor || 0);
-// 		doc.setTextColor(255);
-// 		fundoCarta(doc);
-// 		doc.addImage(
-// 			"imgs/biohazard-branco.png",
-// 			"png",
-// 			logoDentro[0],
-// 			logoDentro[1],
-// 			tamImagem,
-// 			tamImagem
-// 		);
-// 	} else {
-// 		doc.setFillColor(255);
-// 		fundoCarta(doc);
-
-// 		if (tipo == "branca") {
-// 			doc.setTextColor(0);
-// 			doc.addImage(
-// 				"imgs/biohazard-preto.png",
-// 				"png",
-// 				logoDentro[0],
-// 				logoDentro[1],
-// 				tamImagem,
-// 				tamImagem
-// 			);
-// 		} else {
-// 			doc.setTextColor(255);
-// 			doc.setFillColor(impressao.cor || 0);
-// 			doc.rect(xFora, yDentro, 63.5, 35, "F");
-// 			doc.addImage(
-// 				"imgs/biohazard-branco.png",
-// 				"png",
-// 				logoDentro[0],
-// 				logoDentro[1],
-// 				tamImagem,
-// 				tamImagem
-// 			);
-// 		}
-// 	}
-
-// 	doc.setFontSize(16);
-// 	doc.text(
-// 		impressao.textoPers,
-// 		xFora + 31.75,
-// 		logoDentro[1] + tamImagem + 10,
-// 		null,
-// 		null,
-// 		"center"
-// 	);
-
-// 	atualizaImpCont(doc);
-// }
-
-// // Função que monta o PDF
-// function montaPDF() {
-// 	impressao.cont = 1;
-
-// 	const { jsPDF } = window.jspdf;
-
-// 	const doc = new jsPDF();
-
-// 	montaLinhasDeCorte(doc);
-
-// 	//Pega os textos das cartas nas tabelas
-// 	impressao.brancas = $.map(
-// 		$("#corpo-tabela-brancas > tr.marcado"),
-// 		(val, i) => {
-// 			return $(val).children("td.carta-texto").text();
-// 		}
-// 	);
-// 	impressao.pretas = $.map($("#corpo-tabela-pretas > tr.marcado"), (val, i) => {
-// 		return $(val).children("td.carta-texto").text();
-// 	});
-
-// 	var totalDeCartas = impressao.brancas.length + impressao.pretas.length;
-
-// 	//Monta as frentes
-// 	$.each(impressao.brancas, (i, val) => montaFrentes("branca", val, doc));
-// 	$.each(impressao.pretas, (i, val) => montaFrentes("preta", val, doc));
-
-// 	doc.addPage();
-// 	montaLinhasDeCorte(doc);
-// 	impressao.cont = 1;
-
-// 	//Monta as costas
-// 	$.each(impressao.brancas, () => montaVerso("branca", doc));
-// 	$.each(impressao.pretas, () => montaVerso("preta", doc));
-
-// 	doc.output("dataurlnewwindow");
-// }
-
-// // Função que salva as cartas do usuário
-// function salvaCartasBD() {
-// 	let cartas = [];
-
-// 	$.each($("tr[categoria='Minha carta']"), (i, v) => {
-// 		cartas.push({ texto: $(v).attr("texto"), tipo: $(v).attr("tipo") });
-// 	});
-
-// 	$.post("server/cartas.php", { cartas: cartas })
-// 		.done(function (data) {
-// 			console.log(data);
-// 		})
-// 		.fail(function (e) {
-// 			console.log(e);
-// 		});
-// }
-
-// // Função para gerar o PDF
-// function gerarPDF() {
-// 	if ($("tr.marcado").length == 0) {
-// 		Swal.fire({
-// 			icon: "error",
-// 			title: "Ops...",
-// 			text: "Você se esqueceu de selecionar as cartas para impressão!",
-// 		});
-// 		return;
-// 	}
-
-// 	if ($("tr[categoria='Minha carta']").length > 0) {
-// 		Swal.fire({
-// 			title: "Podemos salvar suas cartas?",
-// 			html: 'Tudo que é ruim deve ser compartilhado.<br>Podemos salvar as suas cartas para a galera desfrutar/sofrer também?!<br><span class="fs-6 text-black-50"><em>As cartas serão avaliadas e caso aprovadas aparecerão na categoria de cartas "personalizadas"</em></span>',
-// 			icon: "question",
-// 			showDenyButton: true,
-// 			showCancelButton: true,
-// 			confirmButtonText: `<i class="fa fa-thumbs-up"></i> Claro, pode salvar`,
-// 			denyButtonText: `<i class="fa fa-thumbs-down"></i> Não, só gere meu PDF`,
-// 			cancelButtonText: `Espera, ainda não estou pronto`,
-// 		}).then((result) => {
-// 			if (result.isConfirmed) {
-// 				salvaCartasBD();
-// 				montaPDF();
-// 			} else if (result.isDenied) {
-// 				montaPDF();
-// 			} else if (result.isDismissed) {
-// 				return;
-// 			}
-// 		});
-// 	} else {
-// 		montaPDF();
-// 	}
-// }
-
-// // Listen para o envio de mensagem
-// $("#mensagem").on("submit", function (e) {
-// 	e.preventDefault();
-
-// 	var campoToast = $(".toast");
-// 	var toast = new bootstrap.Toast(campoToast)
-
-// 	let mensagem = $("#mensagem-conteudo").val();
-
-// 	$.post("server/mensagens.php", { mensagem: mensagem })
-// 		.done(function (data) {
-// 			console.log(data);
-// 			$("#mensagem-conteudo").val("")
-// 			$(campoToast).addClass("bg-success")
-// 			$(".toast-body").text("Mensagem enviada com sucesso!")
-// 			toast.show();
-// 		})
-// 		.fail(function (e) {
-// 			$(campoToast).addClass("bg-danger")
-// 			$(".toast-body").text("Opa... não foi não! Tenta de novo")
-// 			toast.show()
-// 			console.log(e);
-// 		});
-// });
+///////////////// COLOCAR UM BOTÃO DE ATUALIZAR
+///////////////// COLOCAR UMA ÁREA DE MEXER NAS CATEGORIAS (ADICIONAR, ALTERAR)
+///////////////// COLOCAR UM BOTÃO PRA SALVAR TODAS AS ALTERAÇÕES
 
 // Day.js = https://day.js.org/docs/en/plugin/relative-time
 // Regex = https://regex101.com/r/yV6qE5/1

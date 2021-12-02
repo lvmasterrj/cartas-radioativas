@@ -110,17 +110,19 @@
             <div class="col-3">
                 <div class="personal">
                     <p>Tamanho das cartas</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Padrão (63mm/88mm)
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Menor (41mm/63mm)
-                        </label>
+                    <div class="col" id="tamanho-carta">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tamanho-carta" id="tamanho-padrao" value="padrao" checked>
+                            <label class="form-check-label" for="tamanho-padrao">
+										Padrão (63mm/88mm)
+									</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tamanho-carta" id="tamanho-menor" value="menor">
+                            <label class="form-check-label" for="tamanho-menor">
+										Menor (41mm/63mm)
+									</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,7 +173,7 @@
                                 <div class="frente fundo-preta-exemplo">
                                     <p>Essa carta exemplo é <br>__________________</p>
                                     <div class="rodape-carta-exemplo fixed-bottom">
-                                        <img src="/imgs/biohazard-branco.png" width="15" height="15" class="float-start">
+                                        <img src="/imgs/icones/radioativo-branco.png" width="15" height="15" class="float-start">
                                         <p class="texto-cartas">Cartas Radioativas</p>
                                     </div>
                                 </div>
@@ -179,7 +181,7 @@
                                 <div class="verso fundo-preta-exemplo">
                                     <div class="fundo-economico"></div>
                                     <div class="fundo-carta-logo">
-                                        <img src="/imgs/biohazard-branco.png" width="30" height="30" class="">
+                                        <img src="/imgs/icones/radioativo-branco.png" width="30" height="30" class="">
                                         <p class="texto-cartas">Cartas<br />Radioativas</p>
                                     </div>
                                 </div>
@@ -191,13 +193,13 @@
                                 <div class="frente fundo-branca-exemplo">
                                     <p>uma merda</p>
                                     <div class="rodape-carta-exemplo fixed-bottom">
-                                        <img src="/imgs/biohazard-preto.png" width="15" height="15" class="float-start">
+                                        <img src="/imgs/icones/radioativo-preto.png" width="15" height="15" class="float-start">
                                         <p class="texto-cartas">Cartas Radioativas</p>
                                     </div>
                                 </div>
                                 <div class="verso fundo-branca-exemplo">
                                     <div class="fundo-carta-logo">
-                                        <img src="/imgs/biohazard-preto.png" width="30" height="30" class="">
+                                        <img src="/imgs/icones/radioativo-preto.png" width="30" height="30" class="">
                                         <p class="texto-cartas">Cartas<br />Radioativas</p>
                                     </div>
                                 </div>
@@ -477,11 +479,13 @@
                             <h5 class="titulo2">- Dica nos jogos de honestidade</h5>
                             <p>Na hora de dizer qual foi a carta escolhida o jogador da rodada pode perguntar se a escolha foi por ser uma carta boba, ofensiva, engraçada, etc. As vezes um simples sorrisinho já ajuda.</p>
                             <h5 class="titulo2">- Porque não colocar uma bebidinha em jogo?!</h5>
-                            <p>Essa é simples, quem perder bebe.</p>
+                            <p>Essa é simples, após algumas rodadas (5 por exemplo), quem perder, ou quem ganhar, bebe.</p>
+                            <h5 class="titulo2">- Strip?!</h5>
+                            <p>Se tiver só em casal ou com uma galera mais liberal, vocês podem trocar a bebida aí de cima por um strip (tirar uma pessa de roupa).</p>
                             <h5 class="titulo2">- Aposta de pontos</h5>
                             <p>Se você acha que possui mais de uma carta branca que pode ganhar, você pode apostar um ponto ganho. Nesse caso, se voê ganhar você recupera o seu ponto. Se você perder, quem ganhar leva o seu ponto.</p>
                             <h5 class="titulo2">- Final feliz</h5>
-                            <p>Também chamado de cerimônia oficial de encerramento. Quando forem finalizar o jogo, cada um escolhe 3 cartas brancas da mão e declama um poema com elas (pode ser uma histórinha em tom dramático).</p>
+                            <p>Também chamado de cerimônia oficial de encerramento. Quando forem finalizar o jogo, cada um pega mais 2 cartas brancas, escolhe 3 da mão e declama um poema com elas (pode ser uma histórinha em tom dramático).</p>
                             <h5 class="titulo2">- Troca de pontos</h5>
                             <p>Os jogadores podem trocar seus pontos por cartas brancas. Lembre-se que os jogadores SEMPRE tem que ter 10 cartas brancas na mão, ou seja, para cada carta branca resgatada uma carta deve ser devolvida.</p>
                             <h5 class="titulo2">- Fantasma</h5>
@@ -559,9 +563,8 @@
                             <h4 class="titulo2">Futuro</h4>
                             <p>Ainda pretendo fazer:</p>
                             <ul>
-                                <li>Cartas menores</li>
                                 <li>Personalização do logo das cartas</li>
-                                <li>Colocação de imagens nas cartas</li>
+                                <li>Colocar algumas cartas com imagens</li>
                                 <li>Categorias infantis</li>
                                 <li>Wakeboard</li>
                                 <li>Viajar para a Europa</li>
