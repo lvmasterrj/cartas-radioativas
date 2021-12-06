@@ -1,9 +1,5 @@
-<p align="center">
-
 ![Logo cartas radioativas](/imgs/icones/radioativo-preto.png)
 # Cartas Radioativas
-
-</p>
 
 ## Sobre o site
 Inspirado no jogo Cards Against Humanity (CAH) e outros, que só mudam de nome, Cartas Radioativas é uma página que reúne cartas para que o usuário possa gerar seu próprio jogo, além de poder personalizar com as suas próprias cartas personalizadas.
