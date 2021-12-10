@@ -1,0 +1,343 @@
+@font-face {
+    font-family: "bootstrap-icons";
+    src: url("./fonts/bootstrap-icons.woff2") format("woff2"), url("./fonts/bootstrap-icons.woff") format("woff");
+}
+
+ol {
+    margin-top: 10px;
+}
+
+#header {
+    margin-top: 15px;
+}
+
+.titulo .carta {
+    background-color: black;
+    color: #fff;
+    height: 180px;
+    width: 140px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+}
+
+.instrucoes {
+    text-align: center;
+    line-height: 0.7rem;
+}
+
+#tabela {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+#tabela .col {
+    max-height: 500px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px 5px;
+    padding: 0;
+}
+
+td.btns {
+    width: 85px;
+}
+
+.btn-remover:hover {
+    /* text-decoration: underline; */
+    font-weight: 600;
+}
+
+th.col-texto {
+    width: 60%;
+}
+
+th.col-categoria {
+    width: 25%;
+}
+
+th.col-btn {
+    width: 15%;
+}
+
+.novas-cartas {
+    padding: 10px;
+}
+
+.novas-cartas textarea {
+    height: 110px;
+}
+
+.botoes-tabela {
+    width: 100%;
+}
+
+.botoes-tabela .btn {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.menu-cartas {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.area-tabela {
+    overflow-y: auto;
+    height: 200px;
+    border-bottom: 1px solid #ccc;
+}
+
+.area-titulo-tabela {
+    border-bottom: 1px solid #000
+}
+
+.area-titulo-tabela h3 {
+    padding: 3px;
+    text-align: center;
+}
+
+.brancas .area-titulo-tabela {
+    border-bottom: 3px solid #ccc
+}
+
+.pretas .area-titulo-tabela {
+    background: #000;
+    color: #fff;
+    border-bottom: 3px solid #000
+}
+
+tr.marcado {
+    border-left: 20px solid #19b16a
+}
+
+.btn-remover {
+    color: #ff0000;
+    cursor: pointer;
+}
+
+#texto-personalizacao-brancas,
+#texto-personalizacao-pretas {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#texto-personalizacao-pretas {
+    background-color: #000;
+    color: #fff;
+}
+
+#btn-adiciona-brancas,
+#btn-adiciona-pretas {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#area-gerar-pdf {
+    margin: 15px 0;
+}
+
+.personal {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    height: 100%;
+}
+
+#label-cor-fundo {
+    padding-left: 5px;
+}
+
+#cor-fundo {
+    width: 100px;
+}
+
+.carta-exemplo {
+    height: 150px;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    padding: 0;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+
+/* .carta-exemplo.economico{
+    background: #fff;
+} */
+
+
+/* .carta-exemplo.preta {
+    background: #000;
+    color: #fff;
+} */
+
+.flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.carta-exemplo:hover .flip {
+    transform: rotateY(180deg);
+}
+
+.frente,
+.verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.carta-exemplo .fundo-preta-exemplo {
+    background-color: #000;
+    color: #fff;
+}
+
+.carta-exemplo.economico .fundo-preta-exemplo {
+    background-color: #fff;
+    color: #000;
+}
+
+.carta-exemplo.economico .rodape-economico {
+    background: #000;
+    height: 20px;
+    position: absolute;
+    bottom: 7px;
+    width: 100%;
+    z-index: 1;
+}
+
+.carta-exemplo.economico .rodape-carta-exemplo p {
+    color: #fff;
+}
+
+.carta-exemplo.economico .fundo-economico {
+    background: #000;
+    height: 70px;
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    width: 100%;
+    left: 0;
+}
+
+.fundo-branca-exemplo {
+    background-color: #fff;
+    color: #000;
+}
+
+.verso {
+    /* background-color: dodgerblue;
+  color: white; */
+    transform: rotateY(180deg);
+}
+
+.rodape-carta-exemplo {
+    margin: 10px 5px;
+}
+
+.rodape-carta-exemplo img {
+    float: left;
+    margin-right: 5px;
+}
+
+.rodape-carta-exemplo p {
+    font-size: 0.6rem;
+    margin: 0;
+}
+
+.fundo-carta-logo {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    z-index: 10;
+    position: relative;
+}
+
+.fundo-carta-logo p,
+.fundo-carta-logo img {
+    z-index: 10;
+}
+
+.fundo-carta-logo .texto-cartas {
+    line-height: 0.9rem;
+    margin-top: 3px;
+    z-index: 10;
+}
+
+.carta-exemplo.economico .fundo-carta-logo .texto-cartas {
+    color: #fff;
+}
+
+#btn-gerar-pdf {
+    width: 100%;
+    margin: 15px 0;
+}
+
+#rodape {
+    margin: 0 5px 15px;
+}
+
+.modal-body .texto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 0 10px;
+    border-left: 8px solid #6e6c6c
+}
+
+.modal-body p {
+    margin: 3px 0 2px;
+}
+
+.modal-body figure {
+    margin: 0 10px;
+}
+
+.exemplos-cartas {
+    margin-top: 15px;
+}
+
+.img-exemplo {
+    width: 199px;
+    height: 115px;
+    background-image: url("/imgs/exemplos-cartas.png");
+    background-size: 600px;
+    margin: auto;
+}
+
+.img-exemplo-2 {
+    background-position: -200px 0;
+}
+
+.img-exemplo-3 {
+    background-position: -400px 0;
+}
+
+#mensagem button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.github img {
+    float: left;
+    margin-right: 15px;
+}
