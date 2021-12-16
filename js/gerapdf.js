@@ -62,6 +62,9 @@ var coordImpressao = {
     },
 };
 
+function emMM(tam, fontSize) {
+    return (tam * fontSize / (72 / 25.6));
+}
 // Função que monta as linhas de corte
 function montaLinhasDeCorte(doc) {
     doc.setDrawColor(0);
@@ -122,16 +125,6 @@ function montaFrentes(tipo, val, doc) {
 
     doc.setDrawColor(255);
 
-    texto = val["texto"].split("\\n") //quebra as linhas nos "\n"
-    texto = texto.map((linha) => {
-        return linha.trim() //.replace(/_\\f/g, ("_").repeat(21 - linha.length) + "\n")
-    });
-    //  texto = 
-    //      .replace(/\\n /g, "\n")
-    //      .replace(/\\n/g, "\n")
-    //      .replace(/_\\f/g, ("_").repeat(17 - val["texto"].length) + "\n")
-    //replace(/_\\f/g, "\n_________________\n")
-    //.replace(/(?<!_)_(?!_)/g, "\n_________________\n");
     let icone = impressao.categorias[val["categoria"]] || "radioativo";
 
     let textoRodape = $("#texto-rodape").val() || "Cartas Radioativas";
@@ -147,7 +140,70 @@ function montaFrentes(tipo, val, doc) {
     let textoRodapeY = yfora + margemRodape[1] - ((rodapeLinhas - 1) * tamanhoFonteRodapeMM) - correcaoRodape;
     //  let textoRodapeY = yfora + margemRodape[1] - (tamanhoFonteRodapeMM / 2) - (((rodapeLinhas - 1) * tamanhoFonteRodapeMM) + correcaoRodape);
 
+    texto = val["texto"].replace(/<</g, "\\n<<").replace(/>>/g, ">>\\n").split("\\n") //quebra as linhas nos "\n"
+        //       texto = texto.map((linha) => {
+        //           //let textoEncapsulado = linha.match(/<<(.*)>>/g);
+        //           if (linha.indexOf("<<") !== -1 && linha.indexOf(">>") !== -1) {
+        //               //console.log(textoEncapsulado);
+        //               linha = linha.replace(/<</g, "\n<<").replace(/>>/g, ">>\n");
+        //               //console.log("popo");
+        //           }
+        //           console.log(linha);
+        //           return linha;
+
+    //       //  return linha.replace(/<</g, "\n");
+    //       //   return linha;	
+    //       //aaa aaa << aaa aaa aaa >> aaa
+    //   })
+
+    console.log(texto);
+
     let textoCarta = doc.setFontSize(tamanhoFonteCarta).splitTextToSize(texto, tamanhoMaxTexto);
+    textoCarta = textoCarta.flatMap((linha, i) => {
+            if (linha.indexOf("<<") !== -1 && linha.indexOf(">>") !== -1) {
+                linha = linha.replace(/<</g, "").replace(/>>/g, "").trim();
+                let tamanhoUnderline = emMM(doc.getCharWidthsArray("_"), tamanhoFonteCarta); //Pega o tamanho do "_" em mm
+                let tamanhoLinha = emMM(doc.getStringUnitWidth(linha), tamanhoFonteCarta); // Pega o tamanho da linha em mm
+                let espaco = tamanhoMaxTexto - tamanhoLinha; //Pega o espaço restante na linha
+                let qtdUnderlinesAdicionar = Math.ceil(espaco / tamanhoUnderline); //Calcula quantos "_" podem ser adicionados
+                linha = linha.replace(/_/g, "_".repeat(qtdUnderlinesAdicionar + 1)); //Insere o nro de "_" suficientes para preencher a linha toda.
+
+            } else {
+                linha = linha.trim()
+                linha = linha.replace(/(?<!_)_\./g, "\\n_________________.\\n"); //Substitui "_."
+                linha = linha.replace(/(?<!_)_\,/g, "\\n_________________,\\n"); //Substitui "_,"
+                linha = linha.replace(/(?<!_)_\;/g, "\\n_________________;\\n"); //Substitui "_;"
+                linha = linha.replace(/(?<!_)_(?!_)/g, "\\n__________________\\n"); //Substitui "_"
+            }
+
+            linha = linha.split("\\n")
+            linha = linha.filter((elem) => elem != "");
+
+            //console.log("getStringUnitWidth = " + doc.getStringUnitWidth("linha"));
+            //     / return linha.replace(/<</g, "\n");
+            //      // "_" tem 0.55 mm
+            //      //console.log("getCharWidthsArray = " + doc.getCharWidthsArray("Mteste_"));
+            //      //console.log("getStringUnitWidth = " + doc.getStringUnitWidth("Mteste_"));
+            //      //   linha = linha.trim()
+            //      //   linha = linha.replace(/(?<!_)_\./g, "\\n_________________.\\n");
+            //      //   // if (linha.indexOf(/(?<!_)_(?!_)/g) !== -1) {
+            //      //   //     //if( )
+            //      //   // }
+            //      //   console.log(linha)
+            return linha;
+            //      //.replace(/_\\f/g, ("_").repeat(21 - linha.length) + "\n");
+        })
+        //textoCarta = textoCarta.flat();
+    console.log(textoCarta);
+    //  texto = texto.map((linha) => {
+    //      return linha.trim()
+    //  });
+    //  texto = 
+    //      .replace(/\\n /g, "\n")
+    //      .replace(/\\n/g, "\n")
+    //      .replace(/_\\f/g, ("_").repeat(17 - val["texto"].length) + "\n")
+    //replace(/_\\f/g, "\n_________________\n")
+    //.replace(/(?<!_)_(?!_)/g, "\n_________________\n");
 
     if (tipo != "branca" && impressao.verso == "padrao") {
         doc.setFillColor(impressao.cor || 0); //dentro
@@ -329,8 +385,6 @@ function montaVersos(doc) {
 function montaPDF() {
 
     impressao.cont = 1;
-
-    const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF();
 
