@@ -227,12 +227,7 @@ function adicionaItemNaCarta(item, retorno = 0){
 	if (inicioCursor == finalCursor){
 		campoPersonalizaPreta.val(ateCursor + item + aposCursor);
 	} else {
-		console.log("inicioCursor = " + inicioCursor);
-		console.log("finalCursor = " + finalCursor);
-		console.log("ateCursor = " + ateCursor);
-		console.log("aposCursor = " + aposCursor);
 		selecao = campoPersonalizaPreta.val().substr(inicioCursor, finalCursor - inicioCursor);
-		console.log("selecao = " + selecao);
 		campoPersonalizaPreta.val(ateCursor + "<<" + selecao + ">>" + aposCursor);
 	}
 	campoPersonalizaPreta[0].focus();
