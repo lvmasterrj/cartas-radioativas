@@ -169,11 +169,7 @@ function montaFrentes(tipo, val, doc) {
                 linha = linha.replace(/_/g, "_".repeat(qtdUnderlinesAdicionar + 1)); //Insere o nro de "_" suficientes para preencher a linha toda.
 
             } else {
-                linha = linha.trim()
-                linha = linha.replace(/(?<!_)_\./g, "\\n_________________.\\n"); //Substitui "_."
-                linha = linha.replace(/(?<!_)_\,/g, "\\n_________________,\\n"); //Substitui "_,"
-                linha = linha.replace(/(?<!_)_\;/g, "\\n_________________;\\n"); //Substitui "_;"
-                linha = linha.replace(/(?<!_)_(?!_)/g, "\\n__________________\\n"); //Substitui "_"
+                trocaUnderline(linha)
             }
 
             linha = linha.split("\\n")

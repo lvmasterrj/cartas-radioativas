@@ -180,11 +180,7 @@ function atualizaPreview(){
 			//let tamanhoFinal = jsPDFDoc.getStringUnitWidth(linha) * 16; // Pega o tamanho da linha em mm
 
 		} else {
-			linha = linha.trim()
-			linha = linha.replace(/(?<!_)_\./g, "\\n________________.\\n"); //Substitui "_."
-			linha = linha.replace(/(?<!_)_\,/g, "\\n________________,\\n"); //Substitui "_,"
-			linha = linha.replace(/(?<!_)_\;/g, "\\n________________;\\n"); //Substitui "_;"
-			linha = linha.replace(/(?<!_)_(?!_)/g, "\\n_________________\\n"); //Substitui "_"
+			trocaUnderline(linha)
 		}
 
 		linha = linha.split("\\n")
@@ -198,6 +194,18 @@ function atualizaPreview(){
 	.join("<br>");
 	
 	$(".texto-preview").html(texto);
+}
+
+function trocaUnderline(texto){
+	return texto
+		.trim()
+		.replace(/(?<!_)_\./g, "\\n________________.\\n") //Substitui "_."
+		.replace(/(?<!_)_\!/g, "\\n________________!\\n") //Substitui "_!"
+		.replace(/(?<!_)_\?/g, "\\n________________?\\n") //Substitui "_?"
+		.replace(/(?<!_)_\,/g, "\\n________________,\\n") //Substitui "_,"
+		.replace(/(?<!_)_\;/g, "\\n________________;\\n") //Substitui "_;"
+		.replace(/(?<!_)_\:/g, "\\n________________:\\n") //Substitui "_;"
+		.replace(/(?<!_)_(?!_)/g, "\\n_________________\\n") //Substitui "_"
 }
 
 // Listen para ocultar a carta de preview quando sai do campo
