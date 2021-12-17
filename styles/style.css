@@ -46,14 +46,14 @@ ol {
 #preview-carta-preta {
     display: block;
     position: absolute;
-    width: 200px;
+    width: 210px;
     height: 300px;
     background: #000000;
     left: -220px;
     bottom: 10px;
     box-shadow: 10px 10px 5px 3px #0000004d;
     border-radius: 15px;
-    padding: 20px 25px;
+    padding: 20px 0 20px 25px;
     z-index: 999;
     display: none;
 }

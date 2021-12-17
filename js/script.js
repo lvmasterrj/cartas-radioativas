@@ -141,9 +141,7 @@ function adicionaPretaPersonalizada() {
 		let textos = campo.val().split("\n");
 
 		textosCorrigidos = textos.map((texto) => {
-			console.log(texto);
 			texto = texto.replace(!/[()\w+]/g, "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-			console.log(texto);
 			return texto
 		});
 
@@ -169,25 +167,25 @@ function atualizaPreview(){
 	const jsPDFDoc = new jsPDF({unit:"px", hotfixes: ["px_scaling"]});
 	jsPDFDoc.setFontSize(16);
 	texto = texto.flatMap((linha)=>{
+
 		if (linha.indexOf("<<") !== -1 || linha.indexOf(">>") !== -1) {
 			linha = linha.replace(/<</g, "").replace(/>>/g, "").trim();
 			
 			let tamanhoUnderline = jsPDFDoc.getCharWidthsArray("_") * 16; //Pega o tamanho do "_" em mm
 			let tamanhoLinha = jsPDFDoc.getStringUnitWidth(linha) * 16; // Pega o tamanho da linha em mm
 			let espaco = 150 - tamanhoLinha; //Pega o espaço restante na linha
-			let qtdUnderlinesAdicionar = Math.floor(espaco / tamanhoUnderline); //Calcula quantos "_" podem ser adicionados
-			linha = linha.replace(/_/g, "_".repeat(qtdUnderlinesAdicionar +1)); //Insere o nro de "_" suficientes para preencher a linha toda.
+			let qtdUnderlinesAdicionar = Math.ceil(espaco / tamanhoUnderline); //Calcula quantos "_" podem ser adicionados
+			linha = linha.replace(/_/g, "_".repeat(qtdUnderlinesAdicionar)); //Insere o nro de "_" suficientes para preencher a linha toda.
 			//let tamanhoFinal = jsPDFDoc.getStringUnitWidth(linha) * 16; // Pega o tamanho da linha em mm
 
 		} else {
-			trocaUnderline(linha)
+			linha = trocaUnderline(linha);
 		}
 
-		linha = linha.split("\\n")
-      linha = linha.filter((elem) => elem != "");
-
-		linha = jsPDFDoc.splitTextToSize(linha, 200);
-		
+		linha = linha.split("\\n");
+		linha = linha.map((elem)=>elem.trim());// Remove os espaços em cada linha
+      linha = linha.filter((elem) => elem != "");// Remove os valores em branco
+		linha = jsPDFDoc.splitTextToSize(linha, 205);
 		return linha;
 	})
 	
@@ -196,7 +194,7 @@ function atualizaPreview(){
 	$(".texto-preview").html(texto);
 }
 
-function trocaUnderline(texto){
+function trocaUnderline(texto = ""){
 	return texto
 		.trim()
 		.replace(/(?<!_)_\./g, "\\n________________.\\n") //Substitui "_."
@@ -236,7 +234,7 @@ function adicionaItemNaCarta(item, retorno = 0){
 		campoPersonalizaPreta.val(ateCursor + item + aposCursor);
 	} else {
 		selecao = campoPersonalizaPreta.val().substr(inicioCursor, finalCursor - inicioCursor);
-		campoPersonalizaPreta.val(ateCursor + "<<" + selecao + ">>" + aposCursor);
+		campoPersonalizaPreta.val(ateCursor + "<<" + selecao + ">>" + aposCuaarsor);
 	}
 	campoPersonalizaPreta[0].focus();
 	campoPersonalizaPreta[0].setSelectionRange(ateCursor.length + retorno, ateCursor.length + retorno);
@@ -424,6 +422,10 @@ $("#mensagem").on("submit", function (e) {
 			});
 		}
 });
+
+// $("#abre-modal-pix").click(()=>{
+// 	$("#modal-pix").modal('show');
+// })
 
 // Regex = https://regex101.com/r/yV6qE5/1
 // jsPDF = https://raw.githack.com/MrRio/jsPDF/master/docs/jsPDF.html

@@ -138,68 +138,29 @@ function montaFrentes(tipo, val, doc) {
 
     //Ajusta o y do rodapé no caso de multiplas linhas
     let textoRodapeY = yfora + margemRodape[1] - ((rodapeLinhas - 1) * tamanhoFonteRodapeMM) - correcaoRodape;
-    //  let textoRodapeY = yfora + margemRodape[1] - (tamanhoFonteRodapeMM / 2) - (((rodapeLinhas - 1) * tamanhoFonteRodapeMM) + correcaoRodape);
 
-    texto = val["texto"].replace(/<</g, "\\n<<").replace(/>>/g, ">>\\n").split("\\n") //quebra as linhas nos "\n"
-        //       texto = texto.map((linha) => {
-        //           //let textoEncapsulado = linha.match(/<<(.*)>>/g);
-        //           if (linha.indexOf("<<") !== -1 && linha.indexOf(">>") !== -1) {
-        //               //console.log(textoEncapsulado);
-        //               linha = linha.replace(/<</g, "\n<<").replace(/>>/g, ">>\n");
-        //               //console.log("popo");
-        //           }
-        //           console.log(linha);
-        //           return linha;
+    textoCarta = val["texto"].replace(/<</g, "\\n<<").replace(/>>/g, ">>\\n").split("\\n") //quebra as linhas nos "\n"
 
-    //       //  return linha.replace(/<</g, "\n");
-    //       //   return linha;	
-    //       //aaa aaa << aaa aaa aaa >> aaa
-    //   })
-
-    console.log(texto);
-
-    let textoCarta = doc.setFontSize(tamanhoFonteCarta).splitTextToSize(texto, tamanhoMaxTexto);
     textoCarta = textoCarta.flatMap((linha, i) => {
-            if (linha.indexOf("<<") !== -1 && linha.indexOf(">>") !== -1) {
-                linha = linha.replace(/<</g, "").replace(/>>/g, "").trim();
-                let tamanhoUnderline = emMM(doc.getCharWidthsArray("_"), tamanhoFonteCarta); //Pega o tamanho do "_" em mm
-                let tamanhoLinha = emMM(doc.getStringUnitWidth(linha), tamanhoFonteCarta); // Pega o tamanho da linha em mm
-                let espaco = tamanhoMaxTexto - tamanhoLinha; //Pega o espaço restante na linha
-                let qtdUnderlinesAdicionar = Math.ceil(espaco / tamanhoUnderline); //Calcula quantos "_" podem ser adicionados
-                linha = linha.replace(/_/g, "_".repeat(qtdUnderlinesAdicionar + 1)); //Insere o nro de "_" suficientes para preencher a linha toda.
+        if (linha.indexOf("<<") !== -1 && linha.indexOf(">>") !== -1) {
+            linha = linha.replace(/<</g, "").replace(/>>/g, "").trim();
+            let tamanhoUnderline = emMM(doc.getCharWidthsArray("_"), tamanhoFonteCarta); //Pega o tamanho do "_" em mm
+            let tamanhoLinha = emMM(doc.getStringUnitWidth(linha), tamanhoFonteCarta); // Pega o tamanho da linha em mm
+            let espaco = tamanhoMaxTexto - tamanhoLinha; //Pega o espaço restante na linha
+            let qtdUnderlinesAdicionar = Math.ceil(espaco / tamanhoUnderline); //Calcula quantos "_" podem ser adicionados
+            linha = linha.replace(/_/g, "_".repeat(qtdUnderlinesAdicionar)); //Insere o nro de "_" suficientes para preencher a linha toda.
 
-            } else {
-                trocaUnderline(linha)
-            }
+        } else {
+            linha = trocaUnderline(linha);
+        }
 
-            linha = linha.split("\\n")
-            linha = linha.filter((elem) => elem != "");
+        linha = linha.split("\\n")
+        linha = linha.map((elem) => elem.trim()); // Remove os espaços em cada linha
+        linha = linha.filter((elem) => elem != ""); //Limpa as linhas vazias
+        linha = doc.setFontSize(tamanhoFonteCarta).splitTextToSize(linha, tamanhoMaxTexto);
 
-            //console.log("getStringUnitWidth = " + doc.getStringUnitWidth("linha"));
-            //     / return linha.replace(/<</g, "\n");
-            //      // "_" tem 0.55 mm
-            //      //console.log("getCharWidthsArray = " + doc.getCharWidthsArray("Mteste_"));
-            //      //console.log("getStringUnitWidth = " + doc.getStringUnitWidth("Mteste_"));
-            //      //   linha = linha.trim()
-            //      //   linha = linha.replace(/(?<!_)_\./g, "\\n_________________.\\n");
-            //      //   // if (linha.indexOf(/(?<!_)_(?!_)/g) !== -1) {
-            //      //   //     //if( )
-            //      //   // }
-            //      //   console.log(linha)
-            return linha;
-            //      //.replace(/_\\f/g, ("_").repeat(21 - linha.length) + "\n");
-        })
-        //textoCarta = textoCarta.flat();
-    console.log(textoCarta);
-    //  texto = texto.map((linha) => {
-    //      return linha.trim()
-    //  });
-    //  texto = 
-    //      .replace(/\\n /g, "\n")
-    //      .replace(/\\n/g, "\n")
-    //      .replace(/_\\f/g, ("_").repeat(17 - val["texto"].length) + "\n")
-    //replace(/_\\f/g, "\n_________________\n")
-    //.replace(/(?<!_)_(?!_)/g, "\n_________________\n");
+        return linha;
+    })
 
     if (tipo != "branca" && impressao.verso == "padrao") {
         doc.setFillColor(impressao.cor || 0); //dentro
