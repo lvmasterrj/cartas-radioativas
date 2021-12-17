@@ -48,7 +48,7 @@ function adicionaCategorias() {
     for (key in dbCartas) {
         $("#botoes-categorias").append(
             `<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
-				<label class="btn btn-outline-dark" for="btn-${normaliza(key)}">${impressao.categorias[key]?'<img src="/imgs/icones/' + impressao.categorias[key] + '-preto.png" width="20" height="20" class="align-text-bottom me-2" imagem="' + impressao.categorias[key] + '">':''}${key} <span class="badge bg-secondary qtd">${dbCartas[key].length}</span></label>`
+				<label class="btn btn-outline-secondary" for="btn-${normaliza(key)}">${impressao.categorias[key]?'<img src="/imgs/icones/' + impressao.categorias[key] + '-preto.png" width="20" height="20" class="align-text-bottom me-2" imagem="' + impressao.categorias[key] + '">':''}${key} <span class="badge bg-dark qtd">${dbCartas[key].length}</span></label>`
         )
     }
 }
@@ -234,7 +234,7 @@ function adicionaItemNaCarta(item, retorno = 0){
 		campoPersonalizaPreta.val(ateCursor + item + aposCursor);
 	} else {
 		selecao = campoPersonalizaPreta.val().substr(inicioCursor, finalCursor - inicioCursor);
-		campoPersonalizaPreta.val(ateCursor + "<<" + selecao + ">>" + aposCuaarsor);
+		campoPersonalizaPreta.val(ateCursor + "<<" + selecao + ">>" + aposCursor);
 	}
 	campoPersonalizaPreta[0].focus();
 	campoPersonalizaPreta[0].setSelectionRange(ateCursor.length + retorno, ateCursor.length + retorno);
@@ -422,10 +422,6 @@ $("#mensagem").on("submit", function (e) {
 			});
 		}
 });
-
-// $("#abre-modal-pix").click(()=>{
-// 	$("#modal-pix").modal('show');
-// })
 
 // Regex = https://regex101.com/r/yV6qE5/1
 // jsPDF = https://raw.githack.com/MrRio/jsPDF/master/docs/jsPDF.html

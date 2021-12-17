@@ -351,7 +351,7 @@ tr.marcado {
     width: 199px;
     height: 115px;
     background-image: url("/imgs/exemplos-cartas.png");
-    background-size: 600px;
+    background-size: 797px;
     margin: auto;
 }
 
@@ -360,7 +360,11 @@ tr.marcado {
 }
 
 .img-exemplo-3 {
-    background-position: -400px 0;
+    background-position: -399px 0;
+}
+
+.img-exemplo-4 {
+    background-position: -597px 0;
 }
 
 #mensagem button {
