@@ -1,0 +1,3 @@
+Verificar texto das cartas no word
+Alterar os dados do pdf (autor, nome...)
+Verificar se alterando a visualização do pdf, fica mais rápido (fazer download ao inves de visualizar)
