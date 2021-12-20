@@ -14,4 +14,4 @@ jobs:
           username: epiz_30257710
           password: ${{ secrets.FTP_SENHA }}
           protocol: ftps
-          server-dir: htdocs
+          server-dir: htdocs/
