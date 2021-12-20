@@ -1,16 +1,16 @@
 name: 🚀 Sincronizador
-on: push:
+on: push
 jobs:
-  build:
-    name: Enviar
-    runs-on: ubintu-latest
+  web-deploy:
+    name: 🚚Enviar
+    runs-on: ubuntu-latest
     steps:
-      - name: Verificando o repositório
+      - name: 🔎 Verificando o repositório
         uses: actions/checkout@v2.4.0
-      - name: Sincronizando
+      - name: 📂 Sincronizando
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
           server: ftpupload.net
           username: epiz_30257710
           password: ${{ secrets.FTP_SENHA }}
-          protocol: ftps
+          server-dir: cartasradioativas.epizy.com/htdocs/
