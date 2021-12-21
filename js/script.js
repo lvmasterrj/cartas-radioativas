@@ -422,9 +422,3 @@ $("#mensagem").on("submit", function (e) {
 			});
 		}
 });
-
-// Regex = https://regex101.com/r/yV6qE5/1
-// jsPDF = https://raw.githack.com/MrRio/jsPDF/master/docs/jsPDF.html
-// SVGToPNG = https://svgtopng.com/pt/
-// SweetAlert = https://sweetalert2.github.io/
-// P/ trocar cor do png, basta abrir o arquivo em um editor de texto e trocar o fillcolor.

@@ -387,5 +387,12 @@ function montaPDF() {
     //Monta os versos
     montaVersos(doc);
 
+    doc.setProperties({
+        title: "Cartas Radioativas",
+        subject: "Jogo Cartas Radioativas",
+        author: "lvmasterrj",
+        creator: "cartasradioativas.epizy.com"
+    });
+
     doc.output("dataurlnewwindow");
 }
