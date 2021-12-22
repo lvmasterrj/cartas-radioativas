@@ -1,7 +1,7 @@
 # To do
 Colocar mais cartas e categorias;
 Dar um jeito de exibir o pdf e salvar com o nome correto;
-Implementar sistema de votos (???)
+Implementar sistema de votos (???).
 
 # Recursos
 // Regex = https://regex101.com/r/yV6qE5/1
