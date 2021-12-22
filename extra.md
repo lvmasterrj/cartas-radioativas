@@ -1,6 +1,5 @@
 # To do
-Alterar os dados do pdf (autor, nome...)
-Verificar se alterando a visualização do pdf, fica mais rápido (fazer download ao inves de visualizar)
+Dar um jeito de exibir o pdf e salvar com o nome correto
 Implementar sistema de votos (???)
 
 # Recursos
