@@ -1,5 +1,5 @@
 # To do
-Colocar mais cartas
+Colocar mais cartas e categorias
 Dar um jeito de exibir o pdf e salvar com o nome correto
 Implementar sistema de votos (???)
 
