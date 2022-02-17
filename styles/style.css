@@ -37,15 +37,15 @@ ol {
     z-index: 1;
 }
 
-.instrucoes .col .carta1 {
+.instrucoes .wrap .carta1 {
     left: 0;
 }
 
-.instrucoes .col .carta2 {
+.instrucoes .wrap .carta2 {
     left: 200px;
 }
 
-.instrucoes .col .carta3 {
+.instrucoes .wrap .carta3 {
     left: 400px;
 }
 
