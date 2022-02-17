@@ -18,7 +18,7 @@ ol {
     position: relative;
 }
 
-.header .titulo .carta {
+#header .titulo .carta {
     background-color: black;
     color: #fff;
     height: 200px;
