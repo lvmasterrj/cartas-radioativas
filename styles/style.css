@@ -10,13 +10,15 @@ ol {
 #header {
     margin-top: 15px;
     overflow: hidden;
+    height: 190px;
 }
 
-.titulo.col-2 {
+#header .titulo,
+#header .instrucoes {
     position: relative;
 }
 
-.titulo .carta {
+.header .titulo .carta {
     background-color: black;
     color: #fff;
     height: 200px;
@@ -27,7 +29,7 @@ ol {
     font-weight: 600;
     position: absolute;
     bottom: -25px;
-    left: 50%;
+    left: 35px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transform: rotate(-10deg);
