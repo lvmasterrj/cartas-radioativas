@@ -13,7 +13,7 @@ ol {
 }
 
 #header .titulo,
-#header .instrucoes .col {
+#header .instrucoes .wrap {
     position: relative;
     height: 190px;
 }
@@ -35,6 +35,10 @@ ol {
     transform: rotate(-10deg);
     box-shadow: -7px 7px 2px #ccc;
     z-index: 1;
+}
+
+.instrucoes .wrap {
+    width: 600px;
 }
 
 .instrucoes .wrap .carta1 {
@@ -72,8 +76,9 @@ ol {
 }
 
 .instrucoes {
-    text-align: center;
     line-height: 0.7rem;
+    display: flex;
+    justify-content: center;
 }
 
 #tabela {
