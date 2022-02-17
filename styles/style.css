@@ -16,6 +16,8 @@ ol {
 #header .instrucoes .wrap {
     position: relative;
     height: 190px;
+    display: flex;
+    justify-content: center;
 }
 
 #header .titulo .carta {
