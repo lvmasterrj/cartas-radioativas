@@ -14,7 +14,7 @@ ol {
 }
 
 #header .titulo,
-#header .instrucoes {
+#header .instrucoes .col {
     position: relative;
 }
 
