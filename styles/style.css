@@ -10,12 +10,12 @@ ol {
 #header {
     margin-top: 15px;
     overflow: hidden;
-    height: 190px;
 }
 
 #header .titulo,
 #header .instrucoes .col {
     position: relative;
+    height: 190px;
 }
 
 #header .titulo .carta {
@@ -37,7 +37,21 @@ ol {
     z-index: 1;
 }
 
+.instrucoes .carta1 {
+    right: 0;
+}
+
 .instrucoes .carta2 {
+    left: 0;
+}
+
+.instrucoes .carta3 {
+    left: 0;
+}
+
+.instrucoes .carta1,
+.instrucoes .carta2,
+.instrucoes .carta3 {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     height: 200px;
@@ -48,12 +62,13 @@ ol {
     font-weight: 600;
     position: absolute;
     bottom: -25px;
-    left: 35px;
+    /* left: 35px; */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transform: rotate(-10deg);
     box-shadow: -7px 7px 2px #ccc;
     z-index: 1;
+    border: 1px solid #ccc;
 }
 
 .instrucoes {
