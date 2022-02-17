@@ -86,7 +86,7 @@ ol {
 #tabela {
     border: 1px solid #ccc;
     border-radius: 10px;
-    margin: 15px 0;
+    margin: 0 0 15px;
 }
 
 #tabela .col {
