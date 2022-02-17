@@ -37,16 +37,16 @@ ol {
     z-index: 1;
 }
 
-.instrucoes .carta1 {
+.instrucoes .col .carta1 {
     right: 0;
 }
 
-.instrucoes .carta2 {
-    left: 0;
+.instrucoes .col .carta2 {
+    left: 200px;
 }
 
-.instrucoes .carta3 {
-    left: 0;
+.instrucoes .col .carta3 {
+    left: 400px;
 }
 
 .instrucoes .carta1,
