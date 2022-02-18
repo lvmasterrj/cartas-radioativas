@@ -273,7 +273,7 @@ $(".cartas").on("click", "td.carta-categoria", (e) => {
 
 // Listen para quando se clica, no modal, para trocar a categoria da carta
 $("#modal-troca-categoria .btn-trocar").click((e) => {
-    let categoriaTrocada = $("#categoria-selecionada").val();
+    let categoriaTrocada = $("#select-categorias").val();
     console.log("Categoria Selecionada: " + categoriaTrocada)
     $("." + $(e.target).attr("tabela") + " td.carta-categoria[id-carta=" + $(e.target).attr("id-carta") + "]").text(categoriaTrocada);
     if ($(e.target).attr("tabela") == "todas") insereBotaoSalvar($(e.target).attr("id-carta"));
