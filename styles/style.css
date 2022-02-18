@@ -112,6 +112,11 @@ ol {
     display: none;
 }
 
+.menu-cartas label.btn {
+    display: flex;
+    align-items: center;
+}
+
 #preview-carta-preta .texto-preview {
     color: #fff;
     /* overflow-wrap: break-word; */
