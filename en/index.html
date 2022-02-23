@@ -16,7 +16,7 @@
     <link rel="manifest" href="imgs/favicons/site.webmanifest">
 
 
-    <title>Cartas Radioativas</title>
+    <title>Radioactive cartas-radioativas</title>
 </head>
 
 <body>
@@ -32,13 +32,13 @@
                 <div class="wrap">
                     <div class="carta1">
                         <p>1. Add your own cards</p>
-                        <p>2. click on "PDF Maker"</p>
+                        <p>2. Hit on "PDF Maker"</p>
                         <p>3. Print and cut</p>
                     </div>
                     <div class="carta3">
-                        <p>7. Call your friends</p>
-                        <p>8. Get ready with food and drinks!</p>
-                        <p>9. Have fun!</p>
+                        <p>4. Call your friends</p>
+                        <p>5. Get ready with food and drinks!</p>
+                        <p>6. Have fun!</p>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
                     <button id="btn-desseleciona-brancas" type="button" class="btn btn-secondary" onClick="desselecionaTodas('brancas')">Unselect all</button>
                 </div>
                 <div class="novas-cartas">
-                    <textarea class="form-control" id="texto-personalizacao-brancas" rows="3" placeholder="- Adicione aqui o(s) texto(s) da(s) sua(s) carta(s) brancas&#10;- Você pode adicionar várias cartas, colocando uma por linha"></textarea>
+                    <textarea class="form-control" id="texto-personalizacao-brancas" rows="3" placeholder="- Add here your white cards&#10;- You can add several cards at once, one per line"></textarea>
                     <button id="btn-adiciona-brancas" type="button" class="btn btn-secondary" onClick="adicionaBrancaPersonalizada()">Add white card(s)</button>
                 </div>
             </div>
@@ -98,12 +98,12 @@
                 </div>
                 <div class="novas-cartas row">
                     <div class="col-11 pe-0">
-                        <textarea class="form-control" id="texto-personalizacao-pretas" rows="3" placeholder="- Adicione aqui o(s) texto(s) da(s) sua(s) carta(s) pretas&#10;- Você pode adicionar várias cartas, colocando uma por linha&#10;- Insira uma _ para criar o espaço em branco&#10;- Adicione \n para quebrar uma linha da carta&#10;- Coloque o texto entre <<>> se quiser ele numa linha separada"></textarea>
+                        <textarea class="form-control" id="texto-personalizacao-pretas" rows="3" placeholder="- Add here your black cards&#10;- You can add several cards at once, one per line&#10;- Use a _ to create a blank (answer) space&#10;- Add \n to break line&#10;- Put the text between <<>> to use it on a single line"></textarea>
                     </div>
                     <div class="col-1 ps-0">
-                        <button id="btn-adiciona-linha" class="btn btn-secondary btn-acao-pretas" title="Adicionar '_' para criar a linha de resposta">_</button>
-                        <button id="btn-adiciona-quebra-linha" class="btn btn-secondary btn-acao-pretas" title="Adicionar '\n' para pular a linha na carta">\n</button>
-                        <button id="btn-adiciona-texto-encapsulado" class="btn btn-secondary btn-acao-pretas" title="Adicionar '<<>>' para colocar o texto em uma linha separada"><></button>
+                        <button id="btn-adiciona-linha" class="btn btn-secondary btn-acao-pretas" title="Adds a _ to create a blank (answer) space">_</button>
+                        <button id="btn-adiciona-quebra-linha" class="btn btn-secondary btn-acao-pretas" title="Adds \n to break line">\n</button>
+                        <button id="btn-adiciona-texto-encapsulado" class="btn btn-secondary btn-acao-pretas" title="Adds <<>> to put the selected text on a single line"><></button>
                     </div>
                     <div class="col-12">
                         <button id="btn-adiciona-pretas" type="button" class="btn btn-secondary" onClick="adicionaPretaPersonalizada()">Add black card(s)</button>
@@ -195,7 +195,7 @@
                         <div class="carta-exemplo branca col">
                             <div class="flip">
                                 <div class="frente fundo-branca-exemplo">
-                                    <p>shit</p>
+                                    <p>Shit</p>
                                     <div class="rodape-carta-exemplo fixed-bottom">
                                         <img src="/imgs/icones/radioativo-preto.png" width="15" height="15" class="float-start">
                                         <p class="texto-cartas">Radioactive Cards</p>
@@ -221,19 +221,19 @@
                 <h4>GitHub</h4>
                 <div class="align-middle">
                     <img src="/imgs/GitHub-Mark-64px.png">
-                    <p>Se você é nerd e quer conhecer o código <a href="https://github.com/lvmasterrj/cartas-radioativas/" target="_blank">clique aqui</a></p>
+                    <p>If you're geek and want to check on the code <a href="https://github.com/lvmasterrj/cartas-radioativas/" target="_blank">click here</a></p>
                 </div>
                 <div class="d-flex align-items-end">
                     <p>V1.0.0 - 12.2021</p>
                 </div>
             </div>
             <div class="col">
-                <h4>Instruções</h4>
+                <h4>Instructions</h4>
                 <div class="list-group list-group-flush">
-                    <a id="instr-cartas" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-cartas" href="#">Escolha e inclusão de cartas</a>
-                    <a id="instr-dicas-impr" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-dicas-impr" href="#">Dicas de Materiais e impressão</a>
-                    <a id="instr-como-jogar" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-como-jogar" href="#">Como jogar</a>
-                    <a id="instr-sobre" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-sobre" href="#">Sobre</a>
+                    <a id="instr-cartas" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-cartas" href="#">Personalizing your cards</a>
+                    <a id="instr-dicas-impr" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-dicas-impr" href="#">Hints about print & play</a>
+                    <a id="instr-como-jogar" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-como-jogar" href="#">How to play</a>
+                    <a id="instr-sobre" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-sobre" href="#">About</a>
                 </div>
 
 
@@ -241,16 +241,16 @@
 
             </div>
             <div class="col">
-                <h4>Mensagem</h4>
+                <h4>Message</h4>
                 <form id="mensagem">
-                    <textarea class="form-control" id="mensagem-conteudo" rows="4" placeholder="Use este espaço para me mandar uma mensagem. Seja educado e coloque também o seu nome e contato"></textarea>
-                    <button type="submit" class="btn btn-secondary">Enviar</button>
+                    <textarea class="form-control" id="mensagem-conteudo" rows="4" placeholder="Use this space to send me a message. Be polite please."></textarea>
+                    <button type="submit" class="btn btn-secondary">Send</button>
                 </form>
             </div>
             <div class="col">
-                <h4>Jabá</h4>
+                <!-- <h4>Jabá</h4>
                 <p>Gostou muito e quer ajudar o projeto?! Faz um pix de qualquer valor!</p>
-                <p><a id="abre-modal-pix" data-bs-toggle="modal" data-bs-target="#modal-pix" href="#">Clique aqui</a> para exibir o QR code.</p>
+                <p><a id="abre-modal-pix" data-bs-toggle="modal" data-bs-target="#modal-pix" href="#">Clique aqui</a> para exibir o QR code.</p> -->
             </div>
         </div>
 
