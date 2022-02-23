@@ -13,4 +13,4 @@ jobs:
           server: ftpupload.net
           username: epiz_30257710
           password: ${{ secrets.FTP_SENHA }}
-          server-dir: cartasradioativas.epizy.com/htdocs/
+          server-dir: cartasradioativas.com/htdocs/
