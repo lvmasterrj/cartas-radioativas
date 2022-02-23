@@ -10,61 +10,9 @@ var dbCartas = {};
 
 const { jsPDF } = window.jspdf;
 
-$(document).ready(() => {
-    $("#modal-aguarde").modal('show');
-    pegaCategoriasBD();
-    pegaCartasBD();
-});
-
-// Função que pega as cartas na tabela
-function pegaCartasBD() {
-    $.get("server/cartas.php", { tabela: "todas" })
-        .done(function(data) {
-            dbCartas = data;
-            adicionaCategorias();
-            $("#modal-aguarde").modal('hide');
-        })
-        .fail(function(e) {
-            console.log("ERRO");
-            console.log(e);
-        });
-}
-
-function pegaCategoriasBD() {
-    $.get("server/categorias.php")
-        .done(function(data) {
-            for (const key in data) {
-                impressao.categorias[data[key].nome] = data[key].icone
-            }
-        })
-        .fail(function(e) {
-            console.log("ERRO ao pegar as categorias");
-            console.log(e);
-        });
-}
-
-
-function adicionaCategorias() {
-    for (key in dbCartas) {
-        $("#botoes-categorias").append(
-            `<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
-				<label class="btn btn-outline-secondary" for="btn-${normaliza(key)}">${impressao.categorias[key]?'<img src="/imgs/icones/' + impressao.categorias[key] + '-preto.png" width="30" height="30" class="align-text-bottom me-2" imagem="' + impressao.categorias[key] + '">':''}${key} <span class="badge bg-dark qtd ms-1">${dbCartas[key].length}</span></label>`
-        )
-    }
-}
-
 function normaliza(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
-
-// Listen pra quando marca os botões de categoria
-$("#botoes-categorias").on("change", ".btn-categoria", (e) => {
-    if ($(e.currentTarget).is(":checked")) {
-        montaTabela(e.currentTarget.value);
-    } else {
-        removeLinhaTabela(e.currentTarget.value);
-    }
-});
 
 // Função que remove a linha da tabela
 function removeLinhaTabela(categoria) {
@@ -360,22 +308,22 @@ function gerarPDF() {
 	if ($("tr.marcado").length == 0) {
 		Swal.fire({
 			icon: "error",
-			title: "Ops...",
-			text: "Você se esqueceu de selecionar as cartas para impressão!",
+			title: "Ought...",
+			text: "You don't have any selected cards!",
 		});
 		return;
 	}
 
 	if ($("tr[categoria='Minha carta']").length > 0) {
 		Swal.fire({
-			title: "Podemos salvar suas cartas?",
-			html: 'Tudo que é ruim deve ser compartilhado.<br>Podemos salvar as suas cartas para a galera desfrutar/sofrer também?!<br><span class="fs-6 text-black-50"><em>As cartas serão avaliadas e caso aprovadas aparecerão na categoria de cartas "personalizadas"</em></span>',
+			title: "Can we save your cards?",
+			html: "Everything that's bad has to shared.<br>You allow us to save your cards so we can laught too?!",
 			icon: "question",
 			showDenyButton: true,
 			showCancelButton: true,
-			confirmButtonText: `<i class="fa fa-thumbs-up"></i> Claro, pode salvar`,
-			denyButtonText: `<i class="fa fa-thumbs-down"></i> Não, só gere meu PDF`,
-			cancelButtonText: `Espera, ainda não estou pronto`,
+			confirmButtonText: `<i class="fa fa-thumbs-up"></i> Shure you do`,
+			denyButtonText: `<i class="fa fa-thumbs-down"></i> No, just make my PDF`,
+			cancelButtonText: `Whait, I'm not ready yet`,
 		}).then((result) => {
 			if (result.isConfirmed) {
 				salvaCartasBD();
@@ -397,8 +345,8 @@ $("#mensagem").on("submit", function (e) {
 	if (!$("#mensagem-conteudo").val()){
 		Swal.fire({ 
 			icon: 'error',
-			title: 'E a mensagem?',
-			text: 'Você esqueceu de digitar a mensagem meu amor!'
+			title: 'What about the message?',
+			text: 'You forgot to type a message my dear!'
 		});
 	} else {
 		var campoToast = $(".toast");
@@ -411,12 +359,12 @@ $("#mensagem").on("submit", function (e) {
 				console.log(data);
 				$("#mensagem-conteudo").val("")
 				$(campoToast).addClass("bg-success")
-				$(".toast-body").text("Mensagem enviada com sucesso!")
+				$(".toast-body").text("Message sent without problems!")
 				toast.show();
 			})
 			.fail(function (e) {
 				$(campoToast).addClass("bg-danger")
-				$(".toast-body").text("Opa... não foi não! Tenta de novo")
+				$(".toast-body").text("Ought... Something went wrong! Try again")
 				toast.show()
 				console.log(e);
 			});
