@@ -38,16 +38,13 @@ function montaTabela(categoria) {
 }
 
 // Função que formata uma nova linha da tabela
-function novaLinhaTabela(dados, categoria, marcado) {
+function novaLinhaTabela(dados, marcado) {
     return `<tr class="${marcado ? "marcado" : ""}" tipo="${dados.tipo}" texto="${
 		dados.texto
-	}" ${dados.id ? "id=" + dados.id : ""} categoria="${
-		categoria ? categoria : ""
 	}">
                 <td class="carta-texto">${dados.texto}</td>
-                <td class="carta-categoria">${categoria ? categoria : ""}</td>
                 <td class="btns">${
-									marcado ? `<span class="btn-remover">remover</span>` : ""
+									marcado ? `<span class="btn-remover">remove</span>` : ""
 								}</td>
             </tr>
             `;
@@ -290,7 +287,7 @@ $("#texto-rodape").on("input", (e) => {
 function salvaCartasBD() {
 	let cartas = [];
 
-	$.each($("tr[categoria='Minha carta']"), (i, v) => {
+	$.each($("tr"), (i, v) => {
 		cartas.push({ texto: $(v).attr("texto"), tipo: $(v).attr("tipo") });
 	});
 
@@ -314,7 +311,7 @@ function gerarPDF() {
 		return;
 	}
 
-	if ($("tr[categoria='Minha carta']").length > 0) {
+	if ($("tr").length > 0) {
 		Swal.fire({
 			title: "Can we save your cards?",
 			html: "Everything that's bad has to shared.<br>You allow us to save your cards so we can laught too?!",
