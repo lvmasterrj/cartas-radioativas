@@ -300,6 +300,7 @@ tr.marcado {
 .carta-exemplo .fundo-preta-exemplo {
     background-color: #000;
     color: #fff;
+    z-index: 2000;
 }
 
 .carta-exemplo.economico .fundo-preta-exemplo {
