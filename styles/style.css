@@ -300,6 +300,9 @@ tr.marcado {
 .carta-exemplo .fundo-preta-exemplo {
     background-color: #000;
     color: #fff;
+}
+
+.carta-exemplo .verso.fundo-preta-exemplo {
     z-index: 2000;
 }
 
