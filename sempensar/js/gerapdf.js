@@ -41,12 +41,14 @@ function desenhaLinhasDeCorte(doc) {
     for (key in coordImpressao.corte.x) {
         let x = coordImpressao.corte.x;
         doc.line(x[key], 0, x[key], 5);
-        doc.line(x[key], 292, x[key], 297);
+        //   doc.line(x[key], 292, x[key], 297);
+        doc.line(x[key], 205, x[key], 210);
     }
     for (key in coordImpressao.corte.y) {
         let y = coordImpressao.corte.y;
         doc.line(0, y[key], 5, y[key]);
-        doc.line(205, y[key], 210, y[key]);
+        //   doc.line(205, y[key], 210, y[key]);
+        doc.line(292, y[key], 297, y[key]);
     }
 }
 
