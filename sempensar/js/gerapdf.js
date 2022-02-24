@@ -1,3 +1,5 @@
+const { jsPDF } = window.jspdf;
+
 $(document).ready(() => {
     criaPdf();
 });
