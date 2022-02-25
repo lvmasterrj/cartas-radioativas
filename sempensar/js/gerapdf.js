@@ -70,7 +70,7 @@ function desenhaCartasRespostas(doc) {
         let y = coordImpressao.corteCartas.y[carta[1]];
 
         console.log("chegou = " + carta);
-        if (carta[1] < 3) {
+        if (carta[1] < 2) {
             carta[1] = carta[1] + 1;
         } else {
             carta = [carta[0] + 1, 0];
