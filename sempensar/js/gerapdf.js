@@ -42,6 +42,7 @@ function desenhaLinhasDeCorteCartas(doc) {
     for (key in coordImpressao.corteCartas.x) {
         let x = coordImpressao.corteCartas.x;
         doc.line(x[key], 0, x[key], 5);
+        doc.line(x[key], 205, x[key], 210);
     }
     for (key in coordImpressao.corteCartas.y) {
         let y = coordImpressao.corteCartas.y;
@@ -157,7 +158,7 @@ function desenhaQuadroPontos(doc) {
 
 //Cria as moedas
 function desenhaAsMoedas(doc) {
-    let raio = 10,
+    let raio = 11,
         margem = 10,
         contCor = 0,
         contMoeda = [0, 0],
@@ -169,6 +170,8 @@ function desenhaAsMoedas(doc) {
         console.log(x + "," + y);
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
+        doc.setDrawColor("ffffff");
+        doc.circle(x, y, raio / 2, "S");
 
         if (i % 2 != 0) contCor = contCor + 1;
 
