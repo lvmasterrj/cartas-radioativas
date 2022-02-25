@@ -155,6 +155,25 @@ function desenhaQuadroPontos(doc) {
 
 }
 
+//Cria as moedas
+function desenhaAsMoedas(doc) {
+    let raio = 10;
+    let margem = 5
+    let contCor = 0;
+    let contMoeda = 0;
+    for (let i = 0; i < jogadores * 2; i++) {
+        let x = coordImpressao.corteCartas.x[0] + 2 * margem + raio + contMoeda * (raio * 2 + margem);
+        let y = coordImpressao.cortesCartas.y[2] + 7 + raio + contMoeda * (raio * 2 + 2 * margem);
+
+        doc.setFillColor(coordImpressao.cores[contCor])
+        doc.circle(x, y, raio, "F");
+
+        if (contCor % 2 == 0) contCor = contCor + 1;
+
+        contMoeda = contMoeda + 1;
+    }
+}
+
 function criaPdf() {
     const doc = new jsPDF({
         orientation: "landscape"
@@ -166,6 +185,7 @@ function criaPdf() {
     doc.addPage();
 
     desenhaQuadroPontos(doc);
+    desenhaAsMoedas(doc);
 
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
     window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
