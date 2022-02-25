@@ -1,5 +1,5 @@
 var coordImpressao = {
-    corte: {
+    corteCartas: {
         x: [17, 105, 193, 281],
         y: [10, 73.5, 137, 200.5],
     },
@@ -48,12 +48,12 @@ function desenhaLinhasDeCorteCartas(doc) {
     doc.setDrawColor(0);
     doc.setLineWidth(0.1);
 
-    for (key in coordImpressao.corte.x) {
-        let x = coordImpressao.corte.x;
+    for (key in coordImpressao.corteCartas.x) {
+        let x = coordImpressao.corteCartas.x;
         doc.line(x[key], 0, x[key], 5);
     }
-    for (key in coordImpressao.corte.y) {
-        let y = coordImpressao.corte.y;
+    for (key in coordImpressao.corteCartas.y) {
+        let y = coordImpressao.corteCartas.y;
         doc.line(0, y[key], 5, y[key]);
         //   doc.line(205, y[key], 210, y[key]);
         doc.line(292, y[key], 297, y[key]);
@@ -64,22 +64,17 @@ function desenhaCartasRespostas(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
     let carta = [0, 0];
-    let cont = 0;
 
     for (let i = 0; i < coordImpressao.qtdCartas; i++) {
-        let x = coordImpressao.corte.x[carta[0]];
-        let y = coordImpressao.corte.y[carta[1]];
+        let x = coordImpressao.corteCartas.x[carta[0]];
+        let y = coordImpressao.corteCartas.y[carta[1]];
 
-        if (cont < 3) {
+        if (carta[1] < 3) {
             carta[1] = carta[1] + 1;
-            cont = cont + 1;
         } else {
-            carta = carta[carta[0] + 1, 0];
-            cont = 0;
+            carta = [carta[0] + 1, 0];
         }
         console.log(carta);
-
-
     }
 }
 
