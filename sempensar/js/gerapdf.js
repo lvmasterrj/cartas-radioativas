@@ -160,17 +160,20 @@ function desenhaAsMoedas(doc) {
     let raio = 10,
         margem = 5,
         contCor = 0,
-        contMoeda = 0,
+        contMoeda = [0, 0],
         jogadores = 8;
 
     for (let i = 0; i < jogadores * 2; i++) {
-        let x = coordImpressao.corteCartas.x[0] + 2 * margem + raio + contMoeda * (raio * 2 + margem);
-        let y = coordImpressao.corteCartas.y[2] + 7 + raio + contMoeda * (raio * 2 + 2 * margem);
+        let x = coordImpressao.corteCartas.x[0] + 2 * margem + raio + contMoeda[0] * (raio * 2 + margem);
+        let y = coordImpressao.corteCartas.y[2] + 7 + raio + contMoeda[1] * (raio * 2 + 2 * margem);
 
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
 
         if (contCor % 2 == 0) contCor = contCor + 1;
+
+        if (contMoeda[0] < jogadores - 1) contMoeda[0] = contMoeda[0] + 1;
+        else contMoeda = [0, contMoeda[1] + 1];
 
         contMoeda = contMoeda + 1;
     }
