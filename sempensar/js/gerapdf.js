@@ -128,7 +128,7 @@ function desenhaQuadroPontos(doc) {
     for (let i = 0; i < jogadores; i++) {
         let x = inicio[0] + 2 * margemInterna + rodadas * tamanho[0];
         let y = inicio[1] + margemInterna + i * tamanho[1] + tamanho[1];
-        let tamX = tamanho[0] + 3;
+        let tamX = tamanho[0] + 3.5;
         let tamY = tamanho[1] - 2 * margemInterna;
 
         doc.setFillColor("ffffff");
