@@ -64,7 +64,7 @@ function desenhaCartasRespostas(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
     let carta = [0, 0];
-    cont = 0;
+    let cont = 0;
 
     for (let i = 0; i < coordImpressao.qtdCartas; i++) {
         let x = coordImpressao.corte.x[carta[0]];
