@@ -98,13 +98,13 @@ function desenhaQuadroPontos(doc) {
         qtdCartas = [2, 1];
 
     //Cria as linhas de fundo
-    for (let i = 1; i <= jogadores; i++) {
+    for (let i = 0; i < jogadores; i++) {
         let tamanhoLinha = [
             tamanhoCarta[0] * qtdCartas[0] - qtdCartas[0] * margem,
             tamanho
         ]
 
-        doc.setDrawColor(coordImpressao.cores[i - 1]);
+        doc.setFillColor(coordImpressao.cores[i]);
         doc.rect(inicio[0], inicio[1] + (i * tamanho), tamanhoLinha[0], tamanhoLinha[1], "F")
     }
 }
