@@ -171,7 +171,8 @@ function desenhaAsMoedas(doc) {
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
         doc.setDrawColor("ffffff");
-        doc.circle(x, y, raio / 1.5, "S");
+        doc.circle(x, y + 2, raio / 1.5, "S");
+        doc.setTextColor("ffffff");
         doc.text("SP", x, y, null, null, "center");
 
         if (i % 2 != 0) contCor = contCor + 1;
