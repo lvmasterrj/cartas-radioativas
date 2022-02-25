@@ -90,7 +90,7 @@ function desenhaQuadroPontos(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
     let margemCarta = 5, //mm
-        margemInterna = 2, //mm
+        margemInterna = 1, //mm
         tamanho = [12.2, 13], //mm
         rodadas = 12,
         jogadores = 8,
