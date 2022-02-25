@@ -137,7 +137,7 @@ function desenhaQuadroPontos(doc) {
 
     // Cria os textos
     for (let i = 0; i < rodadas; i++) {
-        let x = inicio[0] + margemInterna + i * tamanho[0];
+        let x = inicio[0] + margemInterna + i * tamanho[0] + tamanho[0] / 2;
         let y = inicio[1] + margemInterna + tamanho[1];
 
         doc.setTextColor("#4D4E53");
