@@ -90,7 +90,7 @@ function desenhaQuadroPontos(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
     let margemCarta = 5, //mm
-        margemInterna = 3, //mm
+        margemInterna = 1, //mm
         tamanho = [12.5, 13], //mm
         rodadas = 12,
         jogadores = 8,
@@ -112,7 +112,7 @@ function desenhaQuadroPontos(doc) {
     //Cria os espaços para escrever os pontos de cada rodada
     let cont = [0, 0];
     for (let i = 0; i < (rodadas * jogadores); i++) {
-        let x = inicio[0] + margemInterna + cont[0] * tamanho[0];
+        let x = inicio[0] + margemInterna * 3 + cont[0] * tamanho[0];
         let y = inicio[1] + margemInterna + cont[1] * tamanho[1];
         let tamX = tamanho[0];
         let tamY = tamanho[1] - 2 * margemInterna;
