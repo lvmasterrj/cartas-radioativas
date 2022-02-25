@@ -105,7 +105,7 @@ function desenhaQuadroPontos(doc) {
         ]
 
         doc.setFillColor(coordImpressao.cores[i]);
-        doc.rect(inicio[0], inicio[1] + (i * tamanho) + tamanho, tamanhoLinha[0], tamanhoLinha[1], 2, 2, "F")
+        doc.roundedRect(inicio[0], inicio[1] + (i * tamanho) + tamanho, tamanhoLinha[0], tamanhoLinha[1], 2, 2, "F")
     }
 }
 
