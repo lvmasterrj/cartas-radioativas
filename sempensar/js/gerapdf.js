@@ -157,10 +157,12 @@ function desenhaQuadroPontos(doc) {
 
 //Cria as moedas
 function desenhaAsMoedas(doc) {
-    let raio = 10;
-    let margem = 5
-    let contCor = 0;
-    let contMoeda = 0;
+    let raio = 10,
+        margem = 5,
+        contCor = 0,
+        contMoeda = 0,
+        jogadores = 8;
+
     for (let i = 0; i < jogadores * 2; i++) {
         let x = coordImpressao.corteCartas.x[0] + 2 * margem + raio + contMoeda * (raio * 2 + margem);
         let y = coordImpressao.cortesCartas.y[2] + 7 + raio + contMoeda * (raio * 2 + 2 * margem);
