@@ -71,8 +71,8 @@ function desenhaCartasRespostas(doc) {
         let y = coordImpressao.corte.y[carta[1]];
 
         if (cont < 3) {
-            carta[1] = carta[1]++;
-            cont = cont++;
+            carta[1] = carta[1] + 1;
+            cont = cont + 1;
         } else {
             carta = carta[carta[0] + 1, 0];
             cont = 0;
