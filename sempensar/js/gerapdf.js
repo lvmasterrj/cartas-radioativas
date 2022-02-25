@@ -141,7 +141,7 @@ function desenhaQuadroPontos(doc) {
         let y = inicio[1] + margemInterna + tamanho[1];
 
         doc.setTextColor("#4D4E53");
-        doc.text(`${i + 1}`, x, y)
+        doc.text(`${i + 1}`, x, y, null, null, "center");
 
     }
 
