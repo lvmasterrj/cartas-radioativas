@@ -126,7 +126,7 @@ function desenhaQuadroPontos(doc) {
 
     // Cria os espaços para escrever os totais
     for (let i = 0; i < jogadores; i++) {
-        let x = inicio[0] + margemInterna + rodadas * tamanho[0];
+        let x = inicio[0] + 2 * margemInterna + rodadas * tamanho[0];
         let y = inicio[1] + margemInterna + i * tamanho[1] + tamanho[1];
         let tamX = tamanho[0];
         let tamY = tamanho[1] - 2 * margemInterna;
