@@ -81,7 +81,7 @@ function desenhaCartasRespostas(doc) {
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + 5, y + 5, tamCarta[0] - 10, tamCarta[1] - 10, 5, 5, "F")
 
-        if (carta[0] < 3) carta[0] = carta[0] + 1;
+        if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
     }
 }
@@ -91,7 +91,7 @@ function desenhaQuadroPontos(doc) {
 
     let margemCarta = 5, //mm
         margemInterna = 2, //mm
-        tamanho = [12.5, 13], //mm
+        tamanho = [12.2, 13], //mm
         rodadas = 12,
         jogadores = 8,
         inicio = [coordImpressao.corteCartas.x[0] + margemCarta, coordImpressao.corteCartas.y[0] + margemCarta],
@@ -122,7 +122,7 @@ function desenhaQuadroPontos(doc) {
         doc.setFillColor("ffffff");
         doc.roundedRect(x, y, tamX, tamY, 1, 1, "F")
 
-        if (cont[0] < rodadas) cont[0] = cont[0] + 1;
+        if (cont[0] < rodadas - 1) cont[0] = cont[0] + 1;
         else cont = [0, cont[1] + 1];
         //console.log("Saida = " + cont);
     }
