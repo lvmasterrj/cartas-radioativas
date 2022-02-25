@@ -118,10 +118,10 @@ function desenhaQuadroPontos(doc) {
         doc.setFillColor("ffffff");
         doc.roundedRect(x, y, tamanho[0] - margemInterna, tamanho[1] - margemInterna, 1, 1, "F")
 
-        if (cont[0] < rodadas) {
-            cont[0] = cont[0] + 1;
+        if (cont[1] < rodadas) {
+            cont = [cont[0] + 1, 0];
         } else {
-            cont = [0, cont[1] + 1];
+            cont[1] = cont[1] + 1;
         }
     }
 }
