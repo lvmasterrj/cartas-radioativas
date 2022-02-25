@@ -141,7 +141,8 @@ function desenhaQuadroPontos(doc) {
 
     doc.text("SEM PENSAR - QUADRO DE PONTOS", inicio[0], inicio[1] + 3);
 
-    doc.setFontSize(14);
+    doc.setTextColor("#CCC");
+    doc.setFontSize(12);
 
     for (let i = 0; i < rodadas; i++) {
         let x = inicio[0] + margemInterna + i * tamanho[0] + tamanho[0] / 2;
