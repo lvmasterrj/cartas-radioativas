@@ -136,15 +136,16 @@ function desenhaQuadroPontos(doc) {
     }
 
     // Cria os textos
+    let y = inicio[1] + tamanho[1] - 3;
+    doc.setTextColor("#4D4E53");
+
     for (let i = 0; i < rodadas; i++) {
         let x = inicio[0] + margemInterna + i * tamanho[0] + tamanho[0] / 2;
-        let y = inicio[1] + tamanho[1] - 5;
 
-        doc.setTextColor("#4D4E53");
         doc.text(`${i + 1}`, x, y, null, null, "center");
-
     }
-
+    doc.text("Total", inicio[0] + margemInterna + rodadas * tamanho[0] + tamaho[0] / 2, y, null, null, "center");
+    doc.text("Sem Pensar - Pontuação", inicio[0], inicio[1]);
 
 }
 
