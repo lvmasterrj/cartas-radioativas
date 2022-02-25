@@ -3,7 +3,7 @@ var coordImpressao = {
         x: [17, 105, 193, 281],
         y: [10, 73.5, 137, 200.5],
     },
-    cores: ["ff0000", "00ff00", "0000ff", "ffff00", "ff00ff", "00ffff", "000000", "555555"],
+    cores: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff", "#000000", "#555555"],
     qtdCartas: 8,
     tamanhoCarta: [63.5, 88],
     margemCarta: 5,
@@ -56,7 +56,8 @@ function desenhaLinhasDeCorteCartas(doc) {
 function desenhaCartasRespostas(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
-    let carta = [0, 0];
+    let carta = [0, 0],
+        tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]];
 
     for (let i = 0; i < coordImpressao.qtdCartas; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
@@ -64,7 +65,11 @@ function desenhaCartasRespostas(doc) {
 
         doc.setFillColor(coordImpressao.cores[i]);
 
-        doc.rect(x, y, coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0], "F");
+        doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+
+        doc.setFillColor("#ffffff");
+
+        doc.roundedRect(x + 5, y + 5, 5, 5, tamCarta[0], tamCarta[1], "F")
 
         if (carta[1] < 2) {
             carta[1] = carta[1] + 1;
