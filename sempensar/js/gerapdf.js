@@ -58,6 +58,8 @@ function desenhaLinhasDeCorteCartas(doc) {
         //   doc.line(205, y[key], 210, y[key]);
         doc.line(292, y[key], 297, y[key]);
     }
+
+
 }
 
 function desenhaCartasRespostas(doc) {
@@ -69,13 +71,16 @@ function desenhaCartasRespostas(doc) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
 
-        console.log("chegou = " + carta);
+        doc.setFillColor(coordImpressao.cores[i]);
+
+        doc.rect(x, y, coordImpressao.tamanhoCarta[0], coordImpressao.tamanhoCarta[1], "F");
+
         if (carta[1] < 2) {
             carta[1] = carta[1] + 1;
         } else {
             carta = [carta[0] + 1, 0];
         }
-        console.log("saiu = " + carta);
+        console.log(carta);
     }
 }
 
