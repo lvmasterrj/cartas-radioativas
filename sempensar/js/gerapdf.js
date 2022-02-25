@@ -54,13 +54,13 @@ function desenhaLinhasDeCorteQuadro(doc) {
     doc.setDrawColor(0);
     doc.setLineWidth(0.1);
 
-    for (key in coordImpressao[impressao.tamanho].corte.x) {
-        let x = coordImpressao[impressao.tamanho].corte.x;
+    for (key in coordImpressao.corteCartas.x) {
+        let x = coordImpressao.corteCartas.x;
         doc.line(x[key], 0, x[key], 5);
         doc.line(x[key], 292, x[key], 297);
     }
-    for (key in coordImpressao[impressao.tamanho].corte.y) {
-        let y = coordImpressao[impressao.tamanho].corte.y;
+    for (key in coordImpressao.corteCartas.y) {
+        let y = coordImpressao.corteCartas.y;
         doc.line(0, y[key], 5, y[key]);
         doc.line(205, y[key], 210, y[key]);
     }
