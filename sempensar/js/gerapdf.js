@@ -170,7 +170,7 @@ function desenhaAsMoedas(doc) {
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
 
-        if (contCor % 2 == 0) contCor = contCor + 1;
+        if (i % 2 != 0) contCor = contCor + 1;
 
         if (contMoeda[0] < jogadores - 1) contMoeda[0] = contMoeda[0] + 1;
         else contMoeda = [0, contMoeda[1] + 1];
