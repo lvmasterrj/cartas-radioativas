@@ -90,7 +90,7 @@ function desenhaQuadroPontos(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
     let margem = 5, //mm
-        tamanho = [12, 12], //mm
+        tamanho = [12, 13], //mm
         rodadas = 12,
         jogadores = 8,
         inicio = [coordImpressao.corteCartas.x[0] + margem, coordImpressao.corteCartas.y[0] + margem],
@@ -100,7 +100,7 @@ function desenhaQuadroPontos(doc) {
     //Cria as linhas de fundo
     for (let i = 0; i < jogadores; i++) {
         let tamanhoLinha = [
-            tamanhoCarta[0] * qtdCartas[0] - qtdCartas[0] * margem,
+            tamanhoCarta[1] * qtdCartas[0] - qtdCartas[0] * margem,
             tamanho[1]
         ]
 
