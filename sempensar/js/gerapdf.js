@@ -69,7 +69,7 @@ function desenhaCartasRespostas(doc) {
 
         doc.setFillColor("#ffffff");
 
-        doc.roundedRect(x + 5, y + 5, tamCarta[0], tamCarta[1], 5, 5, "F")
+        doc.roundedRect(x + 5, y + 5, tamCarta[0] - 10, tamCarta[1] - 10, 5, 5, "F")
 
         if (carta[1] < 2) {
             carta[1] = carta[1] + 1;
