@@ -158,14 +158,14 @@ function desenhaQuadroPontos(doc) {
 //Cria as moedas
 function desenhaAsMoedas(doc) {
     let raio = 10,
-        margem = 5,
+        margem = 10,
         contCor = 0,
         contMoeda = [0, 0],
         jogadores = 8;
 
     for (let i = 0; i < jogadores * 2; i++) {
-        let x = coordImpressao.corteCartas.x[0] + 2 * margem + raio + contMoeda[0] * (raio * 2 + margem);
-        let y = coordImpressao.corteCartas.y[2] + 7 + raio + contMoeda[1] * (raio * 2 + 2 * margem);
+        let x = coordImpressao.corteCartas.x[0] + margem + raio + contMoeda[0] * (raio * 2 + margem);
+        let y = coordImpressao.corteCartas.y[2] + 7 + raio + contMoeda[1] * (raio * 2 + margem);
         console.log(x + "," + y);
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
