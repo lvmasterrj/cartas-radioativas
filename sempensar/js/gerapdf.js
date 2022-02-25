@@ -87,25 +87,25 @@ function desenhaCartasRespostas(doc) {
 }
 
 function desenhaQuadroPontos(doc) {
-    desenhaLinhasDeCorteQuadro(doc);
+    desenhaLinhasDeCorteCartas(doc);
 
-    let margem = 3,
-        tamanho = 9,
+    let margem = 5, //mm
+        tamanho = [12, 12], //mm
         rodadas = 12,
         jogadores = 8,
-        inicio = [coordImpressao.corteCartas.y[0] + margem, coordImpressao.corteCartas.x[0] + margem],
+        inicio = [coordImpressao.corteCartas.x[0] + margem, coordImpressao.corteCartas.y[0] + margem],
         tamanhoCarta = coordImpressao.tamanhoCarta,
-        qtdCartas = [2, 1];
+        qtdCartas = [2, 2];
 
     //Cria as linhas de fundo
     for (let i = 0; i < jogadores; i++) {
         let tamanhoLinha = [
             tamanhoCarta[0] * qtdCartas[0] - qtdCartas[0] * margem,
-            tamanho
+            tamanho[1]
         ]
 
         doc.setFillColor(coordImpressao.cores[i]);
-        doc.roundedRect(inicio[0], inicio[1] + (i * tamanho) + tamanho, tamanhoLinha[0], tamanhoLinha[1], 2, 2, "F")
+        doc.roundedRect(inicio[0], inicio[1] + (i * tamanho[1]) + tamanho[1], tamanhoLinha[0], tamanhoLinha[1], 2, 2, "F")
     }
 }
 
