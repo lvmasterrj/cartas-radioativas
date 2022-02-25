@@ -139,9 +139,11 @@ function desenhaQuadroPontos(doc) {
     let y = inicio[1] + tamanho[1] - 1;
     doc.setTextColor("#4D4E53");
 
+    doc.setFont("helvetica", "bold")
     doc.text("SEM PENSAR - QUADRO DE PONTOS", inicio[0], inicio[1] + 3);
 
-    doc.setTextColor("#CCC");
+    doc.setFont("helvetica", "normal")
+    doc.setTextColor("#555555");
     doc.setFontSize(12);
 
     for (let i = 0; i < rodadas; i++) {
