@@ -117,7 +117,7 @@ function criaPdf() {
 
     desenhaCartasRespostas(doc);
 
-    doc.addPage("a4", "portrait");
+    doc.addPage();
 
     desenhaQuadroPontos(doc);
 
