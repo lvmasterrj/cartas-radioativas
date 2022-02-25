@@ -174,8 +174,6 @@ function desenhaAsMoedas(doc) {
 
         if (contMoeda[0] < jogadores - 1) contMoeda[0] = contMoeda[0] + 1;
         else contMoeda = [0, contMoeda[1] + 1];
-
-        contMoeda = contMoeda + 1;
     }
 }
 
