@@ -93,7 +93,7 @@ function desenhaQuadroPontos(doc) {
         tamanho = 9,
         rodadas = 12,
         jogadores = 8,
-        inicio = [coordImpressao.corteCartas.x[0] + margem, coordImpressao.corteCartas.y[1] + margem],
+        inicio = [coordImpressao.corteCartas.y[0] + margem, coordImpressao.corteCartas.x[1] + margem],
         tamanhoCarta = coordImpressao.tamanhoCarta,
         qtdCartas = [2, 1];
 
