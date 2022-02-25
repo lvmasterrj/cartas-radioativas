@@ -69,12 +69,13 @@ function desenhaCartasRespostas(doc) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
 
+        console.log("chegou = " + carta);
         if (carta[1] < 3) {
             carta[1] = carta[1] + 1;
         } else {
             carta = [carta[0] + 1, 0];
         }
-        console.log(carta);
+        console.log("saiu = " + carta);
     }
 }
 
