@@ -64,7 +64,7 @@ function desenhaCartasRespostas(doc) {
 
         doc.setFillColor(coordImpressao.cores[i]);
 
-        doc.rect(x, y, coordImpressao.tamanhoCarta[0], coordImpressao.tamanhoCarta[1], "F");
+        doc.rect(y, x, coordImpressao.tamanhoCarta[0], coordImpressao.tamanhoCarta[1], "F");
 
         if (carta[1] < 2) {
             carta[1] = carta[1] + 1;
