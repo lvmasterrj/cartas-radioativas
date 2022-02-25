@@ -133,6 +133,15 @@ function desenhaQuadroPontos(doc) {
 
         doc.setFillColor("ffffff");
         doc.roundedRect(x, y, tamX, tamY, 1, 1, "F")
+    }
+
+    // Cria os textos
+    for (let i = 0; i < rodadas; i++) {
+        let x = inicio[0] + 2 * margemInterna + rodadas * tamanho[0];
+        let y = inicio[1] + margemInterna + i * tamanho[1];
+
+        doc.setTextColor("#4D4E53");
+        doc.text(i + 1, x, y)
 
     }
 
