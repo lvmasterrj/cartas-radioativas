@@ -112,7 +112,7 @@ function desenhaQuadroPontos(doc) {
     //Cria os espaços para escrever os pontos de cada rodada
     let cont = [0, 0];
     for (let i = 0; i < (rodadas * jogadores); i++) {
-        let x = inicio[0] + margemInterna * 2 + cont[0] * tamanho[0];
+        let x = inicio[0] + margemInterna + cont[0] * tamanho[0];
         let y = inicio[1] + margemInterna + cont[1] * tamanho[1];
         let tamX = tamanho[0];
         let tamY = tamanho[1] - 2 * margemInterna;
@@ -122,7 +122,7 @@ function desenhaQuadroPontos(doc) {
         doc.setFillColor("ffffff");
         doc.roundedRect(x, y, tamX, tamY, 1, 1, "F")
 
-        if (cont[1] < rodadas - 1) cont[1] = cont[1] + 1;
+        if (cont[1] < rodadas) cont[1] = cont[1] + 1;
         else cont = [cont[0] + 1, 0];
         //console.log("Saida = " + cont);
     }
