@@ -117,15 +117,26 @@ function desenhaQuadroPontos(doc) {
         let tamX = tamanho[0];
         let tamY = tamanho[1] - 2 * margemInterna;
 
-        console.log("I = " + i + " | Cont = " + cont + " | X = " + x + " | Y = " + y + " | TamanhoX = " + tamX + " | TamanhoY = " + tamY);
-
         doc.setFillColor("ffffff");
         doc.roundedRect(x, y, tamX, tamY, 1, 1, "F")
 
         if (cont[0] < rodadas - 1) cont[0] = cont[0] + 1;
         else cont = [0, cont[1] + 1];
-        //console.log("Saida = " + cont);
     }
+
+    // Cria os espaços para escrever os totais
+    for (let i = 0; i < jogadores; i++) {
+        let x = inicio[0] + margemInterna + rodadas * tamanho[0];
+        let y = inicio[1] + margemInterna + i * tamanho[1] + tamanho[1];
+        let tamX = tamanho[0];
+        let tamY = tamanho[1] - 2 * margemInterna;
+
+        doc.setFillColor("ffffff");
+        doc.roundedRect(x, y, tamX, tamY, 1, 1, "F")
+
+    }
+
+
 }
 
 function criaPdf() {
