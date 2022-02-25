@@ -93,7 +93,7 @@ function desenhaQuadroPontos(doc) {
         tamanho = 9,
         rodadas = 12,
         jogadores = 8,
-        inicio = [coordImpressao.corteCartas.y[0] + margem, coordImpressao.corteCartas.x[1] + margem],
+        inicio = [coordImpressao.corteCartas.y[0] + margem, coordImpressao.corteCartas.x[0] + margem],
         tamanhoCarta = coordImpressao.tamanhoCarta,
         qtdCartas = [2, 1];
 
@@ -105,7 +105,7 @@ function desenhaQuadroPontos(doc) {
         ]
 
         doc.setFillColor(coordImpressao.cores[i]);
-        doc.rect(inicio[0], inicio[1] + (i * tamanho), tamanhoLinha[0], tamanhoLinha[1], "F")
+        doc.rect(inicio[0], inicio[1] + (i * tamanho) + tamanho, tamanhoLinha[0], tamanhoLinha[1], 2, 2, "F")
     }
 }
 
