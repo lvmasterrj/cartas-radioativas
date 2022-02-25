@@ -144,7 +144,7 @@ function desenhaQuadroPontos(doc) {
 
         doc.text(`${i + 1}`, x, y, null, null, "center");
     }
-    doc.text("Total", inicio[0] + margemInterna + rodadas * tamanho[0] + tamaho[0] / 2, y, null, null, "center");
+    doc.text("Total", inicio[0] + margemInterna + rodadas * tamanho[0] + tamanho[0] / 2, y, null, null, "center");
     doc.text("Sem Pensar - Pontuação", inicio[0], inicio[1]);
 
 }
