@@ -3,6 +3,16 @@ var coordImpressao = {
         x: [17, 105, 193, 281],
         y: [10, 73.5, 137, 200.5],
     },
+    cores: [
+        [255, 0, 0],
+        [0, 255, 0],
+        [0, 0, 255],
+        [255, 255, 0],
+        [255, 0, 255],
+        [0, 255, 255],
+        [0, 0, 0],
+        [100, 100, 100],
+    ],
     qtdCartas: 8,
     tamanhoCarta: [63.5, 88],
     margemCarta: 5,
@@ -34,15 +44,13 @@ $(document).ready(() => {
     criaPdf();
 });
 
-function desenhaLinhasDeCorte(doc) {
+function desenhaLinhasDeCorteCartas(doc) {
     doc.setDrawColor(0);
     doc.setLineWidth(0.1);
 
     for (key in coordImpressao.corte.x) {
         let x = coordImpressao.corte.x;
         doc.line(x[key], 0, x[key], 5);
-        //   doc.line(x[key], 292, x[key], 297);
-        doc.line(x[key], 205, x[key], 210);
     }
     for (key in coordImpressao.corte.y) {
         let y = coordImpressao.corte.y;
@@ -52,12 +60,36 @@ function desenhaLinhasDeCorte(doc) {
     }
 }
 
+function desenhaCartasRespostas(doc) {
+    desenhaLinhasDeCorteCartas(doc);
+
+    let carta = [0, 0];
+    cont = 0;
+
+    for (let i = 0; i < coordImpressao.qtdCartas; i++) {
+        let x = coordImpressao.corte.x[carta[0]];
+        let y = coordImpressao.corte.y[carta[1]];
+
+        if (cont < 3) {
+            carta[1] = carta[1]++;
+            cont = cont++;
+        } else {
+            carta = carta[carta[0] + 1, 0];
+            cont = 0;
+        }
+        console.log(carta);
+
+
+    }
+}
+
 function criaPdf() {
     const doc = new jsPDF({
         orientation: "landscape"
     });
 
-    desenhaLinhasDeCorte(doc);
+
+    desenhaCartasRespostas(doc);
 
     //  for (key in coordImpressao) {
     //      if (Object.hasOwnProperty.call(object, key)) {
@@ -67,7 +99,7 @@ function criaPdf() {
     //  }
 
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
-    window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
+    ////window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
     //  doc.save("cartas-radioativas"); // Salva com o nome correto,mas não faz preview
     console.log("OK")
 }
