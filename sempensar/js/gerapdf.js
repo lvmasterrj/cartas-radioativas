@@ -46,11 +46,24 @@ function desenhaLinhasDeCorteCartas(doc) {
     for (key in coordImpressao.corteCartas.y) {
         let y = coordImpressao.corteCartas.y;
         doc.line(0, y[key], 5, y[key]);
-        //   doc.line(205, y[key], 210, y[key]);
         doc.line(292, y[key], 297, y[key]);
     }
+}
 
+function desenhaLinhasDeCorteQuadro(doc) {
+    doc.setDrawColor(0);
+    doc.setLineWidth(0.1);
 
+    for (key in coordImpressao[impressao.tamanho].corte.x) {
+        let x = coordImpressao[impressao.tamanho].corte.x;
+        doc.line(x[key], 0, x[key], 5);
+        doc.line(x[key], 292, x[key], 297);
+    }
+    for (key in coordImpressao[impressao.tamanho].corte.y) {
+        let y = coordImpressao[impressao.tamanho].corte.y;
+        doc.line(0, y[key], 5, y[key]);
+        doc.line(205, y[key], 210, y[key]);
+    }
 }
 
 function desenhaCartasRespostas(doc) {
@@ -64,19 +77,35 @@ function desenhaCartasRespostas(doc) {
         let y = coordImpressao.corteCartas.y[carta[1]];
 
         doc.setFillColor(coordImpressao.cores[i]);
-
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
-
         doc.setFillColor("#ffffff");
-
         doc.roundedRect(x + 5, y + 5, tamCarta[0] - 10, tamCarta[1] - 10, 5, 5, "F")
 
-        if (carta[1] < 2) {
-            carta[1] = carta[1] + 1;
-        } else {
-            carta = [carta[0] + 1, 0];
-        }
-        console.log(carta);
+        if (carta[1] < 2) carta[1] = carta[1] + 1;
+        else carta = [carta[0] + 1, 0];
+    }
+}
+
+function desenhaQuadroPontos(doc) {
+    desenhaLinhasDeCorteQuadro(doc);
+
+    let margem = 3,
+        tamanho = 9,
+        rodadas = 12,
+        jogadores = 8,
+        inicio = [coordImpressao.corteCartas[0] + margem, coordImpressao.corteCartas[1] + margem],
+        tamanhoCarta = coordImpressao.tamanhoCarta,
+        qtdCartas = [2, 1];
+
+    //Cria as linhas de fundo
+    for (let i = 1; i <= jogadores; i++) {
+        let tamanhoLinha = [
+            tamanhoCarta[0] * qtdCartas[0] - qtdCartas[0] * margem,
+            tamanho
+        ]
+
+        doc.setDrawColor(coordImpressao.cores[i] - 1);
+        doc.rect(inicio[0], inicio[1] + (i * tamanho), tamanhoLinha[0], tamanhoLinha[1], "F")
     }
 }
 
@@ -88,12 +117,9 @@ function criaPdf() {
 
     desenhaCartasRespostas(doc);
 
-    //  for (key in coordImpressao) {
-    //      if (Object.hasOwnProperty.call(object, key)) {
-    //          const element = object[key];
+    doc.addPage("a4", "portrait");
 
-    //      }
-    //  }
+    desenhaQuadroPontos(doc);
 
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
     window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
