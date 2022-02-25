@@ -90,7 +90,7 @@ function desenhaQuadroPontos(doc) {
     desenhaLinhasDeCorteCartas(doc);
 
     let margemCarta = 5, //mm
-        margemInterna = 0.1, //mm
+        margemInterna = 0.2, //mm
         tamanho = [12, 13], //mm
         rodadas = 12,
         jogadores = 8,
@@ -118,7 +118,7 @@ function desenhaQuadroPontos(doc) {
         doc.setFillColor("ffffff");
         doc.roundedRect(x, y, tamanho[0] - margemInterna, tamanho[1] - margemInterna, 1, 1, "F")
 
-        if (cont[1] < rodadas) cont[1] = cont[1] + 1;
+        if (cont[1] < rodadas - 1) cont[1] = cont[1] + 1;
         else cont = [cont[0] + 1, 0];
     }
 }
