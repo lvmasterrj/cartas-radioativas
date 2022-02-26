@@ -136,14 +136,15 @@ function desenhaQuadroPontos(doc) {
         doc.roundedRect(x, y, tamX, tamY, 1, 1, "F")
     }
 
-    // Coloca o
+    // Coloca o logo
+    doc.addImage("imgs/logo.png", "PNG", inicio[0], inicio[1] + 3, 40, 10.8)
 
     // Cria os textos
     let y = inicio[1] + tamanho[1] - 1;
     doc.setTextColor("#4D4E53");
 
     doc.setFont("helvetica", "bold")
-    doc.text("SEM PENSAR - QUADRO DE PONTOS", inicio[0], inicio[1] + 3);
+    doc.text(" - QUADRO DE PONTOS", inicio[0] + 40, inicio[1] + 3);
 
     doc.setFont("helvetica", "normal")
     doc.setTextColor("#555555");
