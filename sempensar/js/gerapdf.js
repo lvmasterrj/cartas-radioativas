@@ -3,7 +3,7 @@ var coordImpressao = {
         x: [17, 105, 193, 281],
         y: [10, 73.5, 137, 200.5],
     },
-    cores: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff", "#000000", "#555555"],
+    cores: ["#2F3787", "#009DE0", "#289548", "#FFED00", "#CD5B1B", "#C20B19", "#C4007A", "#723888"],
     qtdCartas: 8,
     tamanhoCarta: [63.5, 88],
     margemCarta: 5,
@@ -172,9 +172,6 @@ function desenhaAsMoedas(doc) {
         doc.circle(x, y, raio, "F");
         doc.setDrawColor("ffffff");
         doc.circle(x, y, raio / 1.5, "S");
-        doc.setTextColor("ffffff");
-        doc.setFont("helvetica", "bold")
-        doc.text("SP", x, y + 2, null, null, "center");
 
         if (i % 2 != 0) contCor = contCor + 1;
 
