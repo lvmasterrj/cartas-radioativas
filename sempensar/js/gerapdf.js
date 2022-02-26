@@ -137,7 +137,7 @@ function desenhaQuadroPontos(doc) {
     }
 
     // Coloca o logo
-    doc.addImage("imgs/logo.png", "PNG", inicio[0] - 2, inicio[1], 40, 10.8)
+    doc.addImage("imgs/logo.png", "PNG", inicio[0] - 7, inicio[1], 40, 10.8)
 
     // Cria os textos
     let y = inicio[1] + tamanho[1] - 1;
