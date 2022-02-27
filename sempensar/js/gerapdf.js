@@ -167,7 +167,7 @@ function desenhaQuadroSelecao(doc) {
         contMoeda = [0, 0],
         jogadores = 8;
 
-    for (let i = 0; i < jogadores * 2; i++) {
+    for (let i = 0; i < jogadores; i++) {
         let x = coordImpressao.corteCartas.x[2] + margem + raio + contMoeda[0] * (raio * 2 + margem);
         let y = coordImpressao.corteCartas.y[0] + 25 + contMoeda[1] * (raio * 2 + margem);
 
