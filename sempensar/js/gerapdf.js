@@ -162,7 +162,7 @@ function desenhaQuadroPontos(doc) {
 // Cria o quadro de seleção
 function desenhaQuadroSelecao(doc) {
     let raio = 7.5,
-        margem = 5,
+        margem = 6.5,
         contCor = 0,
         contMoeda = [0, 0],
         jogadores = 8;
@@ -173,6 +173,7 @@ function desenhaQuadroSelecao(doc) {
 
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
+        doc.setLineWidth(1);
         doc.setDrawColor("5b5b58");
         doc.circle(x, y, raio, "S");
 
