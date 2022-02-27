@@ -137,14 +137,14 @@ function desenhaQuadroPontos(doc) {
     }
 
     // Coloca o logo
-    doc.addImage("imgs/logo.png", "PNG", inicio[0], inicio[1] - 3, 30, 8.1)
+    doc.addImage("imgs/logo.png", "PNG", inicio[0] + 3, inicio[1] - 3, 30, 8.1)
 
     // Cria os textos
     let y = inicio[1] + tamanho[1] - 1;
     doc.setTextColor("#4D4E53");
 
     doc.setFont("helvetica", "bold")
-    doc.text(" - QUADRO DE PONTOS", inicio[0] + 30, inicio[1] + 3);
+    doc.text(" - QUADRO DE PONTOS", inicio[0] + 33, inicio[1] + 3);
 
     doc.setFont("helvetica", "normal")
     doc.setTextColor("#555555");
@@ -159,6 +159,30 @@ function desenhaQuadroPontos(doc) {
 
 }
 
+// Cria o quadro de seleção
+function desenhaQuadroSelecao(doc) {
+    let raio = 7.5,
+        margem = 5,
+        contCor = 0,
+        contMoeda = [0, 0],
+        jogadores = 8;
+
+    for (let i = 0; i < jogadores * 2; i++) {
+        let x = coordImpressao.corteCartas.x[2] + margem + raio + contMoeda[0] * (raio * 2 + margem);
+        let y = coordImpressao.corteCartas.y[0] + 25 + contMoeda[1] * (raio * 2 + margem);
+
+        doc.setFillColor(coordImpressao.cores[contCor])
+        doc.circle(x, y, raio, "F");
+        doc.setDrawColor("5b5b58");
+        doc.circle(x, y, raio, "S");
+
+        if (i % 2 != 0) contCor = contCor + 1;
+
+        if (contMoeda[0] < jogadores - 1) contMoeda[0] = contMoeda[0] + 1;
+        else contMoeda = [0, contMoeda[1] + 1];
+    }
+}
+
 //Cria as moedas
 function desenhaAsMoedas(doc) {
     let raio = 11,
@@ -170,7 +194,6 @@ function desenhaAsMoedas(doc) {
     for (let i = 0; i < jogadores * 2; i++) {
         let x = coordImpressao.corteCartas.x[0] + margem + raio + contMoeda[0] * (raio * 2 + margem);
         let y = coordImpressao.corteCartas.y[2] + 7 + raio + contMoeda[1] * (raio * 2 + margem);
-        console.log(x + "," + y);
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
         doc.setDrawColor("ffffff");
@@ -194,6 +217,7 @@ function criaPdf() {
     doc.addPage();
 
     desenhaQuadroPontos(doc);
+    desenhaQuadroSelecao(doc);
     desenhaAsMoedas(doc);
 
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
