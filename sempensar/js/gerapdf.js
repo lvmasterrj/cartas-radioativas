@@ -178,7 +178,7 @@ function desenhaQuadroSelecao(doc) {
 
         contCor = contCor + 1;
 
-        if (contMoeda[0] < jogadores - 1) contMoeda[0] = contMoeda[0] + 1;
+        if (contMoeda[0] < jogadores / 2 - 1) contMoeda[0] = contMoeda[0] + 1;
         else contMoeda = [0, contMoeda[1] + 1];
     }
 }
