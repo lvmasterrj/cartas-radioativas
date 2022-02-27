@@ -176,7 +176,7 @@ function desenhaQuadroSelecao(doc) {
         doc.setDrawColor("5b5b58");
         doc.circle(x, y, raio, "S");
 
-        if (i % 2 != 0) contCor = contCor + 1;
+        contCor = contCor + 1;
 
         if (contMoeda[0] < jogadores - 1) contMoeda[0] = contMoeda[0] + 1;
         else contMoeda = [0, contMoeda[1] + 1];
