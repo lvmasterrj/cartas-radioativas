@@ -170,10 +170,10 @@ function desenhaQuadroSelecao(doc) {
     for (let i = 0; i < jogadores * 2; i++) {
         let x = coordImpressao.corteCartas.x[2] + margem + raio + contMoeda[0] * (raio * 2 + margem);
         let y = coordImpressao.corteCartas.y[0] + 25 + contMoeda[1] * (raio * 2 + margem);
-
+        console.log(contCor);
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
-        doc.setDrawColor("5b5b58");
+        doc.setDrawColor("#5b5b58");
         doc.circle(x, y, raio, "S");
 
         contCor = contCor + 1;
