@@ -173,9 +173,8 @@ function desenhaQuadroSelecao(doc) {
 
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
-        doc.setLineWidth(1);
-        doc.setDrawColor("5b5b58");
-        doc.circle(x, y, raio, "S");
+        doc.setFillColor("ffffff");
+        doc.circle(x, y, raio - 2, "S");
 
         contCor = contCor + 1;
 
