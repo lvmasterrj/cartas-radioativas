@@ -171,7 +171,7 @@ function desenhaQuadroSelecao(doc) {
     for (let i = 0; i < jogadores; i++) {
         let x = coordImpressao.corteCartas.x[2] + margem[0] + raio + contMoeda[0] * (raio * 2 + espaco);
         let y = coordImpressao.corteCartas.y[0] + margem[1] + contMoeda[1] * (raio * 2 + espaco);
-
+        console.log(y);
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
         doc.setFillColor("ffffff");
@@ -191,7 +191,8 @@ function desenhaQuadroSelecao(doc) {
     doc.setTextColor("#4D4E53");
 
     doc.setFont("helvetica", "bold")
-    doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem[0] + 33, coordImpressao.corteCartas.y[0] + 8);
+    doc.setFontSize(14);
+    doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem[0] + 33, coordImpressao.corteCartas.y[0] + 7);
 }
 
 //Cria as moedas
