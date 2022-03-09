@@ -239,10 +239,7 @@ tr.marcado {
 }
 
 .personal {
-    border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 5px 10px;
-    height: 100%;
 }
 
 #label-cor-fundo {
