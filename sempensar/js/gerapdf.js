@@ -185,13 +185,13 @@ function desenhaQuadroSelecao(doc) {
     }
 
     // Coloca o logo
-    doc.addImage("imgs/logo.png", "PNG", coordImpressao.corteCartas.x[2] + margem, coordImpressao.corteCartas.y[0] + margem, 30, 8.1)
+    doc.addImage("imgs/logo.png", "PNG", coordImpressao.corteCartas.x[2] + margem[0], coordImpressao.corteCartas.y[0] + margem[0], 30, 8.1)
 
     // Cria os textos
     doc.setTextColor("#4D4E53");
 
     doc.setFont("helvetica", "bold")
-    doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem + 33, coordImpressao.corteCartas.y[0] + margem + 3);
+    doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem[0] + 33, coordImpressao.corteCartas.y[0] + margem[0] + 3);
 }
 
 //Cria as moedas
