@@ -163,13 +163,14 @@ function desenhaQuadroPontos(doc) {
 function desenhaQuadroSelecao(doc) {
     let raio = 7.7,
         margem = 6.3,
+        espaco = 5,
         contCor = 0,
         contMoeda = [0, 0],
         jogadores = 8;
 
     for (let i = 0; i < jogadores; i++) {
-        let x = coordImpressao.corteCartas.x[2] + margem + raio + contMoeda[0] * (raio * 2 + margem);
-        let y = coordImpressao.corteCartas.y[0] + 25 + contMoeda[1] * (raio * 2 + margem);
+        let x = coordImpressao.corteCartas.x[2] + margem + raio + contMoeda[0] * (raio * 2 + espaco);
+        let y = coordImpressao.corteCartas.y[0] + 25 + contMoeda[1] * (raio * 2 + espaco);
 
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
@@ -180,6 +181,15 @@ function desenhaQuadroSelecao(doc) {
 
         if (contMoeda[0] < jogadores / 2 - 1) contMoeda[0] = contMoeda[0] + 1;
         else contMoeda = [0, contMoeda[1] + 1];
+
+        // Coloca o logo
+        doc.addImage("imgs/logo.png", "PNG", coordImpressao.corteCartas.x[2] + margem, coordImpressao.corteCartas.y[0] + margem, 30, 8.1)
+
+        // Cria os textos
+        doc.setTextColor("#4D4E53");
+
+        doc.setFont("helvetica", "bold")
+        doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem + 33, coordImpressao.corteCartas.y[0] + margem);
     }
 }
 
