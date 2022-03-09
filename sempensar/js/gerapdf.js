@@ -162,15 +162,15 @@ function desenhaQuadroPontos(doc) {
 // Cria o quadro de seleção
 function desenhaQuadroSelecao(doc) {
     let raio = 7.7,
-        margem = 6.3,
+        margem = [6.3, 20],
         espaco = 5,
         contCor = 0,
         contMoeda = [0, 0],
         jogadores = 8;
 
     for (let i = 0; i < jogadores; i++) {
-        let x = coordImpressao.corteCartas.x[2] + margem + raio + contMoeda[0] * (raio * 2 + espaco);
-        let y = coordImpressao.corteCartas.y[0] + 25 + contMoeda[1] * (raio * 2 + espaco);
+        let x = coordImpressao.corteCartas.x[2] + margem[0] + raio + contMoeda[0] * (raio * 2 + espaco);
+        let y = coordImpressao.corteCartas.y[0] + margem[1] + contMoeda[1] * (raio * 2 + espaco);
 
         doc.setFillColor(coordImpressao.cores[contCor])
         doc.circle(x, y, raio, "F");
