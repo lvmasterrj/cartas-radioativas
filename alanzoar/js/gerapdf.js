@@ -31,9 +31,9 @@ var cartas = {
 
 const { jsPDF } = window.jspdf;
 
-$(document).ready(() => {
-    criaPdf();
-});
+// $(document).ready(() => {
+//     criaPdf();
+// });
 
 function desenhaLinhasDeCorteCartas(doc) {
     doc.setDrawColor(0);
