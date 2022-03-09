@@ -162,7 +162,7 @@ function desenhaQuadroPontos(doc) {
 // Cria o quadro de seleção
 function desenhaQuadroSelecao(doc) {
     let raio = 7.7,
-        margem = [6.3, 20],
+        margem = [6.3, 30],
         espaco = 5,
         contCor = 0,
         contMoeda = [0, 0],
