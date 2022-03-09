@@ -223,6 +223,19 @@ tr.marcado {
 
 #area-gerar-pdf {
     margin: 15px 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#area-gerar-pdf .tamanho {
+    border-right: 1px solid #ccc;
+}
+
+#area-gerar-pdf .gerarpdf {
+    display: flex;
+    align-content: center;
+    align-items: center;
 }
 
 .personal {

@@ -79,10 +79,9 @@
         </div>
 
         <div id="area-gerar-pdf" class="row">
-            <h1>Personalização</h1>
-            <div class="col-lg-6 col-xxl-3">
+            <div class="tamanho col-lg-3 col-xxl-3">
+                <h4>Tamanho das cartas</h4>
                 <div class="personal">
-                    <p>Tamanho das cartas</p>
                     <div class="col" id="tamanho-carta">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="tamanho-carta" id="tamanho-padrao" value="padrao" checked>
@@ -99,81 +98,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-xxl-3">
-                <div class="personal">
-                    <p>Verso das cartas</p>
-                    <div class="row">
-                        <div class="col">
-                            <label class="form-control-label" for="cor-fundo" id="label-cor-fundo">Cor</label>
-                            <input type="color" class="form-control form-control-color" id="cor-fundo" value="#000000" title="Escolha a cor">
-                        </div>
-                        <div class="col" id="tipo-fundo">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tipo-fundo" id="fundo-padrao" value="padrao" checked>
-                                <label class="form-check-label" for="fundo-padrao">Padrão</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tipo-fundo" id="fundo-economico" value="economico">
-                                <label class="form-check-label" for="fundo-economico">Econômico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xxl-3">
-                <div class="personal">
-                    <p>Texto do rodapé</p>
-                    <!-- <label for="texto-rodape" class="form-label">Texto do rodapé</label> -->
-                    <input class="form-control" id="texto-rodape" placeholder="Cartas Radioativas">
-                </div>
-            </div>
-            <div class="col-lg-6 col-xxl-3">
-                <div class="personal">
-                    Exemplo
-                    <div class="row">
-                        <div class="carta-exemplo preta col">
-                            <div class="flip">
-                                <div class="rodape-economico"></div>
 
-                                <div class="frente fundo-preta-exemplo">
-                                    <p>Essa carta exemplo é <br>__________________</p>
-                                    <div class="rodape-carta-exemplo fixed-bottom">
-                                        <img src="/imgs/icones/radioativo-branco.png" width="15" height="15" class="float-start">
-                                        <p class="texto-cartas">Cartas Radioativas</p>
-                                    </div>
-                                </div>
-
-                                <div class="verso fundo-preta-exemplo">
-                                    <div class="fundo-economico"></div>
-                                    <div class="fundo-carta-logo">
-                                        <img src="/imgs/icones/radioativo-branco.png" width="30" height="30" class="">
-                                        <p class="texto-cartas">Cartas<br />Radioativas</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="carta-exemplo branca col">
-                            <div class="flip">
-                                <div class="frente fundo-branca-exemplo">
-                                    <p>uma merda</p>
-                                    <div class="rodape-carta-exemplo fixed-bottom">
-                                        <img src="/imgs/icones/radioativo-preto.png" width="15" height="15" class="float-start">
-                                        <p class="texto-cartas">Cartas Radioativas</p>
-                                    </div>
-                                </div>
-                                <div class="verso fundo-branca-exemplo">
-                                    <div class="fundo-carta-logo">
-                                        <img src="/imgs/icones/radioativo-preto.png" width="30" height="30" class="">
-                                        <p class="texto-cartas">Cartas<br />Radioativas</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
+            <div class="gerarpdf col-lg-9 col-xxl-9">
                 <button id="btn-gerar-pdf" type="button" class="btn btn-secondary" onClick="gerarPDF()">Gerar PDF</button>
             </div>
         </div>
