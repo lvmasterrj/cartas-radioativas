@@ -191,7 +191,7 @@ function desenhaQuadroSelecao(doc) {
     doc.setTextColor("#4D4E53");
 
     doc.setFont("helvetica", "bold")
-    doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem + 33, coordImpressao.corteCartas.y[0] + margem);
+    doc.text(" - QUEM GANHOU?", coordImpressao.corteCartas.x[2] + margem + 33, coordImpressao.corteCartas.y[0] + margem + 3);
 }
 
 //Cria as moedas
