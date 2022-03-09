@@ -15,25 +15,24 @@ ol {
 #header .titulo,
 #header .instrucoes .wrap {
     position: relative;
-    height: 190px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #header .titulo .carta {
     background-color: black;
     color: #fff;
-    height: 200px;
-    width: 200px;
-    padding: 15px 20px;
+    height: 170px;
+    width: 370px;
+    padding: 20px;
     font-size: 1.4rem;
     line-height: 1.5rem;
     font-weight: 600;
     position: absolute;
-    bottom: -25px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    transform: rotate(-10deg);
+    bottom: -3px;
+    border-radius: 10px;
+    transform: rotate(-5deg);
     box-shadow: -7px 7px 2px #cccccc80;
     z-index: 1;
 }
@@ -49,17 +48,16 @@ ol {
 .instrucoes .carta {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    height: 200px;
+    height: 170px;
     width: 370px;
-    padding: 15px 20px;
+    padding: 20px;
     font-size: 1rem;
     line-height: 0.8rem;
     font-weight: 600;
     position: absolute;
     bottom: -25px;
     /* left: 35px; */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     transform: rotate(-5deg);
     box-shadow: -7px 7px 2px #cccccc80;
     z-index: 1;
@@ -70,6 +68,7 @@ ol {
     line-height: 0.7rem;
     display: flex;
     justify-content: center;
+    height: 190px;
 }
 
 #tabela {
