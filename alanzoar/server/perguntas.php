@@ -214,7 +214,9 @@
 
 	} catch (PDOException $e) {
 
-		echo 'Database error. ' . $e->getMessage();
+		echo json_encode($e->getMessage(), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+		//echo 'Database error. ' . $e->getMessage();
 
 	}
 
