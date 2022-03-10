@@ -31,7 +31,7 @@ $(document).ready(() => {
 // }
 
 function pegaCategoriasBD() {
-    $.get("server/perguntas.php", { acao: "categorias" })
+    $.get("server/perguntas.php", { acao: "categorisssas" })
         .done(function(data) {
             for (const key in data) {
                 console.log(data[key]);
