@@ -13,25 +13,19 @@
 
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-			if ($_GET["tabela"] === "todas"){
-				$sql = 'SELECT categoria, id, texto, tipo FROM cartas';
-			} elseif ($_GET["tabela"] === "triagem") {
-				$sql = 'SELECT tipo, id, texto FROM personalizadas';
-			} else {
-				throw new Exception("Qual a tabela?", 1);
-			}
+			$sql = 'SELECT * FROM categorias';
 		
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
 
-			$data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 		}
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-			// $_POST["tipo"] == 'POST' => Está inserindo cartas
+			// $_POST["tipo"] == 'POST' => Está inserindo categoria
 			if($_POST["tipo"] == 'POST' && isset($_POST["cartas"])){
 
 				$cartas = $_POST["cartas"];
@@ -64,40 +58,52 @@
 				}		
 
 				echo json_encode("Total = " . $total . " | " . "Inseridas = " . $inseridas . " | Repetidas = " . $repetidas, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-	
-			//$_POST["tipo"] == "DELETE" => Está deletando cartas
-			} elseif ($_POST["tipo"] == "DELETE" && isset($_POST["idCarta"])){
-							
-					$idCarta = $_POST["idCarta"];
-					$tabela = $_POST["tabela"];
-
-					if($tabela == "todas"){
-						$stmt = $pdo->prepare('DELETE FROM cartas WHERE id=?');
-					} else {
-						$stmt = $pdo->prepare('DELETE FROM personalizadas WHERE id=?');
-					}
-					
-					$data = $stmt->execute([$idCarta]);
-		
-					echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-
-			} elseif ($_POST["tipo"] == "PUT" && isset($_POST["idCarta"])){
-							
-				$idCarta = $_POST["idCarta"];
-				// $tabela = $_POST["tabela"];
-				$texto = $_POST["texto"];
-				$categoria = $_POST["categoria"];
-
-				$stmt = $pdo->prepare('UPDATE cartas SET texto=?, categoria=? WHERE id=?');
+			
+			}else if ($_POST["tipo"] == 'PUT' && $_POST["acao"] == "trocaIcone"){
 				
-				$data = $stmt->execute([$texto, $categoria, $idCarta]);
+				$catID = $_POST["catID"];
+				$icone = $_POST["icone"];
+
+				$stmt = $pdo->prepare('UPDATE categorias SET icone=? WHERE id=?');
+				
+				$data = $stmt->execute([$icone, $catID]);
 	
 				echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+			};
+		};
+		// 	//$_POST["tipo"] == "DELETE" => Está deletando cartas
+		// 	} elseif ($_POST["tipo"] == "DELETE" && isset($_POST["idCarta"])){
+							
+		// 			$idCarta = $_POST["idCarta"];
+		// 			$tabela = $_POST["tabela"];
 
-		} else {
-				echo 'Nenhum dado recebido pelo sistema';
-			}
-		}
+		// 			if($tabela == "todas"){
+		// 				$stmt = $pdo->prepare('DELETE FROM cartas WHERE id=?');
+		// 			} else {
+		// 				$stmt = $pdo->prepare('DELETE FROM personalizadas WHERE id=?');
+		// 			}
+					
+		// 			$data = $stmt->execute([$idCarta]);
+		
+		// 			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+		// 	} elseif ($_POST["tipo"] == "PUT" && isset($_POST["idCarta"])){
+							
+		// 		$idCarta = $_POST["idCarta"];
+		// 		// $tabela = $_POST["tabela"];
+		// 		$texto = $_POST["texto"];
+		// 		$categoria = $_POST["categoria"];
+
+		// 		$stmt = $pdo->prepare('UPDATE cartas SET texto=?, categoria=? WHERE id=?');
+				
+		// 		$data = $stmt->execute([$texto, $categoria, $idCarta]);
+	
+		// 		echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+
+		// } else {
+		// 		echo 'Nenhum dado recebido pelo sistema';
+		// 	}
+		// }
 
 		//echo json_encode("popoopo", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 
