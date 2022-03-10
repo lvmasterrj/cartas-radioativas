@@ -13,7 +13,7 @@
 $(document).ready(() => {
     $("#modal-aguarde").modal('show');
     pegaCategoriasBD();
-    pegaCartasBD();
+    //pegaCartasBD();
 });
 
 // // Função que pega as cartas na tabela
