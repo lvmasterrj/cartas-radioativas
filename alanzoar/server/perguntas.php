@@ -4,12 +4,12 @@
 
 	try {
 
-		require 'data.php';
+		// require 'data.php';
 
-		$pdo = new PDO('mysql:host=' . $database_host . '; dbname=' . $database_name . ';charset=utf8', $database_user, $database_password);
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-		$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-		$pdo->setAttribute(PDO::ATTR_PERSISTENT,true);
+		// $pdo = new PDO('mysql:host=' . $database_host . '; dbname=' . $database_name . ';charset=utf8', $database_user, $database_password);
+		// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+		// $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+		// $pdo->setAttribute(PDO::ATTR_PERSISTENT,true);
 
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
