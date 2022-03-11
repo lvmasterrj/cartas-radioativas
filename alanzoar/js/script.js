@@ -4,9 +4,7 @@ var impressao = {
     categorias: [],
     perguntas: {},
     imprimir: [],
-    blocos: [
-        []
-    ]
+    blocos: {}
 };
 //var dbPerguntas = {};
 

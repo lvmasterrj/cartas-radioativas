@@ -233,9 +233,10 @@ function criaPdf() {
 
     //CRIA os blocos de impressão
     let cont = 0,
-        bloco = 0;
+        bloco = 1;
     for (let i = 0; i < impressao.imprimir.length; i++) {
-        impressao.blocos[bloco].push(impressao.imprimir[i]);
+        impressao.blocos[bloco] = [].push(impressao.imprimir[i]);
+
         if (cont < 5) {
             cont = cont + 1;
         } else {
