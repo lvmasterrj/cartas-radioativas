@@ -18,9 +18,9 @@
 			if($_GET["acao"] === "perguntas"){
 
 				if ($_GET["tabela"] === "todas"){
-						$sql = 'SELECT categoria, id, texto, tipo FROM alanzoar';
+						$sql = 'SELECT categoria, id, texto FROM alanzoar';
 				} elseif ($_GET["tabela"] === "triagem") {
-					$sql = 'SELECT tipo, id, texto FROM ar_personalizadas';
+					$sql = 'SELECT id, texto FROM ar_personalizadas';
 				} else {
 					throw new Exception("Qual a tabela?", 1);
 				}
