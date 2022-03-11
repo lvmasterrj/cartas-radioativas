@@ -225,12 +225,35 @@ function criaPdf() {
 
     desenhaLinhasDeCorteCartas(doc);
 
-    //impressao.imprimir = 
     $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
         impressao.imprimir.push($(val).children("td.carta-texto").text())
     });
-    console.log(impressao.imprimir);
 
+    //CRIA os blocos de impressão
+    let cont = 0,
+        bloco = 0;
+    for (let i = 0; i < impressao.imprimir.length; i++) {
+        impressao.blocos[[bloco].push(impressao.imprimir[i])];
+        if (cont < 5) {
+            cont = cont + 1;
+        } else {
+            bloco = bloco + 1;
+            cont = 0;
+        }
+    }
+
+    console.log(impressao.blocos);
+
+    //Pega o número de páginas (Cabem 5 perguntas em cada carta e 9 cartas em cada página)
+    //  impressao.paginas = {
+    //      total: Math.ceil(impressao.imprimir.length / 5 / 9),
+    //      atual: 1
+    //  };
+
+
+    //Monta as frentes brancas
+    //  if (impressao.imprimir.length > 0)
+    //      $.each(impressao.brancas, (i, val) => montaFrentes("branca", val, doc));
 
     desenhaCartasRespostas(doc);
 
