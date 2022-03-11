@@ -31,11 +31,10 @@ $(document).ready(() => {
 function pegaCategoriasBD() {
     $.get("server/perguntas.php", { acao: "categorias" })
         .done(function(data) {
-            console.log(data)
-                // for (const key in data) {
-                //     console.log(data[key]);
-                //     impressao.categorias[data[key].nome] = data[key].icone
-                // }
+            for (const key in data) {
+                console.log(data[key]);
+                //impressao.categorias[data[key].nome] = data[key].icone
+            }
         })
         .fail(function(e) {
             console.log("ERRO ao pegar as categorias");
