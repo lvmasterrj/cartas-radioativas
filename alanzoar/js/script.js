@@ -19,7 +19,6 @@ function pegaCartasBD() {
     $.get("server/perguntas.php", { acao: "perguntas", tabela: "todas" })
         .done(function(data) {
             impressao.perguntas = data;
-            console.log(data);
             adicionaCategorias();
             $("#modal-aguarde").modal('hide');
         })
@@ -56,14 +55,14 @@ function normaliza(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-// // Listen pra quando marca os botões de categoria
-// $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
-//     if ($(e.currentTarget).is(":checked")) {
-//         montaTabela(e.currentTarget.value);
-//     } else {
-//         removeLinhaTabela(e.currentTarget.value);
-//     }
-// });
+// Listen pra quando marca os botões de categoria
+$("#botoes-categorias").on("change", ".btn-categoria", (e) => {
+    if ($(e.currentTarget).is(":checked")) {
+        montaTabela(e.currentTarget.value);
+    } else {
+        //removeLinhaTabela(e.currentTarget.value);
+    }
+});
 
 // // Função que remove a linha da tabela
 // function removeLinhaTabela(categoria) {
@@ -71,22 +70,16 @@ function normaliza(str) {
 //     atualizaQtd();
 // }
 
-// // Função que cria a tabela de cartas
-// function montaTabela(categoria) {
-//     let cartasBrancas = "",
-//         cartasPretas = "";
+// Função que cria a tabela de cartas
+function montaTabela(categoria) {
 
-//     $.each(dbCartas[categoria], function(key, val) {
-//         if (val.tipo == "b") {
-//             cartasBrancas = cartasBrancas + novaLinhaTabela(val, categoria);
-//         } else {
-//             cartasPretas = cartasPretas + novaLinhaTabela(val, categoria);
-//         }
-//     });
-//     $("#corpo-tabela-brancas").append(cartasBrancas);
-//     $("#corpo-tabela-pretas").append(cartasPretas);
-//     atualizaQtd();
-// }
+    $.each(impressao.perguntas, function(key, val) {
+        console.log(key + " - " + val);
+        //cartasPretas = cartasPretas + novaLinhaTabela(val, categoria);
+    });
+    //  $("#corpo-tabela-brancas").append(cartasBrancas);
+    //  atualizaQtd();
+}
 
 // // Função que formata uma nova linha da tabela
 // function novaLinhaTabela(dados, categoria, marcado) {
