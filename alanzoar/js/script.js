@@ -258,7 +258,7 @@ function adicionaBrancaPersonalizada() {
 function adicionaCartaNaTabela(textos) {
 	let items = "";
 	for (key in textos) {
-		info = { texto: textos[key], tipo: tipo };
+		info = { texto: textos[key] };
 		items = items + novaLinhaTabela(info, "Minha carta", 1);
 	}
 	
