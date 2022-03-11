@@ -47,7 +47,7 @@ function adicionaCategorias() {
     for (key in impressao.perguntas) {
         $("#botoes-categorias").append(
             `<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
-				<label class="btn btn-outline-secondary" for="btn-${normaliza(key)}">${key} <span class="badge bg-dark qtd ms-1">${dbCartas[key].length}</span></label>`
+				<label class="btn btn-outline-secondary" for="btn-${normaliza(key)}">${key} <span class="badge bg-dark qtd ms-1">${impressao.categorias[key].length}</span></label>`
         )
     }
 }
