@@ -61,15 +61,15 @@ $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
         console.log("Clicou")
         montaTabela(e.currentTarget.value);
     } else {
-        //removeLinhaTabela(e.currentTarget.value);
+        removeLinhaTabela(e.currentTarget.value);
     }
 });
 
-// // Função que remove a linha da tabela
-// function removeLinhaTabela(categoria) {
-//     $("tr[categoria|='" + categoria + "'").remove();
-//     atualizaQtd();
-// }
+// Função que remove a linha da tabela
+function removeLinhaTabela(categoria) {
+    $("tr[categoria|='" + categoria + "'").remove();
+    atualizaQtd();
+}
 
 // Função que cria a tabela de cartas
 function montaTabela(categoria) {
@@ -101,17 +101,17 @@ function novaLinhaTabela(dados, categoria, marcado) {
             `;
 }
 
-// // Listen para quando o usuário seleciona uma carta na tabela
-// $("tbody").on("click", "tr", function (e) {
-// 	let dados = $(e.currentTarget);
-// 	marca(dados);
-// });
+// Listen para quando o usuário seleciona uma carta na tabela
+$("tbody").on("click", "tr", function (e) {
+	let dados = $(e.currentTarget);
+	marca(dados);
+});
 
-// // Função que atualiza o estilo da linha da tabela quando (des)selecionada
-// function marca(e) {
-// 	e.toggleClass("marcado");
-// 	atualizaQtd();
-// }
+// Função que atualiza o estilo da linha da tabela quando (des)selecionada
+function marca(e) {
+	e.toggleClass("marcado");
+	atualizaQtd();
+}
 
 function atualizaQtd() {
 	$(".qtd-brancas > .qtd-selec").text(
