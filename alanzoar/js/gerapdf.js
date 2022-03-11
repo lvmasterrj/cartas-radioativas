@@ -51,21 +51,21 @@ function desenhaLinhasDeCorteCartas(doc) {
     }
 }
 
-function desenhaLinhasDeCorteQuadro(doc) {
-    doc.setDrawColor(0);
-    doc.setLineWidth(0.1);
+// function desenhaLinhasDeCorteQuadro(doc) {
+//     doc.setDrawColor(0);
+//     doc.setLineWidth(0.1);
 
-    for (key in coordImpressao.corteCartas.x) {
-        let x = coordImpressao.corteCartas.y;
-        doc.line(x[key], 0, x[key], 5);
-        doc.line(x[key], 292, x[key], 297);
-    }
-    for (key in coordImpressao.corteCartas.y) {
-        let y = coordImpressao.corteCartas.x;
-        doc.line(0, y[key], 5, y[key]);
-        doc.line(205, y[key], 210, y[key]);
-    }
-}
+//     for (key in coordImpressao.corteCartas.x) {
+//         let x = coordImpressao.corteCartas.y;
+//         doc.line(x[key], 0, x[key], 5);
+//         doc.line(x[key], 292, x[key], 297);
+//     }
+//     for (key in coordImpressao.corteCartas.y) {
+//         let y = coordImpressao.corteCartas.x;
+//         doc.line(0, y[key], 5, y[key]);
+//         doc.line(205, y[key], 210, y[key]);
+//     }
+// }
 
 function desenhaCartasRespostas(doc) {
     desenhaLinhasDeCorteCartas(doc);
@@ -223,12 +223,11 @@ function criaPdf() {
         orientation: "landscape"
     });
 
-    //montaLinhasDeCorte(doc);
+    desenhaLinhasDeCorteCartas(doc);
 
-    impressao.imprimir = $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
-        return {
-            texto: $(val).children("td.carta-texto").text(),
-        };
+    //impressao.imprimir = 
+    $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
+        impressao.imprimir.push($(val).children("td.carta-texto").text())
     });
     console.log(impressao.imprimir);
 
