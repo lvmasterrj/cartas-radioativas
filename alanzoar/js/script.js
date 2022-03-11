@@ -249,25 +249,23 @@ function adicionaBrancaPersonalizada() {
 			return texto.replace(!/[()\w+]/g, "");
 		});
 
-		adicionaCartaNaTabela(textosCorrigidos, "b");
+		adicionaCartaNaTabela(textosCorrigidos);
 		campo.val("");
 	}	
 }
 
-// // Função que adiciona as cartas personalizadas na tabela p/ impressão
-// function adicionaCartaNaTabela(textos, tipo) {
-// 	let items = "";
-// 	for (key in textos) {
-// 		info = { texto: textos[key], tipo: tipo };
-// 		items = items + novaLinhaTabela(info, "Minha carta", 1);
-// 	}
-// 	if (tipo == "b") {
-// 		$("#corpo-tabela-brancas").append(items);
-// 	} else {
-// 		$("#corpo-tabela-pretas").append(items);
-// 	}
-// 	atualizaQtd();
-// }
+// Função que adiciona as cartas personalizadas na tabela p/ impressão
+function adicionaCartaNaTabela(textos) {
+	let items = "";
+	for (key in textos) {
+		info = { texto: textos[key], tipo: tipo };
+		items = items + novaLinhaTabela(info, "Minha carta", 1);
+	}
+	
+	$("#corpo-tabela-brancas").append(items);
+	
+	atualizaQtd();
+}
 
 // //Listen para quando o usuário remove a linha/carta da tabela
 // $("tbody").on("click", ".btn-remover", function (e) {
