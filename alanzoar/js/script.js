@@ -32,9 +32,9 @@ function pegaCategoriasBD() {
     $.get("server/perguntas.php", { acao: "categorias" })
         .done(function(data) {
             for (const key in data) {
-                console.log(key);
-                //impressao.categorias[data[key].nome] = data[key].icone
+                impressao.categorias.push(key);
             }
+            console.log(impressao.categorias);
         })
         .fail(function(e) {
             console.log("ERRO ao pegar as categorias");
