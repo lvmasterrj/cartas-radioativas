@@ -229,6 +229,8 @@ function criaPdf() {
         impressao.imprimir.push($(val).children("td.carta-texto").text())
     });
 
+    console.log(impressao.imprimir);
+
     //CRIA os blocos de impressão
     let cont = 0,
         bloco = 0;
