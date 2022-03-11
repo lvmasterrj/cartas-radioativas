@@ -232,18 +232,18 @@ function criaPdf() {
     console.log(impressao.imprimir);
 
     //CRIA os blocos de impressão
-    let cont = 0,
-        bloco = 1;
-    for (let i = 0; i < impressao.imprimir.length; i++) {
-        impressao.blocos[bloco] = [].push(impressao.imprimir[i]);
+    //  let cont = 0,
+    //      bloco = 1;
+    //  for (let i = 0; i < impressao.imprimir.length; i++) {
+    //      impressao.blocos[bloco] = [].push(impressao.imprimir[i]);
 
-        if (cont < 5) {
-            cont = cont + 1;
-        } else {
-            bloco = bloco + 1;
-            cont = 0;
-        }
-    }
+    //      if (cont < 5) {
+    //          cont = cont + 1;
+    //      } else {
+    //          bloco = bloco + 1;
+    //          cont = 0;
+    //      }
+    //  }
 
     console.log(impressao.blocos);
 
