@@ -37,7 +37,7 @@
 			// $data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
 			
 			echo json_encode("OKOKOK", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+			//echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 		}
 
 
