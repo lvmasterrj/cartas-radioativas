@@ -223,7 +223,7 @@ function criaPdf() {
         orientation: "landscape"
     });
 
-    montaLinhasDeCorte(doc);
+    //montaLinhasDeCorte(doc);
 
     impressao.imprimir = $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
         return {
