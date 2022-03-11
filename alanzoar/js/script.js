@@ -333,15 +333,15 @@ function gerarPDF() {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				salvaCartasBD();
-				//montaPDF();
+				criaPdf();
 			} else if (result.isDenied) {
-				//montaPDF();
+				criaPdf();
 			} else if (result.isDismissed) {
 				return;
 			}
 		});
 	} else {
-		// montaPDF();
+		criaPdf();
 	}
 }
 
