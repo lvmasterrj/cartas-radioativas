@@ -223,6 +223,15 @@ function criaPdf() {
         orientation: "landscape"
     });
 
+    montaLinhasDeCorte(doc);
+
+    impressao.imprimir = $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
+        return {
+            texto: $(val).children("td.carta-texto").text(),
+        };
+    });
+    console.log(impressao.imprimir);
+
 
     desenhaCartasRespostas(doc);
 
