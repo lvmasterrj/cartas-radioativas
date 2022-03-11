@@ -52,9 +52,9 @@ function adicionaCategorias() {
     }
 }
 
-// function normaliza(str) {
-//     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-// }
+function normaliza(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
 
 // // Listen pra quando marca os botões de categoria
 // $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
