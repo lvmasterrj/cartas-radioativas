@@ -58,6 +58,7 @@ function normaliza(str) {
 // Listen pra quando marca os botões de categoria
 $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
     if ($(e.currentTarget).is(":checked")) {
+        console.log("Clicou")
         montaTabela(e.currentTarget.value);
     } else {
         //removeLinhaTabela(e.currentTarget.value);
@@ -72,8 +73,9 @@ $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
 
 // Função que cria a tabela de cartas
 function montaTabela(categoria) {
+    console.log(categoria);
 
-    $.each(impressao.perguntas, function(key, val) {
+    $.each(impressao.perguntas[categoria], function(key, val) {
         console.log(key + " - " + val);
         //cartasPretas = cartasPretas + novaLinhaTabela(val, categoria);
     });
