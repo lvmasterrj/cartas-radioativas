@@ -73,31 +73,33 @@ $("#botoes-categorias").on("change", ".btn-categoria", (e) => {
 
 // Função que cria a tabela de cartas
 function montaTabela(categoria) {
-    console.log(categoria);
+    //  console.log(impressao.perguntas);
+    let perguntas = ""
 
     $.each(impressao.perguntas[categoria], function(key, val) {
-        console.log(key + " - " + val);
+        //   console.log(key + " - " + val);
+        perguntas = perguntas + novaLinhaTabela(val, categoria);
         //cartasPretas = cartasPretas + novaLinhaTabela(val, categoria);
     });
-    //  $("#corpo-tabela-brancas").append(cartasBrancas);
-    //  atualizaQtd();
+    $("#corpo-tabela-brancas").append(perguntas);
+    atualizaQtd();
 }
 
-// // Função que formata uma nova linha da tabela
-// function novaLinhaTabela(dados, categoria, marcado) {
-//     return `<tr class="${marcado ? "marcado" : ""}" tipo="${dados.tipo}" texto="${
-// 		dados.texto
-// 	}" ${dados.id ? "id=" + dados.id : ""} categoria="${
-// 		categoria ? categoria : ""
-// 	}">
-//                 <td class="carta-texto">${dados.texto}</td>
-//                 <td class="carta-categoria">${categoria ? categoria : ""}</td>
-//                 <td class="btns">${
-// 									marcado ? `<span class="btn-remover">remover</span>` : ""
-// 								}</td>
-//             </tr>
-//             `;
-// }
+// Função que formata uma nova linha da tabela
+function novaLinhaTabela(dados, categoria, marcado) {
+    return `<tr class="${marcado ? "marcado" : ""}" texto="${
+		dados.texto
+	}" ${dados.id ? "id=" + dados.id : ""} categoria="${
+		categoria ? categoria : ""
+	}">
+                <td class="carta-texto">${dados.texto}</td>
+                <td class="carta-categoria">${categoria ? categoria : ""}</td>
+                <td class="btns">${
+									marcado ? `<span class="btn-remover">remover</span>` : ""
+								}</td>
+            </tr>
+            `;
+}
 
 // // Listen para quando o usuário seleciona uma carta na tabela
 // $("tbody").on("click", "tr", function (e) {
@@ -111,16 +113,12 @@ function montaTabela(categoria) {
 // 	atualizaQtd();
 // }
 
-// function atualizaQtd() {
-// 	$(".qtd-brancas > .qtd-selec").text(
-// 		$("#corpo-tabela-brancas > .marcado").length
-// 	);
-// 	$(".qtd-brancas > .qtd-total").text($("#corpo-tabela-brancas > tr").length);
-// 	$(".qtd-pretas > .qtd-selec").text(
-// 		$("#corpo-tabela-pretas > .marcado").length
-// 	);
-// 	$(".qtd-pretas > .qtd-total").text($("#corpo-tabela-pretas > tr").length);
-// }
+function atualizaQtd() {
+	$(".qtd-brancas > .qtd-selec").text(
+		$("#corpo-tabela-brancas > .marcado").length
+	);
+	$(".qtd-brancas > .qtd-total").text($("#corpo-tabela-brancas > tr").length);
+}
 
 // // Função que formata o texto inserido das cartas pretas e adiciona à tabela p/ impressão
 // function adicionaPretaPersonalizada() {
