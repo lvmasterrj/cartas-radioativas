@@ -309,41 +309,41 @@ function desselecionaTodas() {
 // 		});
 // }
 
-// // Função para gerar o PDF
-// function gerarPDF() {
-// 	if ($("tr.marcado").length == 0) {
-// 		Swal.fire({
-// 			icon: "error",
-// 			title: "Ops...",
-// 			text: "Você se esqueceu de selecionar as cartas para impressão!",
-// 		});
-// 		return;
-// 	}
+// Função para gerar o PDF
+function gerarPDF() {
+	if ($("tr.marcado").length == 0) {
+		Swal.fire({
+			icon: "error",
+			title: "Ops...",
+			text: "Você se esqueceu de selecionar as cartas para impressão!",
+		});
+		return;
+	}
 
-// 	if ($("tr[categoria='Minha carta']").length > 0) {
-// 		Swal.fire({
-// 			title: "Podemos salvar suas cartas?",
-// 			html: 'Tudo que é ruim deve ser compartilhado.<br>Podemos salvar as suas cartas para a galera desfrutar/sofrer também?!<br><span class="fs-6 text-black-50"><em>As cartas serão avaliadas e caso aprovadas aparecerão na categoria de cartas "personalizadas"</em></span>',
-// 			icon: "question",
-// 			showDenyButton: true,
-// 			showCancelButton: true,
-// 			confirmButtonText: `<i class="fa fa-thumbs-up"></i> Claro, pode salvar`,
-// 			denyButtonText: `<i class="fa fa-thumbs-down"></i> Não, só gere meu PDF`,
-// 			cancelButtonText: `Espera, ainda não estou pronto`,
-// 		}).then((result) => {
-// 			if (result.isConfirmed) {
-// 				salvaCartasBD();
-// 				montaPDF();
-// 			} else if (result.isDenied) {
-// 				montaPDF();
-// 			} else if (result.isDismissed) {
-// 				return;
-// 			}
-// 		});
-// 	} else {
-// 		montaPDF();
-// 	}
-// }
+	if ($("tr[categoria='Minha carta']").length > 0) {
+		Swal.fire({
+			title: "Podemos salvar suas cartas?",
+			html: 'Tudo que é ruim deve ser compartilhado.<br>Podemos salvar as suas cartas para a galera desfrutar/sofrer também?!<br><span class="fs-6 text-black-50"><em>As cartas serão avaliadas e caso aprovadas aparecerão na categoria de cartas "personalizadas"</em></span>',
+			icon: "question",
+			showDenyButton: true,
+			showCancelButton: true,
+			confirmButtonText: `<i class="fa fa-thumbs-up"></i> Claro, pode salvar`,
+			denyButtonText: `<i class="fa fa-thumbs-down"></i> Não, só gere meu PDF`,
+			cancelButtonText: `Espera, ainda não estou pronto`,
+		}).then((result) => {
+			// if (result.isConfirmed) {
+			// 	salvaCartasBD();
+			// 	montaPDF();
+			// } else if (result.isDenied) {
+			// 	montaPDF();
+			// } else if (result.isDismissed) {
+			// 	return;
+			// }
+		});
+	} else {
+		// montaPDF();
+	}
+}
 
 // // Listen para o envio de mensagem
 // $("#mensagem").on("submit", function (e) {
