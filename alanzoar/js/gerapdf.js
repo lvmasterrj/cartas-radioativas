@@ -231,6 +231,11 @@ function criaPdf() {
 
     console.log(impressao.imprimir);
 
+    impressao.blocos[[0].push("TESTE1")];
+    impressao.blocos[[0].push("TESTE2")];
+    impressao.blocos[[1].push("TESTE3")];
+    console.log(impressao.blocos);
+
     //CRIA os blocos de impressão
     let cont = 0,
         bloco = 0;
