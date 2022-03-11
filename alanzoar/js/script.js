@@ -120,7 +120,7 @@ function atualizaQtd() {
 	$(".qtd-brancas > .qtd-total").text($("#corpo-tabela-brancas > tr").length);
 }
 
-// // Função que formata o texto inserido das cartas pretas e adiciona à tabela p/ impressão
+// Função que formata o texto inserido das cartas pretas e adiciona à tabela p/ impressão
 // function adicionaPretaPersonalizada() {
 // 	if (!$("#texto-personalizacao-pretas").val()){
 // 		Swal.fire({ 
@@ -233,26 +233,26 @@ function atualizaQtd() {
 // 	atualizaPreview()
 // }
 
-// // Função que formata o texto inserido das cartas brancas e adiciona à tabela p/ impressão
-// function adicionaBrancaPersonalizada() {
-// 	if (!$("#texto-personalizacao-brancas").val()){
-// 		Swal.fire({ 
-// 			icon: 'error',
-// 			title: 'Cabeção!',
-// 			text: 'Você não inseriu nenhuma carta branca!'
-// 		});
-// 	} else {
-// 		let campo = $("#texto-personalizacao-brancas");
-// 		let textos = campo.val().split("\n");
+// Função que formata o texto inserido das cartas brancas e adiciona à tabela p/ impressão
+function adicionaBrancaPersonalizada() {
+	if (!$("#texto-personalizacao-brancas").val()){
+		Swal.fire({ 
+			icon: 'error',
+			title: 'Cabeção!',
+			text: 'Você não inseriu nenhuma carta branca!'
+		});
+	} else {
+		let campo = $("#texto-personalizacao-brancas");
+		let textos = campo.val().split("\n");
 
-// 		textosCorrigidos = textos.map((texto) => {
-// 			return texto.replace(!/[()\w+]/g, "");
-// 		});
+		textosCorrigidos = textos.map((texto) => {
+			return texto.replace(!/[()\w+]/g, "");
+		});
 
-// 		adicionaCartaNaTabela(textosCorrigidos, "b");
-// 		campo.val("");
-// 	}	
-// }
+		adicionaCartaNaTabela(textosCorrigidos, "b");
+		campo.val("");
+	}	
+}
 
 // // Função que adiciona as cartas personalizadas na tabela p/ impressão
 // function adicionaCartaNaTabela(textos, tipo) {
