@@ -1,12 +1,10 @@
-// var impressao = {
-//     cont: 1,
-//     cor: null,
-//     verso: "padrao",
-//     tamanho: "padrao",
-//     textoPers: "Cartas Radioativas",
-//     categorias: {}
-// };
-// var dbCartas = {};
+var impressao = {
+    cont: 1,
+    tamanho: "padrao",
+    categorias: {},
+    perguntas: {}
+};
+//var dbPerguntas = {};
 
 // const { jsPDF } = window.jspdf;
 
@@ -33,10 +31,11 @@ $(document).ready(() => {
 function pegaCategoriasBD() {
     $.get("server/perguntas.php", { acao: "categorias" })
         .done(function(data) {
-            for (const key in data) {
-                console.log(data[key]);
-                impressao.categorias[data[key].nome] = data[key].icone
-            }
+            console.log(data)
+                // for (const key in data) {
+                //     console.log(data[key]);
+                //     impressao.categorias[data[key].nome] = data[key].icone
+                // }
         })
         .fail(function(e) {
             console.log("ERRO ao pegar as categorias");
