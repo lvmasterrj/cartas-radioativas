@@ -29,7 +29,7 @@ var cartas = {
 
 }
 
-// const { jsPDF } = window.jspdf;
+const { jsPDF } = window.jspdf;
 
 // $(document).ready(() => {
 //     criaPdf();
