@@ -23,17 +23,18 @@
 					throw new Exception("Qual a tabela?", 1);
 				}
 			} elseif ($_GET["acao"] === "categorias"){
-				$sql = 'SELECT DISTINCT categoria FROM alanzoar';
+				echo json_encode("OKOKOK", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+				//$sql = 'SELECT DISTINCT categoria FROM alanzoar';
 			}else {
 				throw new Exception("Qual a ação?", 1);
 			}
 
-			$stmt = $pdo->prepare($sql);
-			$stmt->execute();
+			// $stmt = $pdo->prepare($sql);
+			// $stmt->execute();
 
-			$data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
+			// $data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
 
-			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+			// echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 		}
 
 
