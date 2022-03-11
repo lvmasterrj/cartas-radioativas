@@ -45,25 +45,18 @@
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			if($_POST["tipo"] == 'POST' && isset($_POST["perguntas"])){
-
 				$perguntas = $_POST["perguntas"];
 
 				//$_POST["aprovadas"] == 1 => Está aprovando cartas
-
 				if ($_POST["aprovadas"] == 1){
 
 					$stmt = $pdo->prepare('INSERT INTO cartas (texto, tipo, categoria) VALUES (?,?,?)');
-
 					$carta = $cartas[0];
-
 					$stmt->execute([$carta["texto"], $carta["tipo"], $carta["categoria"]]);
 
-				// else => Está inserindo cartas personalizadas
-
+					// else => Está inserindo cartas personalizadas
 				} else {
-
 					$stmt = $pdo->prepare('INSERT INTO ar_personalizadas (texto) VALUES (?)');
-
 					$repetidas = 0;
 					$inseridas = 0;
 
@@ -75,32 +68,18 @@
 							$inseridas = $inseridas + 1;
 
 						} catch (PDOException $e) {
-
 							$errorCode = $stmt->errorInfo()[1];
-
 							if ($errorCode == 1062) {
-
 								$repetidas = $repetidas + 1;
-
 							} else {
-
 								throw $e;
-
 							}
-
 						}
-
 					}
-
 				}		
-
-
-
 				echo json_encode("Total = " . $total . " | " . "Inseridas = " . $inseridas . " | Repetidas = " . $repetidas, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-
 	
-
-		// 	//$_POST["tipo"] == "DELETE" => Está deletando cartas
+				// 	//$_POST["tipo"] == "DELETE" => Está deletando cartas
 
 		// 	} elseif ($_POST["tipo"] == "DELETE" && isset($_POST["idCarta"])){
 
@@ -158,13 +137,11 @@
 
 
 
-		// } else {
+			} else {
+				echo json_encode("Nenhum dado recebido pelo sistema", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+			}
 
-		// 		echo 'Nenhum dado recebido pelo sistema';
-
-		// 	}
-
-		// }
+		}
 
 
 
