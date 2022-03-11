@@ -3,7 +3,8 @@ var impressao = {
     tamanho: "padrao",
     categorias: [],
     perguntas: {},
-    imprimir: []
+    imprimir: [],
+    blocos: []
 };
 //var dbPerguntas = {};
 
