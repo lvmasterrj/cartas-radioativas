@@ -130,18 +130,6 @@ td.btns {
     font-weight: 600;
 }
 
-th.col-texto {
-    width: 60%;
-}
-
-th.col-categoria {
-    width: 25%;
-}
-
-th.col-btn {
-    width: 15%;
-}
-
 .novas-cartas {
     padding: 10px;
     position: relative;
