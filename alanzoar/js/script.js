@@ -11,22 +11,23 @@ var impressao = {
 $(document).ready(() => {
     $("#modal-aguarde").modal('show');
     pegaCategoriasBD();
-    //pegaCartasBD();
+    pegaCartasBD();
 });
 
-// // Função que pega as cartas na tabela
-// function pegaCartasBD() {
-//     $.get("server/cartas.php", { tabela: "todas" })
-//         .done(function(data) {
-//             dbCartas = data;
-//             adicionaCategorias();
-//             $("#modal-aguarde").modal('hide');
-//         })
-//         .fail(function(e) {
-//             console.log("ERRO");
-//             console.log(e);
-//         });
-// }
+// Função que pega as cartas na tabela
+function pegaCartasBD() {
+    $.get("server/perguntas.php", { acao: "perguntas", tabela: "todas" })
+        .done(function(data) {
+            impressao.perguntas = data;
+            console.log(data);
+            // adicionaCategorias();
+            $("#modal-aguarde").modal('hide');
+        })
+        .fail(function(e) {
+            console.log("ERRO");
+            console.log(e);
+        });
+}
 
 function pegaCategoriasBD() {
     $.get("server/perguntas.php", { acao: "categorias" })
@@ -34,7 +35,6 @@ function pegaCategoriasBD() {
             for (const key in data) {
                 impressao.categorias.push(key);
             }
-            console.log(impressao.categorias);
         })
         .fail(function(e) {
             console.log("ERRO ao pegar as categorias");
