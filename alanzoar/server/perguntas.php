@@ -4,7 +4,7 @@
 
 	try {
 
-		require 'data.php';
+		//require 'data.php';
 
 		// $pdo = new PDO('mysql:host=' . $database_host . '; dbname=' . $database_name . ';charset=utf8', $database_user, $database_password);
 		// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
