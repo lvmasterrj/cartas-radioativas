@@ -11,33 +11,33 @@
 		$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 		$pdo->setAttribute(PDO::ATTR_PERSISTENT,true);
 
-		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+		echo json_encode("OKOKOK", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 
-			echo json_encode("OKOKOK", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+		// if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-			// if($_GET["acao"] === "perguntas"){
+		// 	if($_GET["acao"] === "perguntas"){
 
-			// 	if ($_GET["tabela"] === "todas"){
-			// 			$sql = 'SELECT categoria, id, texto, tipo FROM alanzoar';
-			// 	} elseif ($_GET["tabela"] === "triagem") {
-			// 		$sql = 'SELECT tipo, id, texto FROM ar_personalizadas';
-			// 	} else {
-			// 		throw new Exception("Qual a tabela?", 1);
-			// 	}
-			// } elseif ($_GET["acao"] === "categorias"){
-			// 	echo json_encode("OKOKOK", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-			// 	//$sql = 'SELECT DISTINCT categoria FROM alanzoar';
-			// }else {
-			// 	throw new Exception("Qual a ação?", 1);
-			// }
+		// 		if ($_GET["tabela"] === "todas"){
+		// 				$sql = 'SELECT categoria, id, texto, tipo FROM alanzoar';
+		// 		} elseif ($_GET["tabela"] === "triagem") {
+		// 			$sql = 'SELECT tipo, id, texto FROM ar_personalizadas';
+		// 		} else {
+		// 			throw new Exception("Qual a tabela?", 1);
+		// 		}
+		// 	} elseif ($_GET["acao"] === "categorias"){
+		// 		echo json_encode("OKOKOK", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+		// 		//$sql = 'SELECT DISTINCT categoria FROM alanzoar';
+		// 	}else {
+		// 		throw new Exception("Qual a ação?", 1);
+		// 	}
 
-			// $stmt = $pdo->prepare($sql);
-			// $stmt->execute();
+		// 	// $stmt = $pdo->prepare($sql);
+		// 	// $stmt->execute();
 
-			// $data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
+		// 	// $data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
 
-			// echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-		}
+		// 	// echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+		// }
 
 
 
@@ -187,9 +187,7 @@
 
 	} catch (PDOException $e) {
 
-		echo json_encode("ERRO", JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
-
-		//echo json_encode($e->getMessage(), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+		echo json_encode($e->getMessage(), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 		//echo 'Database error. ' . $e->getMessage();
 	}
 
