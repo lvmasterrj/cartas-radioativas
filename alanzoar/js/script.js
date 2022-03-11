@@ -292,22 +292,22 @@ function desselecionaTodas() {
 }
 
 
-// // Função que salva as cartas do usuário
-// function salvaCartasBD() {
-// 	let cartas = [];
+// Função que salva as cartas do usuário
+function salvaCartasBD() {
+	let perguntas = [];
 
-// 	$.each($("tr[categoria='Minha carta']"), (i, v) => {
-// 		cartas.push({ texto: $(v).attr("texto"), tipo: $(v).attr("tipo") });
-// 	});
+	$.each($("tr[categoria='Minha carta']"), (i, v) => {
+		perguntas.push($(v).attr("texto"));
+	});
 
-// 	$.post("server/cartas.php", { tipo: "POST", cartas: cartas })
-// 		.done(function (data) {
-// 			console.log(data);
-// 		})
-// 		.fail(function (e) {
-// 			console.log(e);
-// 		});
-// }
+	$.post("server/perguntas.php", { tipo: "POST", perguntas: perguntas })
+		.done(function (data) {
+			console.log(data);
+		})
+		.fail(function (e) {
+			console.log(e);
+		});
+}
 
 // Função para gerar o PDF
 function gerarPDF() {
@@ -331,14 +331,14 @@ function gerarPDF() {
 			denyButtonText: `<i class="fa fa-thumbs-down"></i> Não, só gere meu PDF`,
 			cancelButtonText: `Espera, ainda não estou pronto`,
 		}).then((result) => {
-			// if (result.isConfirmed) {
-			// 	salvaCartasBD();
-			// 	montaPDF();
-			// } else if (result.isDenied) {
-			// 	montaPDF();
-			// } else if (result.isDismissed) {
-			// 	return;
-			// }
+			if (result.isConfirmed) {
+				salvaCartasBD();
+				//montaPDF();
+			} else if (result.isDenied) {
+				//montaPDF();
+			} else if (result.isDismissed) {
+				return;
+			}
 		});
 	} else {
 		// montaPDF();

@@ -42,75 +42,61 @@
 
 
 
-		// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+			if($_POST["tipo"] == 'POST' && isset($_POST["perguntas"])){
+
+				$perguntas = $_POST["perguntas"];
+
+				//$_POST["aprovadas"] == 1 => Está aprovando cartas
+
+				if ($_POST["aprovadas"] == 1){
+
+					$stmt = $pdo->prepare('INSERT INTO cartas (texto, tipo, categoria) VALUES (?,?,?)');
+
+					$carta = $cartas[0];
+
+					$stmt->execute([$carta["texto"], $carta["tipo"], $carta["categoria"]]);
+
+				// else => Está inserindo cartas personalizadas
+
+				} else {
+
+					$stmt = $pdo->prepare('INSERT INTO ar_personalizadas (texto) VALUES (?)');
+
+					$repetidas = 0;
+					$inseridas = 0;
+
+					foreach($perguntas as $pergunta){
+
+						$total = $total + 1;
+						try {
+							$stmt->execute([$pergunta]);
+							$inseridas = $inseridas + 1;
+
+						} catch (PDOException $e) {
+
+							$errorCode = $stmt->errorInfo()[1];
+
+							if ($errorCode == 1062) {
+
+								$repetidas = $repetidas + 1;
+
+							} else {
+
+								throw $e;
+
+							}
+
+						}
+
+					}
+
+				}		
 
 
 
-		// 	// $_POST["tipo"] == 'POST' => Está inserindo perguntas
-
-		// 	if($_POST["tipo"] == 'POST' && isset($_POST["perguntas"])){
-
-
-
-		// 		$cartas = $_POST["perguntas"];
-
-
-
-		// 		//$_POST["aprovadas"] == 1 => Está aprovando cartas
-
-		// 		if ($_POST["aprovadas"] == 1){
-
-		// 			$stmt = $pdo->prepare('INSERT INTO cartas (texto, tipo, categoria) VALUES (?,?,?)');
-
-		// 			$carta = $cartas[0];
-
-		// 			$stmt->execute([$carta["texto"], $carta["tipo"], $carta["categoria"]]);
-
-		// 		// else => Está inserindo cartas personalizadas
-
-		// 		} else {
-
-		// 			$stmt = $pdo->prepare('INSERT INTO personalizadas (texto, tipo) VALUES (?,?)');
-
-		// 			$repetidas = 0;
-
-		// 			$inseridas = 0;
-
-					
-
-		// 			foreach($cartas as $carta){
-
-		// 				$total = $total + 1;
-
-		// 				try {
-
-		// 					$stmt->execute([$carta["texto"], $carta["tipo"]]);
-
-		// 					$inseridas = $inseridas + 1;
-
-		// 				} catch (PDOException $e) {
-
-		// 					$errorCode = $stmt->errorInfo()[1];
-
-		// 					if ($errorCode == 1062) {
-
-		// 						$repetidas = $repetidas + 1;
-
-		// 					} else {
-
-		// 						throw $e;
-
-		// 					}
-
-		// 				}
-
-		// 			}
-
-		// 		}		
-
-
-
-		// 		echo json_encode("Total = " . $total . " | " . "Inseridas = " . $inseridas . " | Repetidas = " . $repetidas, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+				echo json_encode("Total = " . $total . " | " . "Inseridas = " . $inseridas . " | Repetidas = " . $repetidas, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 
 	
 
