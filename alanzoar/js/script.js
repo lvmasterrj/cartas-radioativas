@@ -267,66 +267,30 @@ function adicionaCartaNaTabela(textos) {
 	atualizaQtd();
 }
 
-// //Listen para quando o usuário remove a linha/carta da tabela
-// $("tbody").on("click", ".btn-remover", function (e) {
-// 	$(e.currentTarget).parents("tr").remove();
-// });
+//Listen para quando o usuário remove a linha/carta da tabela
+$("tbody").on("click", ".btn-remover", function (e) {
+	$(e.currentTarget).parents("tr").remove();
+});
 
-// // Função de selecionar todas as cartas na tabela
-// function selecionaTodas(tipo) {
-// 	$.each(
-// 		$("#corpo-tabela-" + tipo)
-// 			.children("tr")
-// 			.not(".marcado"),
-// 		(i, v) => {
-// 			marca($(v));
-// 		}
-// 	);
-// }
+// Função de selecionar todas as cartas na tabela
+function selecionaTodas() {
+	$.each(
+		$("#corpo-tabela-brancas")
+			.children("tr")
+			.not(".marcado"),
+		(i, v) => {
+			marca($(v));
+		}
+	);
+}
 
-// // Função de desselecionar todas as cartas na tabela
-// function desselecionaTodas(tipo) {
-// 	$.each($("#corpo-tabela-" + tipo).children("tr.marcado"), (i, v) => {
-// 		marca($(v));
-// 	});
-// }
+// Função de desselecionar todas as cartas na tabela
+function desselecionaTodas() {
+	$.each($("#corpo-tabela-brancas").children("tr.marcado"), (i, v) => {
+		marca($(v));
+	});
+}
 
-// // Listen para o botão de troca da cor de fundo
-// $("#cor-fundo").change((e) => {
-// 	impressao.cor = $(e.currentTarget).val();
-// 	trocaCorPreta();
-// });
-
-// //Listen para os radios de cor das cartas
-// $("#tipo-fundo .form-check-input").on("change", () => {
-// 	impressao.verso = $("input[name=tipo-fundo]:checked").val();
-// 	$(".carta-exemplo.preta").toggleClass("economico");
-// 	trocaCorPreta();
-// });
-
-// //Listen para os radios de cor das cartas
-// $("#tamanho-carta .form-check-input").on("change", () => {
-// 	impressao.tamanho = $("input[name=tamanho-carta]:checked").val();
-// 	// $(".carta-exemplo.preta").toggleClass("economico");
-// 	// trocaCorPreta();
-// });
-
-// // Função que troca as cores da carta de exemplo
-// function trocaCorPreta() {
-// 	if (impressao.verso == "padrao") {
-// 		$(".fundo-preta-exemplo").css("background-color", impressao.cor || "#000");
-// 	} else {
-// 		$(".fundo-preta-exemplo").css("background-color", "#fff");
-// 		$(".rodape-economico").css("background-color", impressao.cor || "#000");
-// 		$(".fundo-economico").css("background-color", impressao.cor || "#000");
-// 	}
-// }
-
-// //Listen para o texto personalizado
-// $("#texto-rodape").on("input", (e) => {
-// 	impressao.textoPers = $(e.currentTarget).val() || "Cartas Radioativas";
-// 	$(".texto-cartas").text(impressao.textoPers);
-// });
 
 // // Função que salva as cartas do usuário
 // function salvaCartasBD() {
