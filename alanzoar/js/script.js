@@ -1,7 +1,7 @@
 var impressao = {
     cont: 1,
     tamanho: "padrao",
-    categorias: {},
+    categorias: [],
     perguntas: {}
 };
 //var dbPerguntas = {};
