@@ -4,7 +4,8 @@ var coordImpressao = {
         y: [10, 73.5, 137, 200.5],
     },
     cores: ["#2F3787", "#009DE0", "#289548", "#FFED00", "#CD5B1B", "#C20B19", "#C4007A", "#723888"],
-    qtdCartas: 8,
+    //  qtdCartas: 8,
+    qtdJogadores: 8,
     tamanhoCarta: [63.5, 88],
     margemCarta: 5,
     tamanhoLogoVerso: [18, 18],
@@ -73,7 +74,7 @@ function desenhaCartasRespostas(doc) {
     let carta = [0, 0],
         tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]];
 
-    for (let i = 0; i < coordImpressao.qtdCartas; i++) {
+    for (let i = 0; i < coordImpressao.qtdJogadores; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
 
@@ -226,10 +227,21 @@ function montaFrenteCardsPerguntas(doc) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
 
+        //Monta a borda da carta
         doc.setFillColor("#323639");
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + 2, y + 2, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
+
+        // Monta os números
+        for (let i = 0; i < 5; i++) {
+            doc.setFillColor("#323639");
+
+            //*********CALCULAR OS BULLETS DAS PERGUNTAS
+            // doc.triangle(x + 4, y + 4 + (i * ))
+            // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+
+        }
 
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
@@ -268,6 +280,12 @@ function criaPdf() {
     //      total: Math.ceil(impressao.imprimir.length / 5 / 9),
     //      atual: 1
     //  };
+
+    //Pega o número de cartas (5 perguntas em cada carta)
+    impressao.qtdCartas = {
+        total: Math.ceil(impressao.imprimir.length / 5),
+        atual: 1
+    };
 
     desenhaLinhasDeCorteCartas(doc);
 
