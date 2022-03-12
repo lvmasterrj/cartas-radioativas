@@ -226,20 +226,26 @@ function montaFrenteCardsPerguntas(doc) {
     for (let i = 0; i < coordImpressao.qtdCartas; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
+        let margem = 2;
 
         //Monta a borda da carta
         doc.setFillColor("#323639");
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
         doc.setFillColor("#ffffff");
-        doc.roundedRect(x + 2, y + 2, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
+        doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
         // Monta os números
         for (let i = 0; i < 5; i++) {
             doc.setFillColor("#323639");
 
             //*********CALCULAR OS BULLETS DAS PERGUNTAS
-            // doc.triangle(x + 4, y + 4 + (i * ))
-            // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+            doc.triangle(
+                    x + margem + 2, y + margem + 3.95 + (i * 11.9),
+                    x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
+                    x + margem + 6, y + margem + 3.95 + (i * 1.9) + 2,
+                    "F"
+                )
+                // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
 
         }
 
