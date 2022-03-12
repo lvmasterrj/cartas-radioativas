@@ -235,19 +235,19 @@ function montaFrenteCardsPerguntas(doc) {
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
         // Monta os números
-        for (let i = 0; i < 5; i++) {
-            doc.setFillColor("#323639");
+        //   for (let i = 0; i < 5; i++) {
+        //       doc.setFillColor("#323639");
 
-            //*********CALCULAR OS BULLETS DAS PERGUNTAS
-            doc.triangle(
-                    x + margem + 2, y + margem + 3.95 + (i * 11.9),
-                    x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
-                    x + margem + 6, y + margem + 3.95 + (i * 1.9) + 2,
-                    "F"
-                )
-                // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+        //       //*********CALCULAR OS BULLETS DAS PERGUNTAS
+        //       doc.triangle(
+        //               x + margem + 2, y + margem + 3.95 + (i * 11.9),
+        //               x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
+        //               x + margem + 6, y + margem + 3.95 + (i * 1.9) + 2,
+        //               "F"
+        //           )
+        //           // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
 
-        }
+        //   }
 
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
