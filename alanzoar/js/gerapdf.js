@@ -287,6 +287,7 @@ function criaPdf() {
     //  };
 
     //Pega o número de cartas (5 perguntas em cada carta)
+    console.log(impressao.imprimir.length);
     impressao.qtdCartas = {
         total: Math.ceil(impressao.imprimir.length / 5),
         atual: 1
