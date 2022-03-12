@@ -221,19 +221,21 @@ function desenhaAsMoedas(doc) {
 
 function montaFrenteCardsPerguntas(doc) {
     let carta = [0, 0],
-        tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]];
+        tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]],
+        pergunta = 0;
 
     for (let i = 0; i < coordImpressao.qtdCartas.total; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
         let margem = 2;
+
         //Monta a borda da carta
         doc.setFillColor("#323639");
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
-        //   doc.setFillColor("#ffffff");
-        //   doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
+        doc.setFillColor("#ffffff");
+        doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
-        // Monta os números
+        //   Monta os textos
         //   for (let i = 0; i < 5; i++) {
         //       doc.setFillColor("#323639");
 
