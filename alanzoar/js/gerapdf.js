@@ -223,8 +223,7 @@ function montaFrenteCardsPerguntas(doc) {
     let carta = [0, 0],
         tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]];
 
-    console.log(coordImpressao.qtdCartas);
-    for (let i = 0; i < coordImpressao.qtdCartas; i++) {
+    for (let i = 0; i < coordImpressao.qtdCartas.total; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
         let margem = 2;
