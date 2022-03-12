@@ -294,7 +294,7 @@ function criaPdf() {
         atual: 1
     };
 
-    console.log("Impressao.qtdCartas = " + Impressao.qtdCartas);
+    console.log("Impressao.qtdCartas = " + impressao.qtdCartas);
 
     desenhaLinhasDeCorteCartas(doc);
 
