@@ -218,18 +218,34 @@ function desenhaAsMoedas(doc) {
     }
 }
 
+function montaFrenteCardsPerguntas(doc) {
+    let carta = [0, 0],
+        tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]];
+
+    for (let i = 0; i < coordImpressao.qtdCartas; i++) {
+        let x = coordImpressao.corteCartas.x[carta[0]];
+        let y = coordImpressao.corteCartas.y[carta[1]];
+
+        doc.setFillColor("#323639");
+        doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+        doc.setFillColor("#ffffff");
+        doc.roundedRect(x + 2, y + 2, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
+
+        if (carta[0] < 2) carta[0] = carta[0] + 1;
+        else carta = [0, carta[1] + 1];
+    }
+}
+
 function criaPdf() {
     const doc = new jsPDF({
         orientation: "landscape"
     });
 
-    desenhaLinhasDeCorteCartas(doc);
 
+    //Pega as cartas selecionadas para impressao
     $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
         impressao.imprimir.push($(val).children("td.carta-texto").text())
     });
-
-    console.log(impressao.imprimir);
 
     //CRIA os blocos de impressão
     //  let cont = 0,
@@ -245,7 +261,7 @@ function criaPdf() {
     //      }
     //  }
 
-    console.log(impressao.blocos);
+    // console.log(impressao.blocos);
 
     //Pega o número de páginas (Cabem 5 perguntas em cada carta e 9 cartas em cada página)
     //  impressao.paginas = {
@@ -253,10 +269,16 @@ function criaPdf() {
     //      atual: 1
     //  };
 
+    desenhaLinhasDeCorteCartas(doc);
 
-    //Monta as frentes brancas
-    //  if (impressao.imprimir.length > 0)
-    //      $.each(impressao.brancas, (i, val) => montaFrentes("branca", val, doc));
+    //Monta as cartas de perguntas
+    montaFrenteCardsPerguntas(doc);
+
+    //doc.addPage();
+
+    //desenhaFundoCardsPerguntas(doc);
+
+    doc.addPage();
 
     desenhaCartasRespostas(doc);
 
