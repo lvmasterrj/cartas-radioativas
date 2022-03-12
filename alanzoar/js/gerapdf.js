@@ -235,18 +235,18 @@ function montaFrenteCardsPerguntas(doc) {
         //   doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
         // Monta os números
-        for (let i = 0; i < 5; i++) {
-            doc.setFillColor("#323639");
+        //   for (let i = 0; i < 5; i++) {
+        //       doc.setFillColor("#323639");
 
-            doc.triangle(
-                    x + margem + 2, y + margem + 3.95 + (i * 11.9),
-                    x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
-                    x + margem + 2 + 3.46, y + margem + 3.95 + (i * 1.9) + 2,
-                    "F"
-                )
-                // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+        //       doc.triangle(
+        //               x + margem + 2, y + margem + 3.95 + (i * 11.9),
+        //               x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
+        //               x + margem + 2 + 3.46, y + margem + 3.95 + (i * 1.9) + 2,
+        //               "F"
+        //           )
+        //           // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
 
-        }
+        //   }
 
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
@@ -260,6 +260,7 @@ function criaPdf() {
 
 
     //Pega as cartas selecionadas para impressao
+    impressao.imprimir = [];
     $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
         impressao.imprimir.push($(val).children("td.carta-texto").text())
     });
@@ -287,11 +288,13 @@ function criaPdf() {
     //  };
 
     //Pega o número de cartas (5 perguntas em cada carta)
-    console.log(impressao.imprimir.length);
+    console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
     impressao.qtdCartas = {
         total: Math.ceil(impressao.imprimir.length / 5),
         atual: 1
     };
+
+    console.log("Impressao.qtdCartas = " + Impressao.qtdCartas);
 
     desenhaLinhasDeCorteCartas(doc);
 
