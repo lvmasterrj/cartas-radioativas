@@ -288,12 +288,12 @@ function criaPdf() {
 
     //Pega o número de cartas (5 perguntas em cada carta)
     console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
-    impressao.qtdCartas = {
+    coordImpressao.qtdCartas = {
         total: Math.ceil(impressao.imprimir.length / 5),
         atual: 1
     };
 
-    console.log("Impressao.qtdCartas = " + impressao.qtdCartas);
+
 
     desenhaLinhasDeCorteCartas(doc);
 
