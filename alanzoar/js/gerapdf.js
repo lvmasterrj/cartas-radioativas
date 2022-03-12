@@ -227,7 +227,7 @@ function montaFrenteCardsPerguntas(doc) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
         let margem = 2;
-
+        console.log(i);
         //Monta a borda da carta
         doc.setFillColor("#323639");
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
