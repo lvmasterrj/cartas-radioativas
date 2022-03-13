@@ -276,7 +276,7 @@ function criaTexto(doc, x, y, margem, j) {
     doc.triangle(
         x + margem + 2, y + margem + 3.95 + (j * 11.9),
         x + margem + 2, y + margem + 3.95 + (j * 11.9) + 4,
-        x + margem + 2 + 3.46, y + margem + 3.95 + (j * 1.9) + 2,
+        x + margem + 2 + 3.46, y + margem + 3.95 + (j * 11.9) + 2,
         "F"
     )
 }
