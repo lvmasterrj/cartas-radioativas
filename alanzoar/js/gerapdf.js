@@ -223,7 +223,7 @@ function montaFrenteCardsPerguntas(doc) {
     let carta = [0, 0],
         tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]],
         pergunta = 0,
-        resto = impressao.perguntas % 5;
+        resto = impressao.imprimir.length % 5;
 
     console.log(resto);
 
@@ -292,7 +292,7 @@ function criaPdf() {
     //  };
 
     //Pega o número de cartas (5 perguntas em cada carta)
-    console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
+    //console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
     coordImpressao.qtdCartas = {
         total: Math.ceil(impressao.imprimir.length / 5),
         atual: 1
