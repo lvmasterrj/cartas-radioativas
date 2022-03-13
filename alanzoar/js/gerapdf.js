@@ -239,10 +239,16 @@ function montaFrenteCardsPerguntas(doc) {
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
-        console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
+        //console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
 
-        if (contCarta == coordImpressao.qtdCartas.total) {
-            console.log("chegou")
+        if (contCarta != coordImpressao.qtdCartas.total) {
+            for (let j = 0; j < 5; j++) {
+                criaTexto(doc, x, y, margem);
+            }
+        } else {
+            for (let j = 0; j < resto; j++) {
+                criaTexto(doc, x, y, margem);
+            }
         }
 
         //   Monta os textos
@@ -262,6 +268,17 @@ function montaFrenteCardsPerguntas(doc) {
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
     }
+}
+
+function criaTexto(doc, x, y, margem) {
+    doc.setFillColor("#323639");
+
+    doc.triangle(
+        x + margem + 2, y + margem + 3.95 + (i * 11.9),
+        x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
+        x + margem + 2 + 3.46, y + margem + 3.95 + (i * 1.9) + 2,
+        "F"
+    )
 }
 
 function criaPdf() {
