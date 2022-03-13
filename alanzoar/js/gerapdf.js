@@ -240,7 +240,7 @@ function montaFrenteCardsPerguntas(doc) {
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
         console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
-
+        console.log("Resto = " + resto);
         if (contCarta != coordImpressao.qtdCartas.total) {
             for (let j = 0; j < 5; j++) {
                 criaTexto(doc, x, y, margem, j);
