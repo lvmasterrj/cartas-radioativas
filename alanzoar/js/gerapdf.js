@@ -239,7 +239,7 @@ function montaFrenteCardsPerguntas(doc) {
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
-        //console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
+        console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
 
         if (contCarta != coordImpressao.qtdCartas.total) {
             for (let j = 0; j < 5; j++) {
