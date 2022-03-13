@@ -243,11 +243,11 @@ function montaFrenteCardsPerguntas(doc) {
 
         if (contCarta != coordImpressao.qtdCartas.total) {
             for (let j = 0; j < 5; j++) {
-                criaTexto(doc, x, y, margem);
+                criaTexto(doc, x, y, margem, j);
             }
         } else {
             for (let j = 0; j < resto; j++) {
-                criaTexto(doc, x, y, margem);
+                criaTexto(doc, x, y, margem, j);
             }
         }
 
@@ -270,13 +270,13 @@ function montaFrenteCardsPerguntas(doc) {
     }
 }
 
-function criaTexto(doc, x, y, margem) {
+function criaTexto(doc, x, y, margem, j) {
     doc.setFillColor("#323639");
 
     doc.triangle(
-        x + margem + 2, y + margem + 3.95 + (i * 11.9),
-        x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
-        x + margem + 2 + 3.46, y + margem + 3.95 + (i * 1.9) + 2,
+        x + margem + 2, y + margem + 3.95 + (j * 11.9),
+        x + margem + 2, y + margem + 3.95 + (j * 11.9) + 4,
+        x + margem + 2 + 3.46, y + margem + 3.95 + (j * 1.9) + 2,
         "F"
     )
 }
