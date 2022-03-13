@@ -223,9 +223,10 @@ function montaFrenteCardsPerguntas(doc) {
     let carta = [0, 0],
         tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]],
         pergunta = 0,
+        contCarta = 1,
         resto = impressao.imprimir.length % 5;
 
-    console.log(resto);
+
 
     for (let i = 0; i < coordImpressao.qtdCartas.total; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
@@ -237,6 +238,10 @@ function montaFrenteCardsPerguntas(doc) {
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
+
+        if (contCarta == coordImpressao.qtdCartas.total) {
+            console.log("chegou")
+        }
 
         //   Monta os textos
         //  for (let i = 0; i < 5; i++) {
