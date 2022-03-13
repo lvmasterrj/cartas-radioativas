@@ -222,7 +222,10 @@ function desenhaAsMoedas(doc) {
 function montaFrenteCardsPerguntas(doc) {
     let carta = [0, 0],
         tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]],
-        pergunta = 0;
+        pergunta = 0,
+        resto = impressao.perguntas % 5;
+
+    console.log(resto);
 
     for (let i = 0; i < coordImpressao.qtdCartas.total; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
