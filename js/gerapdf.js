@@ -241,6 +241,7 @@ function montaVersos(doc) {
 
     let tamLogoTexto = doc.getStringUnitWidth(versoTexto) * tamanhoTexto / (72 / 25.6);
     let maxLogoTexto = tamanhoCarta[0] - (2 * margemCarta[0]);
+    let correcao = 3;
 
     //Cálculo da quantidade de linhas do rodapé para ajustar a altura
     let rodapeLinhas = Math.ceil(Math.floor(tamLogoTexto) / maxLogoTexto);
@@ -261,7 +262,7 @@ function montaVersos(doc) {
             // atualizaImpCont(doc); ////////////////////// REMOVER
 
             let coordCarta = coordImpressao[impressao.tamanho][i];
-            let coordLogo = [coordCarta[0] + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
+            let coordLogo = [coordCarta[0] - correcao + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
 
 
             versoTexto = doc.setFontSize(tamanhoTexto).splitTextToSize(versoTexto, maxVersoText);
@@ -277,7 +278,7 @@ function montaVersos(doc) {
 
             doc.text(
                 versoTexto,
-                coordCarta[0] + (tamanhoCarta[0] / 2),
+                coordCarta[0] - correcao + (tamanhoCarta[0] / 2),
                 coordLogo[1] + tamanhoLogo[1] + (margemCarta[1] / 2) + (tamanhoFonte / 2),
                 null,
                 null,
@@ -313,7 +314,7 @@ function montaVersos(doc) {
             // fundoCarta(doc); /////////////////////////////////
             // atualizaImpCont(doc); ////////////////////// REMOVER
             let coordCarta = coordImpressao[impressao.tamanho][i];
-            let coordLogo = [coordCarta[0] + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
+            let coordLogo = [coordCarta[0] - correcao + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
 
             doc.setTextColor(255);
             doc.addImage(
@@ -328,7 +329,7 @@ function montaVersos(doc) {
             versoTexto = doc.setFontSize(tamanhoTexto).splitTextToSize(versoTexto, maxVersoText);
             doc.text(
                 versoTexto,
-                coordCarta[0] + (tamanhoCarta[0] / 2),
+                coordCarta[0] - correcao + (tamanhoCarta[0] / 2),
                 coordLogo[1] + tamanhoLogo[1] + (margemCarta[1] / 2) + (tamanhoFonte / 2),
                 null,
                 null,
