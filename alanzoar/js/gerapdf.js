@@ -241,7 +241,7 @@ function montaFrenteCardsPerguntas(doc) {
         console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
         console.log("Resto = " + resto);
 
-        if (contCarta != coordImpressao.qtdCartas.total) {
+        if (contCarta != coordImpressao.qtdCartas.total || resto == 0) {
             for (let j = 0; j < 5; j++) {
                 criaTexto(doc, x, y, margem, j);
             }
