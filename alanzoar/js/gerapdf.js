@@ -293,8 +293,10 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
         "F"
     )
 
+
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j]
-    doc.text(texto, pontosTriangulo.x[0] + 2, pontosTriangulo.y[2])
+    doc.setFontSize(12);
+    doc.text(texto, pontosTriangulo.x[2] + 2, pontosTriangulo.y[1])
 }
 
 function criaPdf() {
