@@ -273,7 +273,7 @@ function montaFrenteCardsPerguntas(doc) {
 
 function criaTexto(doc, x, y, margem, j, contCarta) {
     doc.setFillColor("#323639");
-    pontosTriangulo = {
+    let pontosTriangulo = {
         x: [
             x + margem + 2,
             x + margem + 2,
