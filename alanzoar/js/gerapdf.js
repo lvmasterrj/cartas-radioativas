@@ -267,6 +267,7 @@ function montaFrenteCardsPerguntas(doc) {
 
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
+        contCarta = contCarta + 1;
     }
 }
 
