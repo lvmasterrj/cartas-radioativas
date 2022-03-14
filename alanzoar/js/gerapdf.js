@@ -294,8 +294,10 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     )
 
 
-    let texto = impressao.imprimir[(contCarta - 1) * 5 + j]
-    doc.setFontSize(12);
+    let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
+    let tamanhoMaxTexto = coordImpressao.tamanhoCarta[0] - pontosTriangulo.x[2] - margem - 2;
+    doc.setFontSize(11).splitTextToSize(texto, tamanhoMaxTexto);
+
     doc.text(texto, pontosTriangulo.x[2] + 2, pontosTriangulo.y[1])
 }
 
