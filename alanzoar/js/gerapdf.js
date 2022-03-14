@@ -243,11 +243,11 @@ function montaFrenteCardsPerguntas(doc) {
 
         if (contCarta != coordImpressao.qtdCartas.total || resto == 0) {
             for (let j = 0; j < 5; j++) {
-                criaTexto(doc, x, y, margem, j);
+                criaTexto(doc, x, y, margem, j, contCarta);
             }
         } else {
             for (let j = 0; j < resto; j++) {
-                criaTexto(doc, x, y, margem, j);
+                criaTexto(doc, x, y, margem, j, contCarta);
             }
         }
 
@@ -271,15 +271,30 @@ function montaFrenteCardsPerguntas(doc) {
     }
 }
 
-function criaTexto(doc, x, y, margem, j) {
+function criaTexto(doc, x, y, margem, j, contCarta) {
     doc.setFillColor("#323639");
+    pontosTriangulo = {
+        x: [
+            x + margem + 2,
+            x + margem + 2,
+            x + margem + 2 + 3.46,
+        ],
+        y: [
+            y + margem + 3.95 + (j * 11.9),
+            y + margem + 3.95 + (j * 11.9) + 4,
+            y + margem + 3.95 + (j * 11.9) + 2,
+        ]
+    }
 
     doc.triangle(
-        x + margem + 2, y + margem + 3.95 + (j * 11.9),
-        x + margem + 2, y + margem + 3.95 + (j * 11.9) + 4,
-        x + margem + 2 + 3.46, y + margem + 3.95 + (j * 11.9) + 2,
+        pontosTriangulo[x[0]], pontosTriangulo[y[0]],
+        pontosTriangulo[x[1]], pontosTriangulo[y[1]],
+        pontosTriangulo[x[2]], pontosTriangulo[y[2]],
         "F"
     )
+
+    let texto = impressao.imprimir[(contcarta - 1) * 5 + j]
+    doc.text(texto, pontosTriangulo[x[0]] + 2, pontosTriangulo[y[2]])
 }
 
 function criaPdf() {
