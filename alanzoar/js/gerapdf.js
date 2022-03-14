@@ -286,14 +286,10 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
         ]
     }
 
-    console.log(pontosTriangulo[x[0]], pontosTriangulo[y[0]],
-        pontosTriangulo[x[1]], pontosTriangulo[y[1]],
-        pontosTriangulo[x[2]], pontosTriangulo[y[2]]);
-
     doc.triangle(
-        pontosTriangulo[x[0]], pontosTriangulo[y[0]],
-        pontosTriangulo[x[1]], pontosTriangulo[y[1]],
-        pontosTriangulo[x[2]], pontosTriangulo[y[2]],
+        pontosTriangulo.x[0], pontosTriangulo.y[0],
+        pontosTriangulo.x[1], pontosTriangulo.y[1],
+        pontosTriangulo.x[2], pontosTriangulo.y[2],
         "F"
     )
 
