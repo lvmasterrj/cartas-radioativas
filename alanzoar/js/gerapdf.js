@@ -226,6 +226,7 @@ function montaFrenteCardsPerguntas(doc) {
         contCarta = 1,
         resto = impressao.imprimir.length % 5;
 
+
     for (let i = 0; i < coordImpressao.qtdCartas.total; i++) {
         let x = coordImpressao.corteCartas.x[carta[0]];
         let y = coordImpressao.corteCartas.y[carta[1]];
