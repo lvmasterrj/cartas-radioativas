@@ -241,7 +241,7 @@ function montaVersos(doc) {
 
     let tamLogoTexto = doc.getStringUnitWidth(versoTexto) * tamanhoTexto / (72 / 25.6);
     let maxLogoTexto = tamanhoCarta[0] - (2 * margemCarta[0]);
-    let correcao = 3;
+    let correcao = 2;
 
     //Cálculo da quantidade de linhas do rodapé para ajustar a altura
     let rodapeLinhas = Math.ceil(Math.floor(tamLogoTexto) / maxLogoTexto);
@@ -251,7 +251,7 @@ function montaVersos(doc) {
     // Brancas
     if (impressao.brancas.length > 0) {
         doc.addPage();
-        montaLinhasDeCorte(doc);
+        //montaLinhasDeCorte(doc);
 
         doc.setTextColor(0);
 
@@ -290,7 +290,7 @@ function montaVersos(doc) {
     //Pretas
     if (impressao.pretas.length > 0) {
         doc.addPage();
-        montaLinhasDeCorte(doc);
+        //montaLinhasDeCorte(doc);
 
         doc.setFillColor(impressao.cor || 0);
         doc.setTextColor(255);
