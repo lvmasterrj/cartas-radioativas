@@ -295,7 +295,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
 
 
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
-    let tamanhoMaxTexto = coordImpressao.tamanhoCarta[0] - pontosTriangulo.x[2] - margem - 2;
+    let tamanhoMaxTexto = coordImpressao.tamanhoCarta[1] - (margem * 2 + 7.46);
     let textoNoTamanho = doc.setFontSize(11).splitTextToSize(texto, tamanhoMaxTexto);
 
     doc.text(textoNoTamanho, pontosTriangulo.x[2] + 2, pontosTriangulo.y[1])
