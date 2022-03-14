@@ -1,16 +1,17 @@
-name: 🚀 Sincronizador
 on: push
+name: 🚀 Sincronizador
 jobs:
   web-deploy:
     name: 🚚Enviar
     runs-on: ubuntu-latest
     steps:
-      - name: 🔎 Verificando o repositório
-        uses: actions/checkout@v2.4.0
-      - name: 📂 Sincronizando
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
-        with:
-          server: ftpupload.net
-          username: epiz_30257710
-          password: ${{ secrets.FTP_SENHA }}
-          server-dir: cartasradioativas.com/htdocs/
+    - name: 🔎 Verificando o repositório
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sincronizando
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ftpupload.net
+        username: epiz_30257710
+        password: ${{ secrets.FTP_SENHA }}
+        server-dir: cartasradioativas.com/htdocs/
