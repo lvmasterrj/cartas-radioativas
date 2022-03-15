@@ -253,18 +253,6 @@ function montaFrenteCardsPerguntas(doc) {
         }
 
         //   Monta os textos
-        //  for (let i = 0; i < 5; i++) {
-        //      doc.setFillColor("#323639");
-
-        //      doc.triangle(
-        //              x + margem + 2, y + margem + 3.95 + (i * 11.9),
-        //              x + margem + 2, y + margem + 3.95 + (i * 11.9) + 4,
-        //              x + margem + 2 + 3.46, y + margem + 3.95 + (i * 1.9) + 2,
-        //              "F"
-        //          )
-        //          // doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
-
-        //  }
 
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
@@ -301,10 +289,13 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
         "F"
     )
 
+    doc.setTextColor("#FFFFFF");
+    doc.text(j, pontosTriangulo.x[0] + 1, pontosTriangulo.y[1] - 1)
 
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
     let tamanhoMaxTexto = coordImpressao.tamanhoCarta[1] - (margem * 2 + 7.46);
     doc.setFont("helvetica", "normal");
+    doc.setTextColor("#4D4E53");
     let textoNoTamanho = doc.setFontSize(11).splitTextToSize(texto, tamanhoMaxTexto);
     console.log(textoNoTamanho);
 
