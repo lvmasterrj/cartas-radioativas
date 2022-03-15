@@ -290,17 +290,15 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     )
     doc.setFontSize(8)
     doc.setTextColor("#FFFFFF");
-    doc.text("3", pontosTriangulo.x[0] + 0.3, pontosTriangulo.y[1] - 0.7)
-    console.log(j);
+    doc.text(j + 1, pontosTriangulo.x[0] + 0.3, pontosTriangulo.y[1] - 0.9)
+
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
     let tamanhoMaxTexto = coordImpressao.tamanhoCarta[1] - (margem * 2 + 7.46);
     doc.setFont("helvetica", "normal");
     doc.setTextColor("#4D4E53");
     let textoNoTamanho = doc.setFontSize(11).splitTextToSize(texto, tamanhoMaxTexto);
-    console.log(textoNoTamanho);
 
     correcaoTexto = (textoNoTamanho.length - 1) * 1.5;
-    console.log(correcaoTexto);
 
     //*** PEGAR O LENGHT DO ARRAY DO TEXTONOTAMANHO E CORRIGIR PARA CIMA DE ACORDO COM AS LINHAS
 
