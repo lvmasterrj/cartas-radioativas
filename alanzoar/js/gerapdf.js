@@ -273,12 +273,12 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
         x: [
             x + margem + 2,
             x + margem + 2,
-            x + margem + 2 + 5,
+            x + margem + 2 + 5.6,
         ],
         y: [
             y + margem + 3.95 + (j * 11.9),
-            y + margem + 3.95 + (j * 11.9) + 6,
-            y + margem + 3.95 + (j * 11.9) + 3,
+            y + margem + 3.95 + (j * 11.9) + 5,
+            y + margem + 3.95 + (j * 11.9) + 2.5,
         ]
     }
 
@@ -292,7 +292,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     doc.setFont("helvetica", "bold");
     doc.setTextColor("#FFFFFF");
     let nro = String(j + 1) //.toString();
-
+    console.log(nro);
     doc.text(nro, pontosTriangulo.x[0] + 0.3, pontosTriangulo.y[1] - 1)
 
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
