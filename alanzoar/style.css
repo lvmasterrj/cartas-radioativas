@@ -50,7 +50,7 @@ ol {
     color: rgb(0, 0, 0);
     height: 170px;
     width: 370px;
-    padding: 20px;
+    padding: 10px;
     font-size: 1rem;
     line-height: 0.8rem;
     font-weight: 600;
@@ -61,7 +61,7 @@ ol {
     transform: rotate(-5deg);
     box-shadow: -7px 7px 2px #cccccc80;
     z-index: 1;
-    border: 1px solid #ccc;
+    border: 10px solid #8a8a8a;
 }
 
 .instrucoes {
@@ -72,7 +72,7 @@ ol {
 }
 
 #tabela {
-    border: 1px solid #ccc;
+    border: 1px solid #af7fb7;
     border-radius: 10px;
     margin: 0 0 15px;
 }
@@ -80,7 +80,7 @@ ol {
 #tabela .col {
     max-height: 500px;
     /* overflow: hidden; */
-    border: 1px solid #ccc;
+    border: 1px solid #e5007d;
     border-radius: 10px;
     margin: 10px 5px;
     padding: 0;
@@ -173,7 +173,7 @@ textarea {
 }
 
 .brancas .area-titulo-tabela {
-    border-bottom: 3px solid #ccc
+    border-bottom: 3px solid #ea5b0a
 }
 
 .pretas .area-titulo-tabela {
@@ -211,7 +211,7 @@ tr.marcado {
 
 #area-gerar-pdf {
     margin: 15px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #009640;
     padding: 5px;
     border-radius: 10px;
 }

@@ -50,7 +50,7 @@
             </div>
             <div class="col brancas">
                 <div class="area-titulo-tabela">
-                    <h3>Perguntas <span class="qtd-brancas badge bg-secondary"><span class="qtd-selec">0</span>/<span class="qtd-total">0</span></span>
+                    <h3>Perguntas <span class="qtd-brancas badge bg-info"><span class="qtd-selec">0</span>/<span class="qtd-total">0</span></span>
                     </h3>
                 </div>
                 <div class="area-tabela">
@@ -68,24 +68,24 @@
                     </table>
                 </div>
                 <div class="btn-group botoes-tabela" role="group" aria-label="Basic example">
-                    <button id="btn-seleciona-todas" type="button" class="btn btn-secondary" onClick="selecionaTodas()">Selecionar todas</button>
-                    <button id="btn-desseleciona-todas" type="button" class="btn btn-secondary" onClick="desselecionaTodas()">Desselecionar todas</button>
+                    <button id="btn-seleciona-todas" type="button" class="btn btn-success" onClick="selecionaTodas()">Selecionar todas</button>
+                    <button id="btn-desseleciona-todas" type="button" class="btn btn-danger" onClick="desselecionaTodas()">Desselecionar todas</button>
                 </div>
                 <div class="novas-cartas">
                     <textarea class="form-control" id="texto-personalizacao-brancas" rows="3" placeholder="- Adicione aqui as suas perguntas&#10;- Você pode adicionar várias perguntas, colocando uma por linha"></textarea>
-                    <button id="btn-adiciona-brancas" type="button" class="btn btn-secondary" onClick="adicionaBrancaPersonalizada()">Adicionar pergunta(s)</button>
+                    <button id="btn-adiciona-brancas" type="button" class="btn btn-warning" onClick="adicionaBrancaPersonalizada()">Adicionar pergunta(s)</button>
                 </div>
             </div>
         </div>
 
         <div id="area-gerar-pdf" class="row">
             <!-- <div class="gerarpdf col-lg-9 col-xxl-9"> -->
-            <button id="btn-gerar-pdf" type="button" class="btn btn-secondary" onClick="gerarPDF()">Gerar PDF</button>
+            <button id="btn-gerar-pdf" type="button" class="btn btn-primary" onClick="gerarPDF()">Gerar PDF</button>
             <!-- </div> -->
         </div>
         <div id="rodape" class="row">
             <div class="col github d-grid">
-                <h4>GitHub</h4>
+                <h4 class="text-warning">GitHub</h4>
                 <div class="align-middle">
                     <img src="/imgs/GitHub-Mark-64px.png">
                     <p>Se você é nerd e quer conhecer o código <a href="https://github.com/lvmasterrj/cartas-radioativas/" target="_blank">clique aqui</a></p>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="col">
-                <h4>Instruções</h4>
+                <h4 class="text-danger">Instruções</h4>
                 <div class="list-group list-group-flush">
                     <a id="instr-cartas" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-cartas" href="#">Escolha e inclusão de cartas</a>
                     <a id="instr-dicas-impr" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal-instr-dicas-impr" href="#">Dicas de Materiais e impressão</a>
@@ -108,14 +108,14 @@
 
             </div>
             <div class="col">
-                <h4>Mensagem</h4>
+                <h4 class="text-success">Mensagem</h4>
                 <form id="mensagem">
                     <textarea class="form-control" id="mensagem-conteudo" rows="4" placeholder="Use este espaço para me mandar uma mensagem. Seja educado e coloque também o seu nome e contato"></textarea>
                     <button type="submit" class="btn btn-secondary">Enviar</button>
                 </form>
             </div>
             <div class="col">
-                <h4>Jabá</h4>
+                <h4 class="text-info">Jabá</h4>
                 <p>Gostou muito e quer ajudar o projeto?! Faz um pix de qualquer valor!</p>
                 <p><a id="abre-modal-pix" data-bs-toggle="modal" data-bs-target="#modal-pix" href="#">Clique aqui</a> para exibir o QR code.</p>
             </div>
