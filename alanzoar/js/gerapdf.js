@@ -291,6 +291,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     doc.setFontSize(8)
     doc.setTextColor("#FFFFFF");
     let nro = toString(j + 1);
+    console.log(nro);
     doc.text(nro, pontosTriangulo.x[0] + 0.3, pontosTriangulo.y[1] - 0.9)
 
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
