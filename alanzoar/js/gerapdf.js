@@ -293,7 +293,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     doc.setTextColor("#FFFFFF");
     let nro = String(j + 1) //.toString();
 
-    doc.text(nro, pontosTriangulo.x[0] + 0.5, pontosTriangulo.y[1] - 1.6)
+    doc.text(nro, pontosTriangulo.x[0] + 0.4, pontosTriangulo.y[1] - 1.6)
 
     let texto = impressao.imprimir[(contCarta - 1) * 5 + j];
     let tamanhoMaxTexto = coordImpressao.tamanhoCarta[1] - (margem * 2 + 7.46);
