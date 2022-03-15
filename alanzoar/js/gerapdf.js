@@ -273,12 +273,12 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
         x: [
             x + margem + 2,
             x + margem + 2,
-            x + margem + 2 + 3.46,
+            x + margem + 2 + 6.7,
         ],
         y: [
             y + margem + 3.95 + (j * 11.9),
-            y + margem + 3.95 + (j * 11.9) + 4,
-            y + margem + 3.95 + (j * 11.9) + 2,
+            y + margem + 3.95 + (j * 11.9) + 6,
+            y + margem + 3.95 + (j * 11.9) + 3,
         ]
     }
 
