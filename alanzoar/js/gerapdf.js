@@ -238,8 +238,8 @@ function montaFrenteCardsPerguntas(doc) {
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
 
-        console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
-        console.log("Resto = " + resto);
+        //   console.log("Cont = " + contCarta + " | qtdCartasTotal = " + coordImpressao.qtdCartas.total);
+        //   console.log("Resto = " + resto);
 
         if (contCarta != coordImpressao.qtdCartas.total || resto == 0) {
             for (let j = 0; j < 5; j++) {
@@ -267,6 +267,13 @@ function montaFrenteCardsPerguntas(doc) {
 
         if (carta[0] < 2) carta[0] = carta[0] + 1;
         else carta = [0, carta[1] + 1];
+
+        if (contCarta % 9 == 0) {
+            contcarta = 0;
+            carta = [0, 0];
+            doc.addPage();
+        }
+
         contCarta = contCarta + 1;
     }
 }
