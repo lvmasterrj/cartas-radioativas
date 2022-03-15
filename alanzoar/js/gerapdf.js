@@ -304,7 +304,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
 
     //*** PEGAR O LENGHT DO ARRAY DO TEXTONOTAMANHO E CORRIGIR PARA CIMA DE ACORDO COM AS LINHAS
 
-    doc.text(textoNoTamanho, pontosTriangulo.x[2] + 1, pontosTriangulo.y[1] - 1 - correcaoTexto);
+    doc.text(textoNoTamanho, pontosTriangulo.x[2] + 1, pontosTriangulo.y[1] - 1 - correcaoTexto, { lineHeightFactor: 1 });
 }
 
 function criaPdf() {
