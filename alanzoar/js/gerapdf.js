@@ -145,6 +145,7 @@ function desenhaQuadroPontos(doc) {
     doc.setTextColor("#4D4E53");
 
     doc.setFont("helvetica", "bold")
+    doc.setFontSize(13);
     doc.text(" - QUADRO DE PONTOS", inicio[0] + 33, inicio[1] + 3);
 
     doc.setFont("helvetica", "normal")
