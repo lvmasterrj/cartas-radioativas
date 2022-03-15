@@ -300,12 +300,12 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     let textoNoTamanho = doc.setFontSize(11).splitTextToSize(texto, tamanhoMaxTexto);
     console.log(textoNoTamanho);
 
-    correcaoTexto = (textoNoTamanho.length - 1) * 2;
+    correcaoTexto = (textoNoTamanho.length - 1) * 1.5;
     console.log(correcaoTexto);
 
     //*** PEGAR O LENGHT DO ARRAY DO TEXTONOTAMANHO E CORRIGIR PARA CIMA DE ACORDO COM AS LINHAS
 
-    doc.text(textoNoTamanho, pontosTriangulo.x[2] + 1, pontosTriangulo.y[1] - 1 - correcaoTexto, { lineHeightFactor: 0.8 });
+    doc.text(textoNoTamanho, pontosTriangulo.x[2] + 1, pontosTriangulo.y[1] - 1 - correcaoTexto, { lineHeightFactor: 0.9 });
 }
 
 function criaPdf() {
