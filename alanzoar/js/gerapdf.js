@@ -288,7 +288,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
         pontosTriangulo.x[2], pontosTriangulo.y[2],
         "F"
     )
-    doc.setFontSize(7)
+    doc.setFontSize(8)
     doc.setFont("helvetica", "bold");
     doc.setTextColor("#FFFFFF");
     let nro = String(j + 1) //.toString();
