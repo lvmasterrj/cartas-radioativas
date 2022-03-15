@@ -299,7 +299,12 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     let textoNoTamanho = doc.setFontSize(11).splitTextToSize(texto, tamanhoMaxTexto);
     console.log(textoNoTamanho);
 
-    doc.text(textoNoTamanho, pontosTriangulo.x[2] + 2, pontosTriangulo.y[1])
+    correcaoTexto = (textoNoTamanho.length - 1) * -2;
+    console.log(correcaoTexto);
+
+    //*** PEGAR O LENGHT DO ARRAY DO TEXTONOTAMANHO E CORRIGIR PARA CIMA DE ACORDO COM AS LINHAS
+
+    doc.text(textoNoTamanho, pontosTriangulo.x[2] + 2, pontosTriangulo.y[1] - 1);
 }
 
 function criaPdf() {
