@@ -320,27 +320,7 @@ function criaPdf() {
         impressao.imprimir.push($(val).children("td.carta-texto").text())
     });
 
-    //CRIA os blocos de impressão
-    //  let cont = 0,
-    //      bloco = 1;
-    //  for (let i = 0; i < impressao.imprimir.length; i++) {
-    //      impressao.blocos[bloco] = [].push(impressao.imprimir[i]);
-
-    //      if (cont < 5) {
-    //          cont = cont + 1;
-    //      } else {
-    //          bloco = bloco + 1;
-    //          cont = 0;
-    //      }
-    //  }
-
-    // console.log(impressao.blocos);
-
-    //Pega o número de páginas (Cabem 5 perguntas em cada carta e 9 cartas em cada página)
-    //  impressao.paginas = {
-    //      total: Math.ceil(impressao.imprimir.length / 5 / 9),
-    //      atual: 1
-    //  };
+    // CRIAR OS VERSOS DAS CARTAS E ALINHAR A IMPRESSÃO FRENTE E VERSO
 
     //Pega o número de cartas (5 perguntas em cada carta)
     //console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
@@ -373,5 +353,4 @@ function criaPdf() {
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
     window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
     //  doc.save("cartas-radioativas"); // Salva com o nome correto,mas não faz preview
-    console.log("OK")
 }
