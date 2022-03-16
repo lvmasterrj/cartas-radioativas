@@ -268,9 +268,7 @@ function montaFrenteCardsPerguntas(doc) {
 }
 
 function criaTexto(doc, x, y, margem, j, contCarta) {
-    let cores = ["#2F3787", "#289548", "#FFED00", "#CD5B1B", "#C4007A"];
-    //   doc.setFillColor("#323639");
-    doc.setFillColor(cores[j]);
+    doc.setFillColor("#323639");
     let pontosTriangulo = {
         x: [
             x + margem + 2,
@@ -292,7 +290,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     )
     doc.setFontSize(8)
     doc.setFont("helvetica", "bold");
-    doc.setTextColor(cores[j]);
+    doc.setTextColor("#FFFFFF");
     let nro = String(j + 1) //.toString();
 
     doc.text(nro, pontosTriangulo.x[0] + 0.4, pontosTriangulo.y[1] - 1.6)
