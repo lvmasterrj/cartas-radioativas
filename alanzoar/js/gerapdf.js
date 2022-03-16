@@ -234,7 +234,7 @@ function montaFrenteCardsPerguntas(doc) {
         let margem = 2;
 
         //Monta a borda da carta
-        doc.setFillColor("#4f1765");
+        doc.setFillColor("#0d164f");
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
@@ -268,7 +268,7 @@ function montaFrenteCardsPerguntas(doc) {
 }
 
 function criaTexto(doc, x, y, margem, j, contCarta) {
-    doc.setFillColor("#323639");
+    doc.setFillColor("#0d164f");
     let pontosTriangulo = {
         x: [
             x + margem + 2,
