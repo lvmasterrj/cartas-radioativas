@@ -234,7 +234,7 @@ function montaFrenteCardsPerguntas(doc) {
         let margem = 2;
 
         //Monta a borda da carta
-        doc.setFillColor("#323639");
+        doc.setFillColor("#4f1765");
         doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
         doc.setFillColor("#ffffff");
         doc.roundedRect(x + margem, y + margem, tamCarta[0] - 4, tamCarta[1] - 4, 3, 3, "F")
@@ -268,7 +268,9 @@ function montaFrenteCardsPerguntas(doc) {
 }
 
 function criaTexto(doc, x, y, margem, j, contCarta) {
-    doc.setFillColor("#323639");
+    let cores = ["#2F3787", "#289548", "#FFED00", "#CD5B1B", "#C4007A"];
+    //   doc.setFillColor("#323639");
+    doc.setFillColor(cores[j]);
     let pontosTriangulo = {
         x: [
             x + margem + 2,
@@ -290,7 +292,7 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
     )
     doc.setFontSize(8)
     doc.setFont("helvetica", "bold");
-    doc.setTextColor("#FFFFFF");
+    doc.setTextColor(cores[j]);
     let nro = String(j + 1) //.toString();
 
     doc.text(nro, pontosTriangulo.x[0] + 0.4, pontosTriangulo.y[1] - 1.6)
@@ -321,6 +323,7 @@ function criaPdf() {
     });
 
     // CRIAR OS VERSOS DAS CARTAS E ALINHAR A IMPRESSÃO FRENTE E VERSO
+    // MUDAR A COR DA BORDA DAS CARTAS DE PERGUNTAS
 
     //Pega o número de cartas (5 perguntas em cada carta)
     //console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
