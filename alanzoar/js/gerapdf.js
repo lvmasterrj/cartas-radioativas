@@ -303,9 +303,31 @@ function criaTexto(doc, x, y, margem, j, contCarta) {
 
     correcaoTexto = (textoNoTamanho.length - 1) * 1.5;
 
-    //*** PEGAR O LENGHT DO ARRAY DO TEXTONOTAMANHO E CORRIGIR PARA CIMA DE ACORDO COM AS LINHAS
-
     doc.text(textoNoTamanho, pontosTriangulo.x[2] + 1, pontosTriangulo.y[1] - 1 - correcaoTexto, { lineHeightFactor: 0.9 });
+}
+
+function montVersoCardsPerguntas(doc) {
+    desenhaLinhasDeCorteCartas(doc);
+
+    let carta = [0, 0],
+        tamCarta = [coordImpressao.tamanhoCarta[1], coordImpressao.tamanhoCarta[0]];
+
+    for (let i = 0; i < 9; i++) {
+        let x = coordImpressao.corteCartas.x[carta[0]];
+        let y = coordImpressao.corteCartas.y[carta[1]];
+
+        // Coloca o logo
+        doc.addImage("imgs/logo.png", "PNG", coordImpressao.corteCartas.x[2] + 19, coordImpressao.corteCartas.y[0] + 24.75, 50, 13.5)
+
+
+        //   doc.setFillColor(coordImpressao.cores[i]);
+        //   doc.rect(x, y, tamCarta[0], tamCarta[1], "F");
+        //   doc.setFillColor("#ffffff");
+        //   doc.roundedRect(x + 5, y + 5, tamCarta[0] - 10, tamCarta[1] - 10, 5, 5, "F")
+
+        if (carta[0] < 2) carta[0] = carta[0] + 1;
+        else carta = [0, carta[1] + 1];
+    }
 }
 
 function criaPdf() {
@@ -321,7 +343,6 @@ function criaPdf() {
     });
 
     // CRIAR OS VERSOS DAS CARTAS E ALINHAR A IMPRESSÃO FRENTE E VERSO
-    // MUDAR A COR DA BORDA DAS CARTAS DE PERGUNTAS
 
     //Pega o número de cartas (5 perguntas em cada carta)
     //console.log("Impresssão.imprimir.length = " + impressao.imprimir.length);
@@ -337,7 +358,9 @@ function criaPdf() {
     //Monta as cartas de perguntas
     montaFrenteCardsPerguntas(doc);
 
-    //doc.addPage();
+    doc.addPage();
+    montVersoCardsPerguntas(doc);
+
 
     //desenhaFundoCardsPerguntas(doc);
 
