@@ -37,9 +37,36 @@ const { jsPDF } = window.jspdf;
 //     criaPdf();
 // });
 
-function desenhaLinhasDeCorteCartas(doc) {
-    doc.setDrawColor(0);
+function desenhaLinhasDeCorteCartas(doc, tipo) {
+
     doc.setLineWidth(0.1);
+
+    if (tipo == "cartas") {
+
+        doc.setDrawColor(255)
+
+        // Linhas verticais
+        for (keyx in coordImpressao.corteCartas.x) {
+            let x = coordImpressao.corteCartas.x;
+            for (keyy in coordImpressao.corteCartas.y) {
+                let y = coordImpressao.corteCartas.y;
+                doc.line(x[keyx], y[keyy] - 1, x[keyx], y[keyy] + 1);
+                //doc.line(x[keyx], 292, x[keyx], 297);
+            }
+        }
+
+        // Linhas horizontais
+        for (keyy in coordImpressao.corteCartas.y) {
+            let y = coordImpressao.corteCartas.y;
+            for (keyx in coordImpressao.corteCartas.x) {
+                let x = coordImpressao.corteCartas.x;
+                doc.line(x[keyx] - 1, y[keyy], x[keyx] + 1, y[keyy]);
+                //doc.line(205, y[keyy], 210, y[keyy]);
+            }
+        }
+    }
+
+    doc.setDrawColor(0);
 
     for (key in coordImpressao.corteCartas.x) {
         let x = coordImpressao.corteCartas.x;
@@ -261,6 +288,7 @@ function montaFrenteCardsPerguntas(doc) {
         if (contCarta % 9 == 0) {
             contcarta = 0;
             carta = [0, 0];
+            desenhaLinhasDeCorteCartas(doc, cartas)
             doc.addPage();
         }
 
@@ -354,7 +382,7 @@ function criaPdf() {
 
 
 
-    desenhaLinhasDeCorteCartas(doc);
+    //desenhaLinhasDeCorteCartas(doc);
 
     //Monta as cartas de perguntas
     montaFrenteCardsPerguntas(doc);
