@@ -66,9 +66,14 @@ function emMM(tam, fontSize) {
     return (tam * fontSize / (72 / 25.6));
 }
 // Função que monta as linhas de corte
-function montaLinhasDeCorte(doc) {
-    doc.setDrawColor(0);
+function montaLinhasDeCorte(doc, cor = "b") {
     doc.setLineWidth(0.1);
+
+    if (cor == "p") {
+        doc.setDrawColor(255);
+    } else {
+        doc.setDrawColor(0);
+    }
 
     // Linhas verticais
     for (keyx in coordImpressao[impressao.tamanho].corte.x) {
@@ -89,6 +94,8 @@ function montaLinhasDeCorte(doc) {
             //doc.line(205, y[keyy], 210, y[keyy]);
         }
     }
+
+    doc.setDrawColor(0);
 
     // Linhas de borda
     for (key in coordImpressao[impressao.tamanho].corte.x) {
@@ -397,9 +404,9 @@ function montaPDF() {
     if (impressao.pretas.length > 0) {
         if (impressao.brancas.length % 9 != 0) {
             doc.addPage();
-            montaLinhasDeCorte(doc);
+            montaLinhasDeCorte(doc, "p");
         }
-
+        ////////// COLOCAR LINHAS DE CORTE BRANCAS NO MEIO DAS CARTAS PRETAS!!!!
         impressao.cont = 1;
 
         //Monta as frentes pretas
