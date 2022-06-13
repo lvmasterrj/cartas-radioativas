@@ -120,10 +120,10 @@ function fundoCarta(doc) {
 //Função que atualiza a quantidade de impressão para pular a página
 function atualizaImpCont(doc, tipo) {
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
+        montaLinhasDeCorte(doc, tipo);
         if (impressao.paginas.atual != impressao.paginas.total) {
             impressao.cont = 1;
             doc.addPage();
-            //montaLinhasDeCorte(doc, tipo);
             impressao.paginas.atual = ++impressao.paginas.atual;
         }
     } else {
@@ -253,7 +253,7 @@ function montaFrentes(tipo, val, doc) {
         );
     }
 
-    montaLinhasDeCorte(doc, tipo);
+    //  montaLinhasDeCorte(doc, tipo);
 
     atualizaImpCont(doc, tipo);
 }
