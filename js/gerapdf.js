@@ -120,7 +120,7 @@ function fundoCarta(doc) {
 //Função que atualiza a quantidade de impressão para pular a página
 function atualizaImpCont(doc, tipo) {
 
-    console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
+    //console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
         montaLinhasDeCorte(doc, tipo);
         if (impressao.paginas.atual != impressao.paginas.total) {
@@ -416,6 +416,8 @@ function montaPDF() {
         impressao.cont = 1;
 
         //Monta as frentes pretas
+        console.log("total de pretas = "
+            impressao.pretas.length);
         $.each(impressao.pretas, (i, val) => {
             montaFrentes("preta", val, doc)
                 // montaLinhasDeCorte(doc, "preta");
