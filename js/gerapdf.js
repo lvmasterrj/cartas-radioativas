@@ -404,13 +404,13 @@ function montaPDF() {
     if (impressao.pretas.length > 0) {
         if (impressao.brancas.length % 9 != 0) {
             doc.addPage();
-            montaLinhasDeCorte(doc, "p");
         }
         ////////// COLOCAR LINHAS DE CORTE BRANCAS NO MEIO DAS CARTAS PRETAS!!!!
         impressao.cont = 1;
 
         //Monta as frentes pretas
         $.each(impressao.pretas, (i, val) => montaFrentes("preta", val, doc));
+        montaLinhasDeCorte(doc, "p");
     }
 
     //Monta os versos
