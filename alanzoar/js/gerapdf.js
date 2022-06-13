@@ -375,7 +375,15 @@ function criaPdf() {
     desenhaQuadroSelecao(doc);
     desenhaAsMoedas(doc);
 
+    doc.setProperties({
+        title: "Alanzoar",
+        subject: "Jogo Alanzoar",
+        author: "lvmasterrj",
+        creator: "cartasradioativas.com/alanzoar"
+    });
+
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
-    window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
+    //window.open(doc.output('bloburl', "sem-pensar.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
     //  doc.save("cartas-radioativas"); // Salva com o nome correto,mas não faz preview
+    doc.save("alanzoar");
 }

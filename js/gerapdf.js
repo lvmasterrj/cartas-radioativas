@@ -433,7 +433,7 @@ function montaPDF() {
         title: "Cartas Radioativas",
         subject: "Jogo Cartas Radioativas",
         author: "lvmasterrj",
-        creator: "cartasradioativas.epizy.com"
+        creator: "cartasradioativas.com"
     });
 
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
