@@ -123,7 +123,7 @@ function atualizaImpCont(doc, tipo) {
         if (impressao.paginas.atual != impressao.paginas.total) {
             impressao.cont = 1;
             doc.addPage();
-            montaLinhasDeCorte(doc, tipo);
+            //montaLinhasDeCorte(doc, tipo);
             impressao.paginas.atual = ++impressao.paginas.atual;
         }
     } else {
@@ -133,8 +133,6 @@ function atualizaImpCont(doc, tipo) {
 
 // Função que monta a parte da frente das cartas
 function montaFrentes(tipo, val, doc) {
-
-    montaLinhasDeCorte(doc, tipo);
 
     let xfora = coordImpressao[impressao.tamanho][impressao.cont][0];
     let yfora = coordImpressao[impressao.tamanho][impressao.cont][1];
@@ -254,6 +252,8 @@ function montaFrentes(tipo, val, doc) {
             textoRodapeY
         );
     }
+
+    montaLinhasDeCorte(doc, tipo);
 
     atualizaImpCont(doc, tipo);
 }
