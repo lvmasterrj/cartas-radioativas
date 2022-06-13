@@ -374,7 +374,7 @@ function montaPDF() {
 
     const doc = new jsPDF();
 
-    montaLinhasDeCorte(doc);
+    //  montaLinhasDeCorte(doc);
 
     //Pega os textos das cartas nas tabelas
     impressao.brancas = $.map($("#corpo-tabela-brancas > tr.marcado"), (val, i) => {
@@ -398,19 +398,24 @@ function montaPDF() {
 
     //Monta as frentes brancas
     if (impressao.brancas.length > 0)
-        $.each(impressao.brancas, (i, val) => montaFrentes("branca", val, doc));
+        $.each(impressao.brancas, (i, val) => {
+            montaFrentes("branca", val, doc)
+            montaLinhasDeCorte(doc);
+        });
 
 
     if (impressao.pretas.length > 0) {
         if (impressao.brancas.length % 9 != 0) {
             doc.addPage();
         }
-        ////////// COLOCAR LINHAS DE CORTE BRANCAS NO MEIO DAS CARTAS PRETAS!!!!
+
         impressao.cont = 1;
 
         //Monta as frentes pretas
-        $.each(impressao.pretas, (i, val) => montaFrentes("preta", val, doc));
-        montaLinhasDeCorte(doc, "p");
+        $.each(impressao.pretas, (i, val) => {
+            montaFrentes("preta", val, doc)
+            montaLinhasDeCorte(doc, "p");
+        });
     }
 
     //Monta os versos
