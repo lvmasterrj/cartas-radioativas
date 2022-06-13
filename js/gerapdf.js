@@ -70,6 +70,26 @@ function montaLinhasDeCorte(doc) {
     doc.setDrawColor(0);
     doc.setLineWidth(0.1);
 
+    // Linhas verticais
+    for (keyx in coordImpressao[impressao.tamanho].corte.x) {
+        let x = coordImpressao[impressao.tamanho].corte.x;
+        for (keyy in coordImpressao[impressao.tamanho].corte.y) {
+            let y = coordImpressao[impressao.tamanho].corte.y;
+            doc.line(x[keyx], y[keyy] - 1, x[keyx], y[keyy] + 1);
+            //doc.line(x[keyx], 292, x[keyx], 297);
+        }
+    }
+
+    // Linhas horizontais
+    for (keyy in coordImpressao[impressao.tamanho].corte.y) {
+        let y = coordImpressao[impressao.tamanho].corte.y;
+        for (keyx in coordImpressao[impressao.tamanho].corte.x) {
+            doc.line(x[keyx] - 1, y[keyy], x[keyx] + 1, y[keyy]);
+            //doc.line(205, y[keyy], 210, y[keyy]);
+        }
+    }
+
+    // Linhas de borda
     for (key in coordImpressao[impressao.tamanho].corte.x) {
         let x = coordImpressao[impressao.tamanho].corte.x;
         doc.line(x[key], 0, x[key], 5);
