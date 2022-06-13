@@ -68,7 +68,7 @@ function emMM(tam, fontSize) {
 // Função que monta as linhas de corte
 function montaLinhasDeCorte(doc, cor = "branca") {
     doc.setLineWidth(0.1);
-    console.log(cor);
+
     if (cor == "preta") {
         doc.setDrawColor(255);
     } else {
