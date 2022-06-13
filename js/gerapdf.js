@@ -410,6 +410,7 @@ function montaPDF() {
 
     if (impressao.pretas.length > 0) {
         if (impressao.brancas.length % 9 != 0) {
+            montaLinhasDeCorte(doc, "branca");
             doc.addPage();
         }
 
@@ -420,6 +421,9 @@ function montaPDF() {
             montaFrentes("preta", val, doc, impressao.pretas.length)
                 // montaLinhasDeCorte(doc, "preta");
         });
+        if (impressao.pretas.length % 9 != 0) {
+            montaLinhasDeCorte(doc, "preta");
+        }
     }
 
     //Monta os versos
