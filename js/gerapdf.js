@@ -416,8 +416,7 @@ function montaPDF() {
         impressao.cont = 1;
 
         //Monta as frentes pretas
-        console.log("total de pretas = "
-            impressao.pretas.length);
+        console.log("total de pretas = " + impressao.pretas.length);
         $.each(impressao.pretas, (i, val) => {
             montaFrentes("preta", val, doc)
                 // montaLinhasDeCorte(doc, "preta");
