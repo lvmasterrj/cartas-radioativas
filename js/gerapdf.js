@@ -134,7 +134,7 @@ function atualizaImpCont(doc, tipo) {
 }
 
 // Função que monta a parte da frente das cartas
-function montaFrentes(tipo, val, doc) {
+function montaFrentes(tipo, val, doc, total) {
 
     let xfora = coordImpressao[impressao.tamanho][impressao.cont][0];
     let yfora = coordImpressao[impressao.tamanho][impressao.cont][1];
@@ -257,7 +257,7 @@ function montaFrentes(tipo, val, doc) {
 
     //  montaLinhasDeCorte(doc, tipo);
 
-    atualizaImpCont(doc, tipo);
+    atualizaImpCont(doc, tipo, total);
 }
 
 function montaVersos(doc) {
@@ -403,7 +403,7 @@ function montaPDF() {
     //Monta as frentes brancas
     if (impressao.brancas.length > 0) {
         $.each(impressao.brancas, (i, val) => {
-            montaFrentes("branca", val, doc)
+            montaFrentes("branca", val, doc, impressao.brancas.length)
                 // montaLinhasDeCorte(doc);
         });
     }
@@ -416,9 +416,8 @@ function montaPDF() {
         impressao.cont = 1;
 
         //Monta as frentes pretas
-        console.log("total de pretas = " + impressao.pretas.length);
         $.each(impressao.pretas, (i, val) => {
-            montaFrentes("preta", val, doc)
+            montaFrentes("preta", val, doc, impressao.pretas.length)
                 // montaLinhasDeCorte(doc, "preta");
         });
     }
