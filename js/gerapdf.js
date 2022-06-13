@@ -438,6 +438,6 @@ function montaPDF() {
 
     //doc.output("dataurlnewwindow", "cartas-radioativas.pdf"); // Exibe o pdf mas não salva
     //window.open(doc.output('bloburl', "cartas-radioativas.pdf"), '_blank'); // Funciona mas o nome do arquivo fica ruim
-    doc.save("cartas-radioativas"); // Salva com o nome correto,mas não faz preview
+    doc.save("Cartas-radioativas"); // Salva com o nome correto,mas não faz preview
 
 }
