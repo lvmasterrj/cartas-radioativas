@@ -66,10 +66,10 @@ function emMM(tam, fontSize) {
     return (tam * fontSize / (72 / 25.6));
 }
 // Função que monta as linhas de corte
-function montaLinhasDeCorte(doc, cor) {
+function montaLinhasDeCorte(doc, cor = "branca") {
     doc.setLineWidth(0.1);
     console.log(cor);
-    if (cor == "p") {
+    if (cor == "preta") {
         doc.setDrawColor(255);
     } else {
         doc.setDrawColor(0);
@@ -118,12 +118,12 @@ function fundoCarta(doc) {
 }
 
 //Função que atualiza a quantidade de impressão para pular a página
-function atualizaImpCont(doc) {
+function atualizaImpCont(doc, tipo) {
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
         if (impressao.paginas.atual != impressao.paginas.total) {
             impressao.cont = 1;
             doc.addPage();
-            montaLinhasDeCorte(doc);
+            montaLinhasDeCorte(doc, tipo);
             impressao.paginas.atual = ++impressao.paginas.atual;
         }
     } else {
@@ -253,7 +253,7 @@ function montaFrentes(tipo, val, doc) {
         );
     }
 
-    atualizaImpCont(doc);
+    atualizaImpCont(doc, tipo);
 }
 
 function montaVersos(doc) {
