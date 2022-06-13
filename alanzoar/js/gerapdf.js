@@ -288,7 +288,7 @@ function montaFrenteCardsPerguntas(doc) {
         if (contCarta % 9 == 0) {
             contcarta = 0;
             carta = [0, 0];
-            desenhaLinhasDeCorteCartas(doc, cartas)
+            desenhaLinhasDeCorteCartas(doc, "cartas")
             doc.addPage();
         }
 
