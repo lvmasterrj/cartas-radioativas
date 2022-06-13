@@ -84,6 +84,7 @@ function montaLinhasDeCorte(doc) {
     for (keyy in coordImpressao[impressao.tamanho].corte.y) {
         let y = coordImpressao[impressao.tamanho].corte.y;
         for (keyx in coordImpressao[impressao.tamanho].corte.x) {
+            let x = coordImpressao[impressao.tamanho].corte.x;
             doc.line(x[keyx] - 1, y[keyy], x[keyx] + 1, y[keyy]);
             //doc.line(205, y[keyy], 210, y[keyy]);
         }
