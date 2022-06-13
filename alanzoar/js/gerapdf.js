@@ -317,7 +317,7 @@ function montVersoCardsPerguntas(doc) {
         let y = coordImpressao.corteCartas.y[carta[1]];
 
         // Coloca o logo
-        doc.addImage("imgs/logo.png", "PNG", x + 19, y + 24.75, 50, 13.5)
+        doc.addImage("imgs/logo.png", "PNG", x + 18, y + 23.75, 50, 13.5)
 
 
         //   doc.setFillColor(coordImpressao.cores[i]);
