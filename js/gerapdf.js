@@ -397,12 +397,12 @@ function montaPDF() {
     };
 
     //Monta as frentes brancas
-    if (impressao.brancas.length > 0)
+    if (impressao.brancas.length > 0) {
         $.each(impressao.brancas, (i, val) => {
             montaFrentes("branca", val, doc)
             montaLinhasDeCorte(doc);
         });
-
+    }
 
     if (impressao.pretas.length > 0) {
         if (impressao.brancas.length % 9 != 0) {
