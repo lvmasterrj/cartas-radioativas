@@ -110,7 +110,7 @@ function montaLinhasDeCorte(doc, cor = "branca") {
     }
 }
 
-// Função que desenha o fundo das cartas
+// Função que desenha o fundo das cartas pretas
 function fundoCarta(doc) {
     let x = coordImpressao[impressao.tamanho][impressao.cont][0];
     let y = coordImpressao[impressao.tamanho][impressao.cont][1];
@@ -346,6 +346,7 @@ function montaVersos(doc) {
             // fundoCarta(doc); /////////////////////////////////
             // atualizaImpCont(doc); ////////////////////// REMOVER
             let coordCarta = coordImpressao[impressao.tamanho][i];
+
             let coordLogo = [coordCarta[0] - correcao + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
 
             doc.setTextColor(255);
