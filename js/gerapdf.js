@@ -121,7 +121,7 @@ function fundoCarta(doc) {
 function atualizaImpCont(doc, tipo) {
 
     //console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
-    console.log(impressao);
+    console.log("Tipo = " + tipo + " | Contagem = " + impressao.cont + " / " + impressao.brancas.length);
     // Verifica se encheu uma página de cartas
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
         montaLinhasDeCorte(doc, tipo);
