@@ -383,6 +383,7 @@ function montaVersos(doc) {
 function montaPDF() {
 
     impressao.cont = 1;
+    impressao.acumulador = 1;
 
     const doc = new jsPDF();
 
