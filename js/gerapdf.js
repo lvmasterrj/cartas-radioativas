@@ -120,7 +120,7 @@ function fundoCarta(doc) {
 //Função que atualiza a quantidade de impressão para pular a página
 function atualizaImpCont(doc, tipo) {
 
-    //console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
+    console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
 
     // Verifica se encheu uma página de cartas
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
