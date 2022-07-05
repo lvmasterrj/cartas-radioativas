@@ -130,6 +130,9 @@ function atualizaImpCont(doc, tipo) {
             doc.addPage();
             impressao.paginas.atual = ++impressao.paginas.atual;
         }
+        // Se não encheu a página, verifica se a carta atual é igual ao total de cartas
+    } else if ((tipo == "branca" && impressao.cont == impressao.brancas.length) || (tipo == "preta" && impressao.cont == impressao.pretas.length)) {
+        montaLinhasDeCorte(doc, tipo);
     } else {
         impressao.cont = ++impressao.cont;
     }
