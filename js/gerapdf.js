@@ -122,7 +122,7 @@ function atualizaImpCont(doc, tipo) {
 
     //console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
     //console.log("Tipo = " + tipo + " | Contagem = " + impressao.cont + " / " + impressao.brancas.length);
-    console.log(impressao);
+    //  console.log(impressao);
     // Verifica se encheu uma página de cartas
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
         montaLinhasDeCorte(doc, tipo);
@@ -429,9 +429,9 @@ function montaPDF() {
             montaFrentes("preta", val, doc, impressao.pretas.length)
                 // montaLinhasDeCorte(doc, "preta");
         });
-        if (impressao.pretas.length % 9 != 0) {
-            montaLinhasDeCorte(doc, "preta");
-        }
+        //   if (impressao.pretas.length % 9 != 0) {
+        //       montaLinhasDeCorte(doc, "preta");
+        //   }
     }
 
     //Monta os versos
