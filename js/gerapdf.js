@@ -411,6 +411,7 @@ function montaPDF() {
     //Monta as frentes brancas
     if (impressao.brancas.length > 0) {
         $.each(impressao.brancas, (i, val) => {
+            console.log(impressao);
             montaFrentes("branca", val, doc, impressao.brancas.length)
                 // montaLinhasDeCorte(doc);
         });
@@ -424,8 +425,9 @@ function montaPDF() {
 
         impressao.cont = 1;
 
-        //Monta as frentes pretas
+        //Monta as frentes pretas00000000
         $.each(impressao.pretas, (i, val) => {
+            console.log(impressao);
             montaFrentes("preta", val, doc, impressao.pretas.length)
                 // montaLinhasDeCorte(doc, "preta");
         });
