@@ -120,7 +120,9 @@ function fundoCarta(doc) {
 //Função que atualiza a quantidade de impressão para pular a página
 function atualizaImpCont(doc, tipo) {
 
-    //console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
+    console.log("Contagem de cartas = " + impressao.cont + "/" + coordImpressao[impressao.tamanho].qtdCartas)
+
+    // Verifica se encheu uma página de cartas
     if (impressao.cont == coordImpressao[impressao.tamanho].qtdCartas) {
         montaLinhasDeCorte(doc, tipo);
         if (impressao.paginas.atual != impressao.paginas.total) {
@@ -128,11 +130,14 @@ function atualizaImpCont(doc, tipo) {
             doc.addPage();
             impressao.paginas.atual = ++impressao.paginas.atual;
         }
-    } else {
-        impressao.cont = ++impressao.cont;
+        /*  } else if (impressão.cont == ){
+	 } */
+        else {
+            impressao.cont = ++impressao.cont;
+        }
+        //console.log("ATUAL:" + impressao.cont + " / " + )
     }
 }
-
 // Função que monta a parte da frente das cartas
 function montaFrentes(tipo, val, doc, total) {
 
