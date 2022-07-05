@@ -132,11 +132,12 @@ function atualizaImpCont(doc, tipo) {
             impressao.paginas.atual = ++impressao.paginas.atual;
         }
         // Se não encheu a página, verifica se a carta atual é igual ao total de cartas
-    } else if ((tipo == "branca" && impressao.cont == impressao.brancas.length) || (tipo == "preta" && impressao.cont == impressao.pretas.length)) {
+    } else if ((tipo == "branca" && impressao.acumulador == impressao.brancas.length) || (tipo == "preta" && impressao.acumulador == impressao.pretas.length)) {
         montaLinhasDeCorte(doc, tipo);
     } else {
         impressao.cont = ++impressao.cont;
     }
+    impressao.acumulador = ++impressao.acumulador;
 }
 
 // Função que monta a parte da frente das cartas

@@ -1,5 +1,6 @@
 var impressao = {
     cont: 1,
+    acumulador: 1,
     cor: null,
     verso: "padrao",
     tamanho: "padrao",
