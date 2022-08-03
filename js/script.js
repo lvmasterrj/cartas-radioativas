@@ -48,8 +48,10 @@ function pegaCategoriasBD() {
 function adicionaCategorias() {
     for (key in dbCartas) {
         $("#botoes-categorias").append(
-            `<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
-				<label class="btn btn-outline-secondary" for="btn-${normaliza(key)}">${impressao.categorias[key]?'<img src="/imgs/icones/' + impressao.categorias[key] + '-preto.png" width="30" height="30" class="align-text-bottom me-2" imagem="' + impressao.categorias[key] + '">':''}${key} <span class="badge bg-dark qtd ms-1">${dbCartas[key].length}</span></label>`
+            `<div>
+				<input type="checkbox" class="btn-check btn-categoria" id="btn-${normaliza(key)}" autocomplete="off" value="${key}">
+				<label class="btn btn-outline-secondary" for="btn-${normaliza(key)}">${impressao.categorias[key]?'<img src="/imgs/icones/' + impressao.categorias[key] + '-preto.png" width="30" height="30" class="align-text-bottom me-2" imagem="' + impressao.categorias[key] + '">':''}${key} <span class="badge bg-dark qtd ms-1">${dbCartas[key].length}</span></label>
+				</div>`
         )
     }
 }
