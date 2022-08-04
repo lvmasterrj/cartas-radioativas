@@ -74,7 +74,7 @@ var coordImpressao = {
         tamanhoLogo: [4.5, 4.5],
         tamanhoLogoVerso: [16, 16],
         margemLogoVersoY: 9,
-        fonteCarta: 12,
+        fonteCarta: 11,
         fonteRodape: 9,
         tamanhoFonte: 5, //mm
         tamanhoFonteRodape: 1.8, //mm
