@@ -89,9 +89,8 @@ ol {
 .instrucoes-p,
 .instrucoes-xp {
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .instrucoes-xp {
