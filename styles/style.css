@@ -12,6 +12,10 @@ ol {
     overflow: hidden;
 }
 
+#header .titulo {
+    z-index: 0;
+}
+
 #header .titulo,
 #header .instrucoes .wrap {
     position: relative;
@@ -82,11 +86,23 @@ ol {
     justify-content: center;
 }
 
-.instrucoes-p {
+.instrucoes-p,
+.instrucoes-xp {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
+}
+
+.instrucoes-xp {
+    z-index: 1;
+}
+
+.instrucoes-xp div {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 1rem 1.1rem;
 }
 
 #tabela {
