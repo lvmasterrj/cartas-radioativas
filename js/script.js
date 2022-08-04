@@ -26,8 +26,8 @@ function pegaCartasBD() {
             $("#modal-aguarde").modal('hide');
         })
         .fail(function(e) {
-            console.log("ERRO");
-            console.log(e);
+            console.log("ERRO ao pegar as cartas no BD");
+            //console.log(e);
         });
 }
 
@@ -40,7 +40,7 @@ function pegaCategoriasBD() {
         })
         .fail(function(e) {
             console.log("ERRO ao pegar as categorias");
-            console.log(e);
+            //console.log(e);
         });
 }
 
@@ -351,10 +351,10 @@ function salvaCartasBD() {
 
 	$.post("server/cartas.php", { tipo: "POST", cartas: cartas })
 		.done(function (data) {
-			console.log(data);
+			//console.log(data);
 		})
 		.fail(function (e) {
-			console.log(e);
+			//console.log(e);
 		});
 }
 
@@ -411,7 +411,7 @@ $("#mensagem").on("submit", function (e) {
 
 		$.post("server/mensagens.php", { tipo: "POST", mensagem: mensagem })
 			.done(function (data) {
-				console.log(data);
+				//console.log(data);
 				$("#mensagem-conteudo").val("")
 				$(campoToast).addClass("bg-success")
 				$(".toast-body").text("Mensagem enviada com sucesso!")
@@ -421,7 +421,7 @@ $("#mensagem").on("submit", function (e) {
 				$(campoToast).addClass("bg-danger")
 				$(".toast-body").text("Opa... não foi não! Tenta de novo")
 				toast.show()
-				console.log(e);
+				//console.log(e);
 			});
 		}
 });

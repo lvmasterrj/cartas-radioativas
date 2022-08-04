@@ -73,7 +73,7 @@ var coordImpressao = {
         margemRodape: [1, 50],
         tamanhoLogo: [4.5, 4.5],
         tamanhoLogoVerso: [16, 16],
-        margemLogoVersoY: 9,
+        margemLogoVersoY: 15,
         fonteCarta: 11,
         fonteRodape: 9,
         tamanhoFonte: 5, //mm
@@ -449,7 +449,7 @@ function montaPDF() {
     //Monta as frentes brancas
     if (impressao.brancas.length > 0) {
         $.each(impressao.brancas, (i, val) => {
-            console.log(impressao);
+            //console.log(impressao);
             montaFrentes("branca", val, doc, impressao.brancas.length)
                 // montaLinhasDeCorte(doc);
         });
@@ -465,7 +465,7 @@ function montaPDF() {
 
         //Monta as frentes pretas00000000
         $.each(impressao.pretas, (i, val) => {
-            console.log(impressao);
+            //console.log(impressao);
             montaFrentes("preta", val, doc, impressao.pretas.length)
                 // montaLinhasDeCorte(doc, "preta");
         });
