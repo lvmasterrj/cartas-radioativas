@@ -10,6 +10,7 @@ var coordImpressao = {
         margemRodape: [2, 83],
         tamanhoLogo: [5, 5],
         tamanhoLogoVerso: [18, 18],
+        margemLogoVersoY: 15,
         fonteCarta: 16,
         fonteRodape: 11,
         tamanhoFonte: 6, //mm
@@ -33,10 +34,11 @@ var coordImpressao = {
         },
         qtdCartas: 16,
         tamanhoCarta: [41, 63],
-        margemCarta: [3, 5],
-        margemRodape: [1, 58],
+        margemCarta: [4, 7],
+        margemRodape: [1, 60],
         tamanhoLogo: [4, 4],
         tamanhoLogoVerso: [9, 9],
+        margemLogoVersoY: 11,
         fonteCarta: 10,
         fonteRodape: 7.5,
         tamanhoFonte: 3, //mm
@@ -280,6 +282,7 @@ function montaVersos(doc) {
 
     let tamLogoTexto = doc.getStringUnitWidth(versoTexto) * tamanhoTexto / (72 / 25.6);
     let maxLogoTexto = tamanhoCarta[0] - (2 * margemCarta[0]);
+    let margemLogoVersoY = coordImpressao[impressao.tamanho].margemLogoVersoY;
     let correcao = 2;
 
     //Cálculo da quantidade de linhas do rodapé para ajustar a altura
@@ -301,7 +304,7 @@ function montaVersos(doc) {
             // atualizaImpCont(doc); ////////////////////// REMOVER
 
             let coordCarta = coordImpressao[impressao.tamanho][i];
-            let coordLogo = [coordCarta[0] - correcao + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemCarta[1] + (margemCarta[1] / 2)];
+            let coordLogo = [coordCarta[0] - correcao + (tamanhoCarta[0] / 2) - tamanhoLogo[0] / 2, coordCarta[1] + margemLogoVersoY];
 
 
             versoTexto = doc.setFontSize(tamanhoTexto).splitTextToSize(versoTexto, maxVersoText);
