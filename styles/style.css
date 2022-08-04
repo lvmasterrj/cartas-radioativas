@@ -82,6 +82,13 @@ ol {
     justify-content: center;
 }
 
+.instrucoes-p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
 #tabela {
     border: 1px solid #ccc;
     border-radius: 10px;
