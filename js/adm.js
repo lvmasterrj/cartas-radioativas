@@ -294,7 +294,7 @@ $(".cartas").on("click", ".btn-salvar", (e) => {
 
     if (doisCliques(e)) {
         let idCarta = $(e.target).attr("id-carta");
-        let texto = $(".todas td.carta-texto[id-carta=" + idCarta + "]").text();
+        let texto = $(".todas td.carta-texto[id-carta=" + idCarta + "]").text().replace(/</g, "&lt;").replace(/>/g, "&gt;");
         let categoria = $(".todas td.carta-categoria[id-carta=" + idCarta + "]").text();
 
         $.post("server/cartas.php", { tipo: "PUT", idCarta: idCarta, texto: texto, categoria: categoria })
