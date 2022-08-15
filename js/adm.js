@@ -202,11 +202,10 @@ function montaTabelaMensagens(mensagens) {
 
 // Função que formata uma nova linha de cartas para a tabela
 function novaLinhaTriagem(dados, tipo) {
-    console.log(dados.texto);
     return `<tr id-carta="${dados.id}">
-                <td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="triagem">${dados.texto}</td>
+                <td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="triagem">${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
                 <td class="carta-categoria" id-carta="${dados.id}" tabela="triagem">Personalizadas</td>
-                <td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="triagem">rremover</span><br /><span class="btn-aprovar" id-carta="${dados.id}">aprovar</span></td>
+                <td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="triagem">remover</span><br /><span class="btn-aprovar" id-carta="${dados.id}">aprovar</span></td>
             </tr>
             `;
 }
@@ -214,9 +213,9 @@ function novaLinhaTriagem(dados, tipo) {
 // Função que formata uma nova linha de cartas para a tabela
 function novaLinhaTodas(dados, categoria) {
 
-    return `<tr tipo="${dados.tipo}" texto="${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}" ${dados.id ? "id-carta=" + dados.id : ""} categoria="${
+    return `<tr tipo="${dados.tipo}" texto="${dados.texto}" ${dados.id ? "id-carta=" + dados.id : ""} categoria="${
 				categoria ? categoria : ""	}">
-							 <td class="carta-texto" id-carta="${dados.id}" tabela="todas">${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
+							 <td class="carta-texto" id-carta="${dados.id}" tabela="todas">${dados.texto}</td>
 							 <td class="carta-categoria" id-carta="${dados.id}" tabela="todas">${categoria ? categoria : ""}</td>
 							 <td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="todas">remover</span></td>
 						</tr>
