@@ -213,9 +213,9 @@ function novaLinhaTriagem(dados, tipo) {
 // Função que formata uma nova linha de cartas para a tabela
 function novaLinhaTodas(dados, categoria) {
 
-    return `<tr tipo="${dados.tipo}" texto="${dados.texto}" ${dados.id ? "id-carta=" + dados.id : ""} categoria="${
+    return `<tr tipo="${dados.tipo}" texto="${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}" ${dados.id ? "id-carta=" + dados.id : ""} categoria="${
 				categoria ? categoria : ""	}">
-							 <td class="carta-texto" id-carta="${dados.id}" tabela="todas">${dados.texto}</td>
+							 <td class="carta-texto" id-carta="${dados.id}" tabela="todas">${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
 							 <td class="carta-categoria" id-carta="${dados.id}" tabela="todas">${categoria ? categoria : ""}</td>
 							 <td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="todas">remover</span></td>
 						</tr>
