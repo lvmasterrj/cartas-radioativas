@@ -202,6 +202,7 @@ function montaTabelaMensagens(mensagens) {
 
 // Função que formata uma nova linha de cartas para a tabela
 function novaLinhaTriagem(dados, tipo) {
+    console.log(dados.texto);
     return `<tr id-carta="${dados.id}">
                 <td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="triagem">${dados.texto}</td>
                 <td class="carta-categoria" id-carta="${dados.id}" tabela="triagem">Personalizadas</td>
