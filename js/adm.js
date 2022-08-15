@@ -337,7 +337,7 @@ $(".cartas").on("click", ".btn-aprovar", (e) => {
 
     if (doisCliques(e)) {
         let idCarta = $(e.target).attr("id-carta");
-        let textoCarta = $("td.carta-texto[id-carta=" + idCarta + "]").text();
+        let textoCarta = $("td.carta-texto[id-carta=" + idCarta + "]").text().replace(/</g, "&lt;").replace(/>/g, "&gt;");
         let tipoCarta = $("td.carta-texto[id-carta=" + idCarta + "]").attr("tipo");
         let catCarta = $("td.carta-categoria[id-carta=" + idCarta + "]").text();
 
