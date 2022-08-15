@@ -205,7 +205,7 @@ function novaLinhaTriagem(dados, tipo) {
     return `<tr id-carta="${dados.id}">
                 <td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="triagem">${dados.texto}</td>
                 <td class="carta-categoria" id-carta="${dados.id}" tabela="triagem">Personalizadas</td>
-                <td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="triagem">remover</span><br /><span class="btn-aprovar" id-carta="${dados.id}">aprovar</span></td>
+                <td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="triagem">rremover</span><br /><span class="btn-aprovar" id-carta="${dados.id}">aprovar</span></td>
             </tr>
             `;
 }
