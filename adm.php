@@ -39,6 +39,45 @@ session_start();
                     </div>
                 </form>
             </div>
+				<div class="row cartas pesquisa">
+					<h2 class="titulo">Pesquisar cartas</h2>
+                <div class="col">
+                    <div class="area-titulo-tabela">
+                        <h3>Cartas Brancas <span class="qtd-brancas badge bg-secondary"><span class="qtd">0</span></span>
+                        </h3>
+                    </div>
+                    <div class="area-tabela cartas-brancas">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-texto">Texto</th>
+                                    <th scope="col" class="col-categoria">Categoria</th>
+                                    <th scope="col" class="col-btn"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="corpo-tabela-brancas"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="area-titulo-tabela">
+                        <h3>Cartas Pretas <span class="qtd-pretas badge bg-secondary"><span class="qtd">0</span></span>
+                        </h3>
+                    </div>
+                    <div class="area-tabela cartas-pretas">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-texto">Texto</th>
+                                    <th scope="col" class="col-categoria">Categoria</th>
+                                    <th scope="col" class="col-btn"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="corpo-tabela-pretas"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="row cartas triagem">
 					<h2 class="titulo">Aprovar cartas</h2>
                 <div class="col">
