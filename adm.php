@@ -41,7 +41,10 @@ session_start();
             </div>
 				<div class="row cartas pesquisa">
 					<h2 class="titulo">Pesquisar cartas</h2>
-                <div class="col">
+               <div class="col-12">
+						<input type="text" name="campo-pesquisa" id="campo-pesquisa">
+					</div> 
+					<div class="col">
                     <div class="area-titulo-tabela">
                         <h3>Cartas Brancas <span class="qtd-brancas badge bg-secondary"><span class="qtd">0</span></span>
                         </h3>
