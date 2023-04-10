@@ -42,7 +42,8 @@ td.btns {
 }
 
 .pesquisa .area-tabela {
-    height: 236px;
+    max-height: 236px;
+    height: auto;
 }
 
 .area-tabela {
