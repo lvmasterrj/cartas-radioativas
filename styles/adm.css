@@ -41,13 +41,14 @@ td.btns {
     width: 85px;
 }
 
-.pesquisa .area-tabela {
+
+/* .pesquisa .area-tabela {
     max-height: 236px;
     height: auto;
-}
+} */
 
 .area-tabela {
-    height: 300px;
+    max-height: 236px;
     overflow: auto;
     border-radius: 10px;
 }
