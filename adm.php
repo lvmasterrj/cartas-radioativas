@@ -42,7 +42,7 @@ session_start();
 				<div class="row cartas pesquisa">
 					<h2 class="titulo">Pesquisar cartas</h2>
                <div class="col-12">
-						<input type="text" name="campo-pesquisa" id="campo-pesquisa">
+						<input class="form-control mb-3" type="text" name="campo-pesquisa" id="campo-pesquisa" placeholder="Digite aqui...">
 					</div> 
 					<div class="col">
                     <div class="area-titulo-tabela">
