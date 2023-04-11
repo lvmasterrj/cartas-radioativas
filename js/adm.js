@@ -173,7 +173,7 @@ function montaTabelaTodas(categoria) {
     atualizaQtd();
 }
 
-// Função que monta a tabela com todas as cartas para adm
+// Função que monta a tabela com as novas cartas para triagem da adm
 function montaTabelaTriagem(cartas) {
     let cartasBrancas = "",
         cartasPretas = "";
@@ -233,6 +233,8 @@ function novaLinhaMensagens(dados) {
 }
 
 function atualizaQtd() {
+    $(".pesquisa .qtd-brancas > .qtd").text($(".pesquisa .corpo-tabela-brancas > tr").length);
+    $(".pesquisa .qtd-pretas > .qtd").text($(".pesquisa .corpo-tabela-pretas > tr").length);
     $(".triagem .qtd-brancas > .qtd").text($(".triagem .corpo-tabela-brancas > tr").length);
     $(".triagem .qtd-pretas > .qtd").text($(".triagem .corpo-tabela-pretas > tr").length);
     $(".qtd-mensagens > .qtd").text($("#corpo-tabela-mensagens > tr").length);
@@ -553,9 +555,52 @@ function mostraAlerta(tipo, msg) {
 }
 
 // Listen para o campo de pesquisa
-$("#campo-pesquisa").keyup(e => {
-    console.log(this.value);
+$("#campo-pesquisa").keyup(function() {
+    var valor = this.value
+    if (valor.length > 2) {
+        pesquisaCartas(valor)
+    }
 })
+
+// Função que busca as cartas pesquisadas na tabela
+function pesquisaCartas(valor) {
+    $.get("server/pesquisa.php", { trecho: valor })
+        .done(function(data) {
+            // montaTabelaMensagens(data);
+        })
+        .fail(function(e) {
+            console.log("ERRO ao pesquisar as cartas");
+            console.log(e);
+        });
+}
+
+function montaTabelaPesquisa(cartas) {
+    let cartasBrancas = "",
+        cartasPretas = "";
+
+    $(".pesquisa tr.pesquisada").remove();
+
+    $.each(cartas["b"], function(key, val) {
+        cartasBrancas = cartasBrancas + novaLinhaPesquisa(val, "b");
+    })
+
+    $.each(cartas["p"], function(key, val) {
+        cartasPretas = cartasPretas + novaLinhaPesquisa(val, "p");
+    })
+
+    $(".pesquisa .corpo-tabela-brancas").append(cartasBrancas);
+    $(".pesquisa .corpo-tabela-pretas").append(cartasPretas);
+    atualizaQtd();
+}
+
+// Função que formata uma nova linha de cartas para a tabela de pesquisa
+function novaLinhaPesquisa(dados, tipo) {
+    return `<tr id-carta="${dados.id}" class="pesquisada">
+					<td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="pesquisa">${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
+					<td class="carta-categoria" id-carta="${dados.id}" tabela="pesquisa">Personalizadas</td>
+			  </tr>
+			  `;
+}
 
 /* 
  * Função que testa se o botão já foi clicado
