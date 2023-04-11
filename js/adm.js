@@ -64,8 +64,8 @@ function adicionaIcones(icones) {
     $.each(icones, (k, v) => {
         $(".area-icones").append(
             `<div class="col-4 justify-content-center p-1 icone" icone-nome="${v.nome}">
-			  		<img src="/imgs/icones/${v.nome}-preto.png" class="w-100 icone-p">
-					<img src="/imgs/icones/${v.nome}-branco.png" class="w-100 icone-b">
+			  		<img src="./imgs/icones/${v.nome}-preto.png" class="w-100 icone-p">
+					<img src="./imgs/icones/${v.nome}-branco.png" class="w-100 icone-b">
 					<p class="text-center mb-0">${v.nome}</p>
 			  </div>`
         )
@@ -85,7 +85,7 @@ function adicionaCategorias(categorias) {
             `<tr>
         		<td class="categoria-texto">${v.nome}</td>
         		<td class="categoria-icone" cat-id='${v.id}' icone-nome="${v.icone}">
-				  <img src='/imgs/icones/${v.icone}-preto.png' width='20' height='20'>
+				  <img src='./imgs/icones/${v.icone}-preto.png' width='20' height='20'>
 				</td>
         		<td class="cat-qtd">${dbCartas[v.nome]?dbCartas[v.nome].length:0}</td>
         		<td class="btn-migrar">migrar</td>
