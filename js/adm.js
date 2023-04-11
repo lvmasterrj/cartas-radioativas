@@ -566,7 +566,8 @@ $("#campo-pesquisa").keyup(function() {
 function pesquisaCartas(valor) {
     $.get("server/pesquisa.php", { trecho: valor })
         .done(function(data) {
-            // montaTabelaMensagens(data);
+            console.log(data)
+                // montaTabelaMensagens(data);
         })
         .fail(function(e) {
             console.log("ERRO ao pesquisar as cartas");
