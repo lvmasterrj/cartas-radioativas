@@ -26,12 +26,12 @@
 
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-				$sql = 'SELECT categoria, id, texto, tipo FROM cartas WHERE texto LIKE "%' & $_GET["trecho"] & '%"';
+				$sql = 'SELECT categoria, id, texto, tipo FROM cartas WHERE texto LIKE "%?%"';
 		
 
 			$stmt = $pdo->prepare($sql);
 
-			$stmt->execute();
+			$stmt->execute($_GET["trecho"]);
 
 
 
