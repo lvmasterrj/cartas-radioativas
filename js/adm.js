@@ -554,7 +554,7 @@ function mostraAlerta(tipo, msg) {
 
 // Listen para o campo de pesquisa
 $("#campo-pesquisa").keyup(e => {
-    console.log(e);
+    console.log(this.value);
 })
 
 /* 
