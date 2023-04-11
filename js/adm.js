@@ -566,7 +566,6 @@ $("#campo-pesquisa").keyup(function() {
 function pesquisaCartas(valor) {
     $.get("server/pesquisa.php", { trecho: valor })
         .done(function(data) {
-            console.log(data)
             montaTabelaPesquisa(data);
         })
         .fail(function(e) {
@@ -576,6 +575,7 @@ function pesquisaCartas(valor) {
 }
 
 function montaTabelaPesquisa(cartas) {
+    console.log("Montando a tabela de pesquisa...")
     let cartasBrancas = "",
         cartasPretas = "";
 
@@ -588,6 +588,8 @@ function montaTabelaPesquisa(cartas) {
     $.each(cartas["p"], function(key, val) {
         cartasPretas = cartasPretas + novaLinhaPesquisa(val, "p");
     })
+
+    console.log(cartasBrancas);
 
     $(".pesquisa .corpo-tabela-brancas").append(cartasBrancas);
     $(".pesquisa .corpo-tabela-pretas").append(cartasPretas);
