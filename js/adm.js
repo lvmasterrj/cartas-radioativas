@@ -552,6 +552,11 @@ function mostraAlerta(tipo, msg) {
     toast.show();
 }
 
+// Listen para o campo de pesquisa
+$("#campo-pesquisa").change(e => {
+    console.log(e);
+})
+
 /* 
  * Função que testa se o botão já foi clicado
  * A ideia é que para realizar a função, tem que clicar duas vezes no botão, numa espécie de confirmação.
