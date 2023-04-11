@@ -34,7 +34,7 @@
 
 			$stmt->execute([$trecho]);
 
-			$data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 

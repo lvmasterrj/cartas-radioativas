@@ -555,7 +555,7 @@ function mostraAlerta(tipo, msg) {
 }
 
 // Listen para o campo de pesquisa
-$("#campo-pesquisa").keyup(function() {
+$("#campo-pesquisa").on("input", function() {
     var valor = this.value
     if (valor.length > 2) {
         pesquisaCartas(valor)
@@ -574,24 +574,20 @@ function pesquisaCartas(valor) {
         });
 }
 
+// Função que monta a tabela de pesquisa de cartas
 function montaTabelaPesquisa(cartas) {
-    console.log("Montando a tabela de pesquisa...")
     let cartasBrancas = "",
         cartasPretas = "";
 
-    //$(".pesquisa tr.pesquisada").remove();
+    $(".pesquisa tr.pesquisada").remove();
 
-    console.log(cartas);
-
-    $.each(cartas["b"], function(key, val) {
-        cartasBrancas = cartasBrancas + novaLinhaPesquisa(val, "b");
-    })
-
-    $.each(cartas["p"], function(key, val) {
-        cartasPretas = cartasPretas + novaLinhaPesquisa(val, "p");
-    })
-
-    console.log(cartasBrancas);
+    $.each(cartas, function(key, val) {
+        if (val.tipo == "b") {
+            cartasBrancas = cartasBrancas + novaLinhaPesquisa(val, "b");
+        } else {
+            cartasPretas = cartasPretas + novaLinhaPesquisa(val, "p");
+        }
+    });
 
     $(".pesquisa .corpo-tabela-brancas").append(cartasBrancas);
     $(".pesquisa .corpo-tabela-pretas").append(cartasPretas);
@@ -602,7 +598,7 @@ function montaTabelaPesquisa(cartas) {
 function novaLinhaPesquisa(dados, tipo) {
     return `<tr id-carta="${dados.id}" class="pesquisada">
 					<td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="pesquisa">${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
-					<td class="carta-categoria" id-carta="${dados.id}" tabela="pesquisa">Personalizadas</td>
+					<td class="carta-categoria" id-carta="${dados.id}" tabela="pesquisa">${dados.categoria}</td>
 			  </tr>
 			  `;
 }
