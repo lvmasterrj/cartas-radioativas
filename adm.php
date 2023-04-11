@@ -2,13 +2,13 @@
 session_start();
 	// Confere se o usuário está logado
 	if(!$_SESSION['valid']){
-		header('Location: /server/login.php');
+		header('Location: ./server/login.php');
 	}
 
 	// logout
 	if(isset($_POST['logout'])){
 		session_destroy();
-		header('Location: /server/login.php');
+		header('Location: ./server/login.php');
 	}
 
 ?>
