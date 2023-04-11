@@ -257,7 +257,8 @@ $(".cartas").on("click", "td.carta-texto", (e) => {
 $("#modal-troca-texto .btn-trocar").click((e) => {
     let textoTrocado = $("#texto-novo").val();
     $("." + $(e.target).attr("tabela") + " td.carta-texto[id-carta=" + $(e.target).attr("id-carta") + "]").text(textoTrocado);
-    if ($(e.target).attr("tabela") == "todas") insereBotaoSalvar($(e.target).attr("id-carta"));
+    //  if ($(e.target).attr("tabela") == "todas")
+    insereBotaoSalvar($(e.target).attr("tabela"), $(e.target).attr("id-carta"));
     var modalTexto = bootstrap.Modal.getInstance(document.getElementById('modal-troca-texto'));
     modalTexto.hide();
 })
@@ -278,15 +279,17 @@ $("#modal-troca-categoria .btn-trocar").click((e) => {
     let categoriaTrocada = $("#select-categorias").val();
     console.log("Categoria Selecionada: " + categoriaTrocada)
     $("." + $(e.target).attr("tabela") + " td.carta-categoria[id-carta=" + $(e.target).attr("id-carta") + "]").text(categoriaTrocada);
-    if ($(e.target).attr("tabela") == "todas") insereBotaoSalvar($(e.target).attr("id-carta"));
+    //  if ($(e.target).attr("tabela") == "todas") 
+    insereBotaoSalvar($(e.target).attr("tabela"), $(e.target).attr("id-carta"));
     var modalTexto = bootstrap.Modal.getInstance(document.getElementById('modal-troca-categoria'));
     modalTexto.hide();
 })
 
-function insereBotaoSalvar(idCarta) {
+// Função que insere o botão salvar quando se altera uma carta
+function insereBotaoSalvar(tabela, idCarta) {
     if ($("tr[id-carta=" + idCarta + "] td.btns .btn-salvar").length == 0) {
-        $(".todas tr[id-carta=" + idCarta + "] td.btns").append(
-            `<br><span class="btn-salvar" id-carta="${idCarta}">salvar</span>`
+        $("." + tabela + " tr[id-carta=" + idCarta + "] td.btns").append(
+            `<br><span class="btn-salvar" id-carta="${idCarta}" tabela="${tabela}">salvar</span>`
         );
     }
 }
@@ -294,10 +297,12 @@ function insereBotaoSalvar(idCarta) {
 // Listen para quando se clica para salvar a carta
 $(".cartas").on("click", ".btn-salvar", (e) => {
 
+    console.log($(e.target).attr("tabela"))
+
     if (doisCliques(e)) {
         let idCarta = $(e.target).attr("id-carta");
-        let texto = $(".todas td.carta-texto[id-carta=" + idCarta + "]").text().replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        let categoria = $(".todas td.carta-categoria[id-carta=" + idCarta + "]").text();
+        let texto = $("." + $(e.target).attr("tabela") + " td.carta-texto[id-carta=" + idCarta + "]").text().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        let categoria = $("." + $(e.target).attr("tabela") + " td.carta-categoria[id-carta=" + idCarta + "]").text();
 
         $.post("server/cartas.php", { tipo: "PUT", idCarta: idCarta, texto: texto, categoria: categoria })
             .done(function(data) {
@@ -599,6 +604,7 @@ function novaLinhaPesquisa(dados, tipo) {
     return `<tr id-carta="${dados.id}" class="pesquisada">
 					<td class="carta-texto" id-carta="${dados.id}" tipo="${tipo}" tabela="pesquisa">${dados.texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</td>
 					<td class="carta-categoria" id-carta="${dados.id}" tabela="pesquisa">${dados.categoria}</td>
+					<td class="btns"><span class="btn-remover" id-carta="${dados.id}" tabela="pesquisa">remover</span></td>
 			  </tr>
 			  `;
 }

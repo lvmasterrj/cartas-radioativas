@@ -28,7 +28,7 @@
 
 			$trecho = '%' . $_GET["trecho"] . '%';
 				
-			$sql = 'SELECT categoria, id, texto, tipo FROM cartas WHERE texto LIKE ?';
+			$sql = 'SELECT categoria, id, texto, tipo FROM cartas WHERE texto LIKE ? ORDER BY categoria';
 		
 			$stmt = $pdo->prepare($sql);
 
