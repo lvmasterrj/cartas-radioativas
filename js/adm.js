@@ -579,7 +579,9 @@ function montaTabelaPesquisa(cartas) {
     let cartasBrancas = "",
         cartasPretas = "";
 
-    $(".pesquisa tr.pesquisada").remove();
+    //$(".pesquisa tr.pesquisada").remove();
+
+    console.log(cartas);
 
     $.each(cartas["b"], function(key, val) {
         cartasBrancas = cartasBrancas + novaLinhaPesquisa(val, "b");
