@@ -553,7 +553,7 @@ function mostraAlerta(tipo, msg) {
 }
 
 // Listen para o campo de pesquisa
-$("#campo-pesquisa").change(e => {
+$("#campo-pesquisa").keyup(e => {
     console.log(e);
 })
 
