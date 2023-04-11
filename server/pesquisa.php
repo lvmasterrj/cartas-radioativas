@@ -26,18 +26,15 @@
 
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-				$sql = 'SELECT categoria, id, texto, tipo FROM cartas WHERE texto LIKE "%anão%"';
+			$trecho = '%' . $_GET["trecho"] . '%';
+				
+			$sql = 'SELECT categoria, id, texto, tipo FROM cartas WHERE texto LIKE ?';
 		
-
 			$stmt = $pdo->prepare($sql);
 
-			$stmt->execute();
-
-
+			$stmt->execute([$trecho]);
 
 			$data = $stmt->fetchAll(PDO::FETCH_GROUP | PDO::FETCH_ASSOC);
-
-
 
 			echo json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 
