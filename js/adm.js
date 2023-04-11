@@ -567,7 +567,7 @@ function pesquisaCartas(valor) {
     $.get("server/pesquisa.php", { trecho: valor })
         .done(function(data) {
             console.log(data)
-                // montaTabelaMensagens(data);
+            montaTabelaPesquisa(data);
         })
         .fail(function(e) {
             console.log("ERRO ao pesquisar as cartas");
