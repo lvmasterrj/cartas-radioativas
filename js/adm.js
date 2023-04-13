@@ -287,10 +287,12 @@ $("#modal-troca-categoria .btn-trocar").click((e) => {
 
 // Função que insere o botão salvar quando se altera uma carta
 function insereBotaoSalvar(tabela, idCarta) {
-    if ($("tr[id-carta=" + idCarta + "] td.btns .btn-salvar").length == 0) {
-        $("." + tabela + " tr[id-carta=" + idCarta + "] td.btns").append(
-            `<br><span class="btn-salvar" id-carta="${idCarta}" tabela="${tabela}">salvar</span>`
-        );
+    if (tabela != "triagem") {
+        if ($("tr[id-carta=" + idCarta + "] td.btns .btn-salvar").length == 0) {
+            $("." + tabela + " tr[id-carta=" + idCarta + "] td.btns").append(
+                `<br><span class="btn-salvar" id-carta="${idCarta}" tabela="${tabela}">salvar</span>`
+            );
+        }
     }
 }
 
@@ -347,6 +349,8 @@ $(".cartas").on("click", ".btn-aprovar", (e) => {
         let textoCarta = $("td.carta-texto[id-carta=" + idCarta + "]").text().replace(/</g, "&lt;").replace(/>/g, "&gt;");
         let tipoCarta = $("td.carta-texto[id-carta=" + idCarta + "]").attr("tipo");
         let catCarta = $("td.carta-categoria[id-carta=" + idCarta + "]").text();
+
+        console.log("Aprovando a carta: " + textoCarta + " | tipo: " + tipoCarta + " | categoria: " + catCarta);
 
         $.post("server/cartas.php", { tipo: "POST", aprovadas: 1, cartas: [{ texto: textoCarta, tipo: tipoCarta, categoria: catCarta }] })
             .done(function(data) {
