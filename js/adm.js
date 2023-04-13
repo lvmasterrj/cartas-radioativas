@@ -2,6 +2,7 @@ dayjs.extend(window.dayjs_plugin_relativeTime);
 dayjs.locale('pt-br');
 
 var dbCartas = {};
+var categorias = [];
 
 $(document).ready(() => {
     pegaCartasTriagemBD();
@@ -39,8 +40,9 @@ function pegaTodasCartasBD() {
 function pegaCategorias() {
     $.get("server/categorias.php")
         .done(function(data) {
+            categorias = data;
             //return data;
-            adicionaCategorias(data);
+            admAdicionaCategorias(data);
         })
         .fail(function(e) {
             console.log("ERRO ao pegar as categorias");
@@ -73,10 +75,11 @@ function adicionaIcones(icones) {
     })
 }
 
-function adicionaCategorias(categorias) {
+function admAdicionaCategorias(categorias) {
 
+
+    // Popula a tabela de categorias
     $.each(categorias, (k, v) => {
-        //console.log(v);
         $("#select-categorias").append(
             `<option value="${v.nome}">${v.nome}</option>`
         );
@@ -93,6 +96,7 @@ function adicionaCategorias(categorias) {
         );
     });
 
+    // Adiciona os botões de categorias
     for (key in dbCartas) {
 
         //Adiciona os botôes  
@@ -119,9 +123,11 @@ function adicionaCategorias(categorias) {
     					<tr>`
             );
         }
-
-
     }
+
+    // Adiciona as categorias nos selects de novas cartas
+    $(".select-categorias").append(adicionaCategoriasNovaCarta())
+
 }
 
 function normaliza(str) {
@@ -612,6 +618,87 @@ function novaLinhaPesquisa(dados, tipo) {
 			  </tr>
 			  `;
 }
+
+// $(".campo-nova-carta").on("input", function() {
+//     var valor = this.value
+//     var tipo = $(this).attr("tipo")
+//     var nro = $(this).attr("nro")
+
+//     if (valor.length > 2) {
+//         criaNovoCampo(tipo, nro)
+//     }
+// })
+
+// Listen para quando clica nos botões de inclusão de mais cartas novas
+$(".mais-carta").on("click", function() {
+    let tipo = $(this).attr("tipo");
+    criaNovoCampo(tipo)
+
+})
+
+// Função que cria uma nova linha na tabela de inclusão de novas cartas
+function criaNovoCampo(tipo) {
+    adicionaCategoriasNovaCarta()
+    tipoAbrev = tipo == "brancas" ? "b" : "p"
+    novaLinha = `<tr class="linha-nova-carta" tipo="${tipoAbrev}">
+							<th scope="col" class="col-texto">
+								<input class="form-control campo-nova-carta" type="text" name="campo-nova-carta" placeholder="Digite aqui..."></input>
+							</th>
+							<th scope="col" class="col-categoria">
+								<select class="form-control select-categorias">
+									${adicionaCategoriasNovaCarta()}
+								</select>
+							</th>
+						</tr>`
+
+    $(".adicionar-cartas .corpo-tabela-" + tipo).append(novaLinha)
+}
+
+// Função que popula o select de novas cartas com as categorias disponíveis
+function adicionaCategoriasNovaCarta() {
+    opcoes = ""
+
+    $.each(categorias, (k, v) => {
+        opcoes = opcoes + `<option value="${v.nome}">${v.nome}</option>`
+    })
+
+    return opcoes;
+}
+
+// Listen para quando o botão de salvar as novas cartas é acionado
+$("#btn-salva-novas-cartas").on("click", function() {
+    var cartas = []
+    $(".linha-nova-carta").each(function() {
+        texto = $(".campo-nova-carta", this).val();
+        if (texto != "") {
+            let categoria = $(".select-categorias", this).val()
+            let tipo = $(this).attr("tipo")
+
+            cartas.push({
+                texto: texto,
+                categoria: categoria,
+                tipo: tipo
+            })
+        }
+    })
+    salvaNovasCartas(cartas)
+})
+
+function salvaNovasCartas(cartas) {
+    $.post("server/cartas.php", { tipo: "POST", aprovadas: 1, cartas: cartas })
+        .done(function(data) {
+            $(".linha-nova-carta").remove();
+            criaNovoCampo("brancas")
+            criaNovoCampo("pretas")
+            mostraAlerta("sucesso", "Carta(s) salva(s) com sucesso!")
+        })
+        .fail(function(e) {
+            console.log("ERRO ao salvar carta(s)");
+            mostraAlerta("erro", "Deu erro ao salvar a(s) carta(s)!")
+            console.log(e);
+        });
+}
+
 
 /* 
  * Função que testa se o botão já foi clicado

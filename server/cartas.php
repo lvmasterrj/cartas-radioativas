@@ -74,7 +74,7 @@
 				$repetidas = 0;
 				$inseridas = 0;
 
-				// $_POST["aprovadas"] == 1 => Está aprovando cartas
+				// $_POST["aprovadas"] == 1 => Está aprovando cartas ou inserindo novas
 
 				
 				foreach($cartas as $carta){
