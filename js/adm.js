@@ -410,7 +410,8 @@ $("#corpo-tabela-mensagens").on("click", "tr", (e) => {
 
     let idMsg = $(e.currentTarget).attr("id-msg");
     let textoMsg = $(e.currentTarget).children("td.msg-texto").attr("textocompleto");
-    $("#corpo-mensagem").val(textoMsg).attr("id-msg", idMsg);
+	console.log(textoMsg);
+    $("#corpo-mensagem").val(textoMsg).replace(/"/g, "&quot;").replace(/'/, "&apos;").attr("id-msg", idMsg);
 
     if (!$(e.currentTarget).children("td.msg-texto").hasClass("lida")) {
         $(".msg-texto[id-msg=" + idMsg + "]").addClass("lida");
