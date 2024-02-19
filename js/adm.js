@@ -409,9 +409,9 @@ function removerMsgBD(idMsg) {
 $("#corpo-tabela-mensagens").on("click", "tr", (e) => {
 
     let idMsg = $(e.currentTarget).attr("id-msg");
-    let textoMsg = $(e.currentTarget).children("td.msg-texto").attr("textocompleto");
+    let textoMsg = $(e.currentTarget).children("td.msg-texto").attr("textocompleto").replace(/"/g, "&quot;").replace(/'/, "&apos;");
 	console.log(textoMsg);
-    $("#corpo-mensagem").val(textoMsg).replace(/"/g, "&quot;").replace(/'/, "&apos;").attr("id-msg", idMsg);
+    $("#corpo-mensagem").val(textoMsg).attr("id-msg", idMsg);
 
     if (!$(e.currentTarget).children("td.msg-texto").hasClass("lida")) {
         $(".msg-texto[id-msg=" + idMsg + "]").addClass("lida");
