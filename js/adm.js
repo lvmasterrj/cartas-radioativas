@@ -233,7 +233,7 @@ function novaLinhaMensagens(dados) {
     let miniTexto = dados.mensagem.slice(0, 50).trimEnd();
     return `<tr class="linha-msg" id-msg="${dados.id}">
                 <td class="msg-data">${dayjs(dados.data).fromNow()}</td>
-                <td class="msg-texto ${dados.lida == 0 ? "": "lida"}" id-msg="${dados.id}" textoCompleto="${dados.mensagem}">${miniTexto + (dados.mensagem.length > miniTexto.length ? "..." : "")}</td>
+                <td class="msg-texto ${dados.lida == 0 ? "": "lida"}" id-msg="${dados.id}" textoCompleto="${dados.mensagem.replace(/"/g, "&quot;").replace(/'/, "&apos;")}">${miniTexto + (dados.mensagem.length > miniTexto.length ? "..." : "")}</td>
 					 </tr>
 					 `;
 }
@@ -409,7 +409,7 @@ function removerMsgBD(idMsg) {
 $("#corpo-tabela-mensagens").on("click", "tr", (e) => {
 
     let idMsg = $(e.currentTarget).attr("id-msg");
-    let textoMsg = $(e.currentTarget).children("td.msg-texto").attr("textocompleto").replace(/"/g, "&quot;").replace(/'/, "&apos;");
+    let textoMsg = $(e.currentTarget).children("td.msg-texto").attr("textocompleto");
 	console.log(textoMsg);
     $("#corpo-mensagem").val(textoMsg).attr("id-msg", idMsg);
 
