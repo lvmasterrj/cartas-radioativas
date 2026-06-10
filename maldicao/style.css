@@ -1,0 +1,206 @@
+:root {
+    --cor-primaria: #2d0040;
+    --cor-acento: #7b00d4;
+}
+
+ol {
+    margin-top: 10px;
+}
+
+#header {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#header .titulo,
+#header .instrucoes .wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header .titulo .carta-titulo {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    height: 170px;
+    width: 200px;
+    padding: 15px 20px;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    position: absolute;
+    bottom: -3px;
+    border-radius: 10px;
+    transform: rotate(-5deg);
+    box-shadow: -7px 7px 2px #00000040;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-jogo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.subtitulo-jogo {
+    font-size: 0.75rem;
+    font-style: italic;
+    margin: 4px 0 0;
+    opacity: 0.85;
+}
+
+.instrucoes .wrap {
+    width: 600px;
+}
+
+.instrucoes .wrap .carta {
+    left: 0;
+}
+
+.instrucoes .carta {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 170px;
+    width: 200px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    line-height: 1.1rem;
+    font-weight: 600;
+    position: absolute;
+    bottom: -3px;
+    border-radius: 10px;
+    transform: rotate(-5deg);
+    box-shadow: -7px 7px 2px #cccccc80;
+    z-index: 1;
+    border: 1px solid #ccc;
+}
+
+.instrucoes {
+    line-height: 0.7rem;
+    display: flex;
+    justify-content: center;
+    height: 190px;
+}
+
+#tabela {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0 0 15px;
+}
+
+#tabela .col {
+    max-height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px 5px;
+    padding: 0;
+}
+
+.menu-cartas {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.menu-cartas label.btn {
+    display: flex;
+    align-items: center;
+}
+
+.area-tabela {
+    overflow-y: auto;
+    height: 200px;
+    border-bottom: 1px solid #ccc;
+}
+
+.area-titulo-tabela {
+    border-bottom: 1px solid #000;
+}
+
+.area-titulo-tabela h3 {
+    padding: 3px;
+    text-align: center;
+}
+
+.brancas .area-titulo-tabela {
+    background-color: var(--cor-primaria);
+    border-bottom: 3px solid var(--cor-primaria);
+    border-radius: 9px 9px 0 0;
+    color: #fff;
+}
+
+tr.marcado {
+    border-left: 20px solid var(--cor-acento);
+}
+
+.btn-remover {
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.btn-remover:hover {
+    font-weight: 600;
+}
+
+td.btns {
+    width: 85px;
+}
+
+.novas-cartas {
+    padding: 10px;
+}
+
+.novas-cartas textarea {
+    height: 135px;
+    resize: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.botoes-tabela {
+    width: 100%;
+}
+
+.botoes-tabela .btn {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#btn-adiciona-brancas {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#area-gerar-pdf {
+    margin: 15px 0;
+}
+
+#btn-gerar-pdf {
+    width: 100%;
+    margin: 15px 0;
+}
+
+#rodape {
+    margin: 0 5px 15px;
+}
+
+.modal-body .texto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 0 10px;
+    border-left: 8px solid var(--cor-primaria);
+}
+
+.modal-body p {
+    margin: 3px 0 2px;
+}
+
+.github img {
+    float: left;
+    margin-right: 15px;
+}
