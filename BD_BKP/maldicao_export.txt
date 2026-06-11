@@ -1,0 +1,609 @@
+id	texto	categoria
+470	have the ability to see 10 minutes into the future	Importado
+471	have telekinesis (the ability to move things with your mind)	Importado
+472	team up with Wonder Woman	Importado
+473	be forced to sing along	Importado
+474	find true love today	Importado
+475	be in jail for five years	Importado
+476	have another 10 years with your partner	Importado
+477	be chronically under-dressed	Importado
+478	have everyone you know be able to read your thoughts	Importado
+479	lose your sight	Importado
+480	have universal respect	Importado
+481	give up air conditioning and heating for the rest of your life	Importado
+482	swim in a pool full of Nutella	Importado
+483	labor under a hot sun	Importado
+484	stay in during a snow day	Importado
+485	buy 10 things you don’t need every time you go shopping	Importado
+486	never be able to go out during the day	Importado
+487	have a personal maid	Importado
+488	have Beyoncé’s talent	Importado
+489	be 11 feet tall	Importado
+490	be an extra in an Oscar-winning movie	Importado
+491	vomit on your hero	Importado
+492	communicate only in emoji	Importado
+493	be royalty 1,000 years ago	Importado
+494	lounge by the pool	Importado
+495	wear the same socks for a month	Importado
+496	work an overtime shift with your annoying boss	Importado
+497	cuddle a koala	Importado
+498	have a sing-off with Ariana Grande	Importado
+499	always have B.O. and not know it	Importado
+500	watch nothing but Hallmark Christmas movies	Importado
+501	always be 10 minutes late	Importado
+502	spend a week in the forest	Importado
+503	find a rat in your kitchen	Importado
+504	have a pause	Importado
+505	always have a full phone battery	Importado
+506	lose all your teeth	Importado
+507	drink from a toilet	Importado
+508	be forced to live the same day over and over again for a full year,	Importado
+509	never eat watermelon ever again	Importado
+510	get a paper cut every time you turn a page	Importado
+511	oversleep every day for a week	Importado
+512	die in 20 years with no regrets	Importado
+513	sip gin with Ryan Reynolds	Importado
+514	get trapped in the middle of a food fight	Importado
+515	walk to work in heels	Importado
+516	spend a year at war	Importado
+517	die before	Importado
+518	have a child every year for 20 years	Importado
+519	take amazing selfies but look terrible in all other photos	Importado
+520	be gassy on a first date	Importado
+521	Danny DeVito	Importado
+522	be able to take back anything you say	Importado
+523	have skin that changes color based on your emotions	Importado
+524	hunt and butcher your own meat	Importado
+525	lose all of your friends but keep your BFF	Importado
+526	have people spread a terrible lie about you	Importado
+527	walk in on your parents	Importado
+528	be the absolute best at something that no one takes seriously	Importado
+529	have unlimited battery life on all of your devices	Importado
+530	have Billie Eilish‘s future	Importado
+531	have a third nipple	Importado
+532	solve world hunger	Importado
+533	have to wear every shirt inside out	Importado
+534	live in a treehouse	Importado
+535	win $25,000	Importado
+536	be in history books for something terrible	Importado
+537	travel the world for free for a year	Importado
+538	your to only be able to talk to your dog	Importado
+539	have a mullet for a year	Importado
+540	go back to the past and meet your loved ones who passed away	Importado
+541	have Angelina Jolie’s lips	Importado
+542	stay the age you are physically forever	Importado
+543	be in a zombie apocalypse	Importado
+544	be alone all your life	Importado
+545	give up your cellphone for a month	Importado
+546	spend a day cleaning your worst enemy’s house	Importado
+547	spend a year entirely alone	Importado
+548	buy all used underwear	Importado
+549	have a photographic memory	Importado
+550	go on a cruise with your boss	Importado
+551	forget your partner’s birthday	Importado
+552	have to wear stilettos to sleep	Importado
+553	change the outcome of the last election	Importado
+554	lose the ability to read	Importado
+555	smooch Chris Pratt, Chris Pine, Chris Evans	Importado
+556	be beautiful and stupid	Importado
+557	have seven fingers on each hand	Importado
+558	work the job you have now for a year at double your current rate of pay	Importado
+559	be always stuck in traffic but find a perfect parking spot	Importado
+560	have super-sensitive taste buds	Importado
+561	ask your ex	Importado
+562	go on tour with Elton John	Importado
+563	eat only pizza for a year	Importado
+564	never get another present in your life but always pick the perfect present for everyone else	Importado
+565	sleep in a doghouse	Importado
+566	be able to speak any language	Importado
+567	have all of your messages and photos leak publicly	Importado
+568	run at 100 mph	Importado
+569	have Adele‘s voice	Importado
+570	have to wear sweatpants everywhere for the rest of your life	Importado
+571	have 10,000 spoons when all you need is a knife	Importado
+572	detect every lie you hear	Importado
+573	be the funniest person in a room	Importado
+574	talk like Yoda	Importado
+575	people knew all the details of your finances	Importado
+576	listen to your least-favorite song on a loop for a year	Importado
+577	go vegan for a month	Importado
+578	clean up someone else’s vomit	Importado
+579	work for Michael Scott	Importado
+580	spend the weekend with pirates	Importado
+581	end every phone call with “I love you”	Importado
+582	get your paycheck given to you in pennies	Importado
+583	see Lady Gaga in a movie	Importado
+584	win the lottery but have to spend it all in one day	Importado
+585	live until you are 200 and look your age	Importado
+586	give up cursing forever	Importado
+587	hear a comforting lie	Importado
+588	be locked for a week in a room that’s overly bright	Importado
+589	someone see all the photos in your phone	Importado
+590	have a South Park-themed wedding	Importado
+591	have to hunt and gather all of your food	Importado
+592	have fortune	Importado
+593	celebrate the Fourth of July with Taylor Swift	Importado
+594	only be able to listen to one song for the rest of your life	Importado
+595	never use social media again	Importado
+596	have police hunting you down for a crime you didn’t commit	Importado
+597	live a peaceful life in a small cabin in the woods	Importado
+598	find your soulmate	Importado
+599	drink sour milk	Importado
+600	steal Duchess Meghan	Importado
+601	never get a cold ever again	Importado
+602	be tall and average looking	Importado
+603	visit the International Space Station for a week	Importado
+604	confess to cheating on your partner	Importado
+605	have all traffic lights you approach be green	Importado
+606	share an onscreen kiss with Leonardo DiCaprio	Importado
+607	never eat Christmas cookies ever again	Importado
+608	lose your long-term memory	Importado
+609	have a mullet	Importado
+610	be stranded in the jungle	Importado
+611	everyone you love forget your birthday	Importado
+612	be invisible	Importado
+613	spend every weekend indoors	Importado
+614	party with Jennifer Lopez and Alex Rodriguez	Importado
+615	give up wine for a year	Importado
+616	start a colony on another planet	Importado
+617	live in a house haunted by friendly ghosts	Importado
+618	have one wish granted today	Importado
+619	get hit on by someone 20 years older than you	Importado
+620	fall down in public	Importado
+621	only eat raw food	Importado
+622	run as fast as The Flash	Importado
+623	never have a wedgie	Importado
+624	marry the most attractive person you’ve ever met	Importado
+625	sing karaoke with Gwen Stefani	Importado
+626	go back to kindergarten with everything you know now	Importado
+627	be able to read minds	Importado
+628	take a pill a day for nutrients and to feel full, but never eat anything again	Importado
+629	be an unknown superhero	Importado
+630	always have an annoying song stuck in your head	Importado
+631	never be able to keep anyone else’s secrets	Importado
+632	be Batman	Importado
+633	be married to someone stunning who doesn’t think you’re attractive	Importado
+634	have a third ear	Importado
+635	have $1 million now	Importado
+636	binge-watch Sex And the City	Importado
+637	be rich working a job you hate	Importado
+638	wear real fur	Importado
+639	work a high-paying job that you hate	Importado
+640	wake up naked in a forest five miles from home	Importado
+641	go backstage with your favorite band	Importado
+642	never eat your favorite food for the rest of your life	Importado
+643	be able to erase your own memories	Importado
+644	be so afraid of heights that you can’t go to the second floor of a building	Importado
+645	have a rap battle against Nicki Minaj	Importado
+646	save your best friend’s life if it meant five strangers would die	Importado
+647	give up coffee	Importado
+648	find a $100 bill floating in a public toilet	Importado
+649	wear nothing but neon orange	Importado
+650	eat the same thing for every meal for a year	Importado
+651	get drunk off of one sip of alcohol	Importado
+652	sell all of your possessions	Importado
+653	clean a toilet with your toothbrush	Importado
+654	be asked the same question over and over again	Importado
+655	be reincarnated as a fly	Importado
+656	be serenaded by Justin Bieber	Importado
+657	be unable to close any door once it’s open	Importado
+658	throw the best parties but have to clean up the mess by yourself	Importado
+659	have a tattoo of the title of the last book you read	Importado
+660	wear clothes that were always way too big	Importado
+661	give your parents	Importado
+662	only be able to wash your hair twice a year	Importado
+663	have a tennis lesson from Serena Williams	Importado
+664	have a permanent unibrow	Importado
+665	have aliens be real and covered up by the government	Importado
+666	be caught liking your ex’s Instagram pics	Importado
+667	never eat cookies ever again	Importado
+668	donate your organs to those who need them	Importado
+669	be criticized	Importado
+670	work alongside Dwight Schrute	Importado
+671	be punished for a crime you didn’t commit	Importado
+672	eat an undercooked meal	Importado
+673	get a cooking lesson from Gordon Ramsay	Importado
+674	have your boss	Importado
+675	have your first child when you’re 18	Importado
+676	star in a Star Wars	Importado
+677	wear heels to the gym	Importado
+678	give up brushing your hair	Importado
+679	master every musical instrument	Importado
+680	always have wet socks	Importado
+681	have Celine Dion	Importado
+682	be the class clown	Importado
+683	bathe in the dishwater	Importado
+684	show up to a job interview with stained pants	Importado
+685	never age physically	Importado
+686	date someone with bad breath	Importado
+687	never wear makeup ever again	Importado
+688	read the book	Importado
+689	have a slumber party with Anna Kendrick	Importado
+690	eat chocolate on pizza	Importado
+691	have X-ray vision of people you find unattractive	Importado
+692	have your own theme park	Importado
+693	be the star player on a losing team	Importado
+694	know when you’re going to die	Importado
+695	lose all of your teeth	Importado
+696	watch nothing but The Office	Importado
+697	lose your keys	Importado
+698	live in a home with no electricity	Importado
+699	be rich with no friends	Importado
+700	look strong and be weak	Importado
+701	have your style critiqued by Anna Wintour	Importado
+702	wear one	Importado
+703	sneeze nonstop for 15 minutes once every day	Importado
+704	walk barefoot in a public bathroom	Importado
+705	have the ability to see 10 years into your own future	Importado
+706	nobody remember who you are at your 20-year class reunion	Importado
+707	shoot hoops with LeBron James	Importado
+708	live through an episode of Orange Is The New Black	Importado
+709	only be able to listen to Christmas songs all year round	Importado
+710	be a genius everyone thinks is an idiot	Importado
+711	win on Survivor	Importado
+712	be beloved by the general public but your family and friends hate you,	Importado
+713	be color blind	Importado
+714	live on a desert island with your celebrity crush	Importado
+715	pass gas every time you meet someone new	Importado
+716	have tea with Queen Elizabeth	Importado
+717	give up the Internet	Importado
+718	get away with a terrible crime but live in fear of someone discovering it	Importado
+719	150 years into the future	Importado
+720	telepathy (the ability to read minds)	Importado
+721	Captain Marvel	Importado
+722	dance to every single song you hear	Importado
+723	win the lottery next year	Importado
+724	be in a coma for a decade	Importado
+725	a one-night stand with your celebrity crush	Importado
+726	overdressed	Importado
+727	for everyone you know to have access to your Internet history	Importado
+728	your memories	Importado
+729	unlimited power	Importado
+730	give up the Internet for the rest of your life	Importado
+731	a pool full of maple syrup	Importado
+732	extreme cold	Importado
+733	build a fort	Importado
+734	always forget the one thing that you need when you go to the store	Importado
+735	never be able to go out at night	Importado
+736	a personal chef	Importado
+737	Jay-Z‘s business acumen	Importado
+738	nine inches tall	Importado
+739	the lead in a box office bomb	Importado
+740	have your hero vomit on you	Importado
+741	never be able to text at all ever again	Importado
+742	an average person today	Importado
+743	on the beach	Importado
+744	the same underwear for a week	Importado
+745	spend full day with your mother-in-law	Importado
+746	pal around with a panda	Importado
+747	a dance-off with Rihanna	Importado
+748	always smell B.O. on everyone else	Importado
+749	nothing but horror movies	Importado
+750	always be 20 minutes early	Importado
+751	a night in a real haunted house	Importado
+752	a roach in your bed	Importado
+753	a rewind button in your life	Importado
+754	a full gas tank	Importado
+755	lose a day of your life every time you kissed someone	Importado
+756	pee in a litter box	Importado
+757	take 3 years off the end of your life	Importado
+758	be forced to eat watermelon with every meal	Importado
+759	bite your tongue every time you eat	Importado
+760	not get any sleep at all for four days	Importado
+761	live to 100 with a lot of regrets	Importado
+762	shoot tequila with Dwayne “The Rock” Johnson	Importado
+763	a water balloon fight	Importado
+764	drive to work in reverse	Importado
+765	a year in prison	Importado
+766	after your partner	Importado
+767	never have any children at all	Importado
+768	be photogenic everywhere but in your selfies	Importado
+769	your wedding night	Importado
+770	Danny Trejo play you in a movie	Importado
+771	hear any conversation that is about you	Importado
+772	tattoos appear all over your body depicting what you did yesterday	Importado
+773	never eat meat again	Importado
+774	lose your BFF but keep the rest of your buds	Importado
+775	have people spread terrible but true tales about you	Importado
+776	have them walk in on you	Importado
+777	be average at something well respected	Importado
+778	have free WiFi wherever you go	Importado
+779	Madonna’s legacy	Importado
+780	an extra toe	Importado
+781	global warming	Importado
+782	every pair of pants backward	Importado
+783	in a cave	Importado
+784	your best friend win $100,000	Importado
+785	be forgotten completely after you die	Importado
+786	have $50,000 to spend however you please	Importado
+787	for your dog to be able to talk to only you—and everyone thinks you’re nuts	Importado
+788	be bald (no wigs!) for six months	Importado
+789	go to the future to meet your children or grandchildren to be	Importado
+790	with Jennifer Aniston‘s hair	Importado
+791	stay the way you are now financially forever	Importado
+792	a robot apocalypse	Importado
+793	surrounded by really annoying people	Importado
+794	bathing for a month	Importado
+795	have your crush spend the day cleaning your house	Importado
+796	a year without a home	Importado
+797	all used toothbrushes	Importado
+798	an IQ of 200	Importado
+799	never go on vacation ever again	Importado
+800	your anniversary every year	Importado
+801	have to wear slippers everywhere you go	Importado
+802	get to decide the outcome of the next election	Importado
+803	lose the ability to speak	Importado
+804	Chris Hemsworth	Importado
+805	unattractive but a genius	Importado
+806	seven toes on each foot	Importado
+807	have one year off with what you are making now	Importado
+808	never hit traffic but always take forever to park	Importado
+809	super-sensitive hearing	Importado
+810	a total stranger for a favor	Importado
+811	Cher	Importado
+812	not eat any pizza for five years	Importado
+813	keep getting presents but giving terrible ones to everyone else	Importado
+814	let stray dogs sleep in your bed	Importado
+815	be able to communicate with animals	Importado
+816	never use a cellphone ever again	Importado
+817	fly at 20 mph	Importado
+818	Normani’s dance moves	Importado
+819	never wear sweatpants again	Importado
+820	always have a knife but never be able to use spoons	Importado
+821	get away with every lie you tell	Importado
+822	the smartest person in a room	Importado
+823	breathe like Darth Vader	Importado
+824	all the details of your love life	Importado
+825	never listen to any music at all for a year	Importado
+826	only eat meat and dairy for a month	Importado
+827	someone else’s blood	Importado
+828	Mr. Burns	Importado
+829	ninjas	Importado
+830	accidentally call your partner the wrong name during a fight	Importado
+831	never be able to use cash again	Importado
+832	see Bradley Cooper in concert	Importado
+833	triple your current salary forever	Importado
+834	look like you’re 22 your whole life, but die at age 65	Importado
+835	give up ice cream for 12 years	Importado
+836	an uncomfortable truth	Importado
+837	a room that’s totally dark	Importado
+838	read all your text messages	Importado
+839	a Family Guy-themed funeral	Importado
+840	eat McDonald’s for every meal	Importado
+841	fame	Importado
+842	Christmas with Mariah Carey	Importado
+843	only be able to watch one movie for the rest of your life	Importado
+844	never watch another movie ever again	Importado
+845	a serial killer actually hunting you	Importado
+846	a drama-filled life in a mansion in a big city	Importado
+847	your calling	Importado
+848	brush your teeth with soap	Importado
+849	Duchess Kate’s style	Importado
+850	never be stuck in traffic ever again	Importado
+851	three feet tall but beautiful	Importado
+852	spend a week in a hotel at the bottom of the ocean	Importado
+853	catch your partner cheating on you	Importado
+854	never have to stand in line again	Importado
+855	George Clooney	Importado
+856	never eat Halloween candy ever again	Importado
+857	your short-term memory	Importado
+858	a perm	Importado
+859	in the desert	Importado
+860	everyone you love sing “Happy Birthday” to you for 24 hours straight	Importado
+861	be able to fly	Importado
+862	spend every weekend outdoors	Importado
+863	with Kim Kardashian and Kanye West	Importado
+864	drink nothing but wine for a year	Importado
+865	be the leader of a country on Earth	Importado
+866	be a ghost reliving your average day after you die	Importado
+867	10 wishes granted 20 years from now	Importado
+868	someone 20 years younger than you	Importado
+869	pass gas in public	Importado
+870	only eat TV dinners	Importado
+871	be as strong as Superman	Importado
+872	never have anything stuck in your teeth ever again	Importado
+873	the best cook you’ve ever met	Importado
+874	with Kelly Clarkson	Importado
+875	know now everything your future self will learn	Importado
+876	predict the future	Importado
+877	eat whatever you want but never really feel full	Importado
+878	an infamous villain	Importado
+879	always have an itch that you can’t reach	Importado
+880	have someone tell all of your secrets	Importado
+881	Iron Man	Importado
+882	be married to someone ugly who thinks you’re gorgeous	Importado
+883	a third eye	Importado
+884	$5,000 a week for the rest of your life	Importado
+885	Girls	Importado
+886	poor working a job you love	Importado
+887	fake jewels	Importado
+888	your dream job with only just enough money for rent, food and utilities	Importado
+889	in your underwear at work	Importado
+890	be an extra on your favorite TV show	Importado
+891	only eat your favorite food	Importado
+892	be able to erase someone else’s memories	Importado
+893	be so afraid of the sun that you can only leave the house on rainy days	Importado
+894	Lizzo	Importado
+895	save five strangers if it meant sacrificing your best friend	Importado
+896	soda forever	Importado
+897	a $20 bill in your own pocket	Importado
+898	neon green for an entire year	Importado
+899	be able to eat whatever you wanted, but only once every three days	Importado
+900	never get drunk no matter how much booze you imbibe	Importado
+901	sell one of your organs	Importado
+902	a floor with your tongue	Importado
+903	never be spoken to ever again	Importado
+904	just stop existing when you die	Importado
+905	Justin Timberlake	Importado
+906	be unable to open any door once it’s closed	Importado
+907	never go to a party again	Importado
+908	the last TV show you watched	Importado
+909	a couple sizes too small	Importado
+910	your boss access to your browser history	Importado
+911	only be able to check your phone once a day	Importado
+912	a soccer lesson from Meghan Rapinoe	Importado
+913	no eyebrows at all	Importado
+914	have no extraterrestrial life at all in the universe	Importado
+915	your partner’s ex’s Instagram pics	Importado
+916	only ever drink water	Importado
+917	donate your entire body to science	Importado
+918	be ignored	Importado
+919	Homer Simpson	Importado
+920	have someone else take credit for one of your major accomplishments	Importado
+921	a burnt meal	Importado
+922	Ina Garten	Importado
+923	your parents look through your text messages	Importado
+924	when you’re 50	Importado
+925	a Marvel film	Importado
+926	sneakers to a wedding	Importado
+927	give us brushing your teeth	Importado
+928	every type of sport	Importado
+929	a small rock in your shoe	Importado
+930	Eminem perform the soundtrack to your life	Importado
+931	the teacher’s pet	Importado
+932	wash dishes in your bathwater	Importado
+933	pit stains	Importado
+934	never age mentally	Importado
+935	bad manners	Importado
+936	wear a full face of the wrong shades every day	Importado
+937	watch the movie	Importado
+938	go to a comedy show with Rebel Wilson	Importado
+939	never eat chocolate ever again	Importado
+940	everyone else have X-ray vision of you	Importado
+941	your own zoo	Importado
+942	warm the bench on a championship roster	Importado
+943	how you’re going to die	Importado
+944	all of your hair	Importado
+945	Friends for the rest of your life	Importado
+946	your phone	Importado
+947	in a home with no running water	Importado
+948	poor and popular	Importado
+949	look weak and be strong	Importado
+950	Miranda Priestly	Importado
+951	seven colors everyday	Importado
+952	sneeze once every three minutes of the day while you’re awake	Importado
+953	through poison ivy	Importado
+954	six months into the future of the world	Importado
+955	have everybody comment on how old you look	Importado
+956	toss a football with Tom Brady	Importado
+957	Black Mirror	Importado
+958	only be able to watch nothing but horror movies	Importado
+959	an idiot everyone thinks is a genius	Importado
+960	on The Bachelor or The Bachelorette	Importado
+961	be hated by the general public but your family and friends love you	Importado
+962	lose your sense of taste	Importado
+963	in a mansion with your ex	Importado
+964	burp every time you kiss someone	Importado
+965	a beer with Prince Harry	Importado
+966	showering for a month	Importado
+967	go to prison for three years for a crime you didn’t commit	Importado
+305	Saber o dia exato da sua morte mas não como	Original
+306	Poder voar mas só na velocidade de uma caminhada	Original
+307	Ser invisível sempre que quiser mas não poder usar roupas	Original
+308	Ter memória perfeita mas nunca poder esquecer nada	Original
+309	Falar todos os idiomas do mundo menos o português	Original
+310	Nunca poder mentir mesmo nas situações mais constrangedoras	Original
+311	Saber que seus amigos falam mal de você mas continuarem sendo seus amigos	Original
+312	Ter um melhor amigo que só está com você pelo seu dinheiro	Original
+313	Ser muito famoso sem nenhuma privacidade	Original
+314	Ter que fazer um discurso em público todo dia	Original
+315	Nunca poder dormir mais de 4 horas por noite mas nunca ficar doente	Original
+316	Perder o olfato completamente	Original
+317	Sempre sentir cheiro ruim de quem está ao seu redor	Original
+318	Envelhecer 3x mais rápido que o normal	Original
+319	Nunca mais poder correr	Original
+320	Só poder comer pizza pelo resto da vida	Original
+321	Nunca mais poder comer doce	Original
+322	Ter que comer um inseto vivo todo dia	Original
+323	Só poder beber água morna pelo resto da vida	Original
+324	Comer a mesma refeição favorita todo dia	Original
+325	Nunca mais poder usar redes sociais	Original
+326	Perder todo o histórico de fotos do celular	Original
+327	Só poder usar o celular 30 minutos por dia	Original
+328	Ter todas as suas mensagens tornadas públicas	Original
+329	Nunca mais poder ouvir música	Original
+330	Ganhar R.000 por mês em um trabalho que você odeia	Original
+331	Ser demitido injustamente sem poder se defender	Original
+332	Trabalhar 80 horas por semana sem férias	Original
+333	Perder todas as suas economias de uma vez	Original
+334	Ter todo o dinheiro do mundo mas nunca poder gastar nada	Original
+335	Viajar para qualquer lugar do mundo sem poder escolher o destino	Original
+336	Ficar preso em uma ilha deserta por um ano com uma pessoa que você odeia	Original
+337	Perder a bagagem com documentos em viagem internacional	Original
+338	Ter medo de avião e precisar viajar toda semana	Original
+339	Viver em outro país sem falar o idioma	Original
+340	Chamar o professor de mãe na frente da turma	Original
+341	Enviar uma mensagem íntima para o contato errado	Original
+342	Aparecer de pijama em uma formatura	Original
+343	Esquecer o nome de alguém que você vê todo dia	Original
+344	Cair de cara no chão em público	Original
+345	Poder parar o tempo mas envelhecer normalmente na pausa	Original
+346	Ser rico mas sem amigos	Original
+347	Ter a força de um super-herói mas sem controle	Original
+348	Ser imortal e ver todos morrerem ao seu redor	Original
+349	Saber tudo sobre ciência mas não entender nada de arte	Original
+350	Poder falar com animais mas todos te odiarem	Original
+351	Ser perseguido por uma galinha furiosa toda vez que sair de casa	Original
+352	Ter um leão manso com você que aterroriza os vizinhos	Original
+353	Acordar uma vez por semana transformado em um animal aleatório	Original
+354	Ter que carregar um frango vivo na mochila para todo lugar	Original
+355	Saber todos os segredos da sua família	Original
+356	Que seus pais leiam todas as suas mensagens	Original
+357	Passar o Natal sozinho todo ano	Original
+358	Decepcionar quem você mais ama uma vez para sempre	Original
+359	Perder contato com todos os amigos por um ano	Original
+360	saber como vai morrer mas não quando	Original
+361	correr na velocidade de um carro mas só no chão	Original
+362	poder ler mentes mas ouvir todos os pensamentos ao mesmo tempo	Original
+363	esquecer tudo após 24 horas	Original
+364	entender todos os animais mas não poder se comunicar com humanos	Original
+365	nunca poder dizer a verdade	Original
+366	acreditar que te adoram quando na verdade te odeiam	Original
+367	não ter nenhum amigo mas ter todo o dinheiro do mundo	Original
+368	ser completamente desconhecido e nunca ser reconhecido	Original
+369	nunca poder falar em público	Original
+370	dormir 12 horas obrigatoriamente e ficar gripado todo mês	Original
+371	perder o paladar completamente	Original
+372	sempre fazer barulhos de digestão em momentos de silêncio	Original
+373	envelhecer 3x mais devagar mas com aparência de 12 anos para sempre	Original
+374	nunca mais poder andar devagar	Original
+375	só poder comer churrasco	Original
+376	nunca mais poder comer sal	Original
+377	nunca poder comer carne de novo	Original
+378	só poder comer comida sem tempero	Original
+379	poder comer qualquer coisa menos a sua favorita	Original
+380	nunca mais poder usar streaming	Original
+381	perder todos os contatos salvos	Original
+382	poder usar à vontade mas sem internet	Original
+383	perder acesso a todas as suas contas para sempre	Original
+384	nunca mais poder assistir a vídeos	Original
+385	R.000 em um trabalho que ama	Original
+386	ter que demitir seu melhor amigo	Original
+387	trabalhar 20 horas ganhando só o suficiente para sobreviver	Original
+388	gastar 30% de tudo que ganhar com coisas inúteis para sempre	Original
+389	ter exatamente o suficiente mas gastar como quiser	Original
+390	nunca viajar mas conhecer tudo pelos livros	Original
+391	em casa sozinho por dois anos	Original
+392	voltar de férias e descobrir que perdeu o emprego	Original
+393	ter medo de altura e morar no 30 andar	Original
+394	ficar no Brasil sem nunca poder sair	Original
+395	soltar um pum alto em uma reunião importante	Original
+396	receber uma mensagem íntima de alguém inesperado	Original
+397	ir a uma festa fantasiado sem precisar	Original
+398	lembrar de todos os nomes mas sempre chamar pelo errado	Original
+399	gaguejar em um discurso importante ao vivo	Original
+400	poder voltar no tempo mas não poder mudar nada	Original
+401	ser pobre mas com os melhores amigos do mundo	Original
+402	ter a velocidade de um super-herói mas só no modo lento	Original
+403	ter uma vida curta mas repleta de felicidade	Original
+404	entender tudo de arte mas não saber nada de ciência	Original
+405	não poder falar com animais mas todos te adorarem	Original
+406	ter que tocar em um caracol todo dia	Original
+407	um cachorro que late 24 horas sem parar	Original
+408	nunca mais poder ver animais	Original
+409	ter que viver com um peixe enorme na banheira	Original
+410	que sua família saiba todos os seus segredos	Original
+411	que seu chefe saiba tudo que você faz nas horas vagas	Original
+412	passar todas as festas de aniversário com quem você não suporta	Original
+413	decepcionar um desconhecido toda semana	Original
+414	ver seus amigos todo dia mas nunca ter uma conversa profunda	Original
